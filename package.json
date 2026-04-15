@@ -51,7 +51,7 @@
     "@vitest/coverage-v8": "^3.2.4",
     "agentation": "^3.0.2",
     "danger": "^13.0.4",
-    "eslint": "^9.37.0",
+    "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
