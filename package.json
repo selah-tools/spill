@@ -1,0 +1,77 @@
+{
+  "name": "spill",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.32.1",
+  "scripts": {
+    "setup": "pnpm install --frozen-lockfile && pnpm check && pnpm test",
+    "dev": "vite",
+    "build": "pnpm check && vite build",
+    "preview": "vite preview",
+    "check": "tsc --noEmit && tsc --noEmit -p tsconfig.api.json",
+    "lint:fast": "oxlint . --config .oxlintrc.json --deny-warnings",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ci": "node -e \"require('node:fs').mkdirSync('reports', { recursive: true })\" && vitest run --coverage --reporter=default --reporter=junit --reporter=json --outputFile.junit=reports/vitest.junit.xml --outputFile.json=reports/vitest.json",
+    "test:integration": "playwright test",
+    "size:check": "node scripts/check-file-sizes.mjs",
+    "tech-debt": "node scripts/check-tech-debt.mjs",
+    "validate:agents": "node scripts/validate-agents.mjs",
+    "flags:check": "node scripts/check-feature-flags.mjs",
+    "unused:deps": "knip --include files,dependencies --no-config-hints",
+    "dead-code": "knip --include files --no-config-hints",
+    "duplicate-code": "jscpd --config jscpd.json app api lib scripts",
+    "docs:generate": "typedoc --options typedoc.json",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "quality": "pnpm lint:fast && pnpm lint && pnpm format:check && pnpm check && pnpm validate:agents && pnpm flags:check && pnpm test:coverage && pnpm size:check && pnpm tech-debt && pnpm unused:deps && pnpm duplicate-code",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@arrow-js/core": "^1.0.6",
+    "web-haptics": "^0.0.6"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/coverage-v8": "^3.2.4",
+    "agentation": "^3.0.2",
+    "danger": "^13.0.4",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.4.0",
+    "husky": "^9.1.7",
+    "jscpd": "^4.0.5",
+    "knip": "^5.65.0",
+    "lint-staged": "^16.2.6",
+    "oxlint": "^1.60.0",
+    "prettier": "^3.6.2",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "typedoc": "^0.28.14",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.46.1",
+    "vite": "^8.0.8",
+    "vitest": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs,cjs}": [
+      "oxlint --deny-warnings",
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css,html}": [
+      "prettier --write"
+    ]
+  }
+}

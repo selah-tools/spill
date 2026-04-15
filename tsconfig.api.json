@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["node"],
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": [
+    "api/**/*.ts",
+    "app/card-slug.ts",
+    "app/prompts.ts",
+    "app/prompts.json",
+    "app/feedback-types.ts",
+    "app/vite-env.d.ts",
+    "lib/**/*.ts"
+  ]
+}

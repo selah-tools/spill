@@ -1,0 +1,7 @@
+{
+  "agentationDevtools": {
+    "description": "Enables the Agentation dev overlay locally.",
+    "owner": "engineering",
+    "expiresOn": "2026-12-31"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "./",
+  "name": "Spill",
+  "short_name": "Spill",
+  "description": "Draw faith-shaped conversation cards for friends, dating, family, youth, and small groups.",
+  "lang": "en-US",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "portrait-primary",
+  "theme_color": "#f3f2f0",
+  "background_color": "#f3f2f0",
+  "categories": ["lifestyle", "social", "games"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Draw a card",
+      "short_name": "Draw",
+      "description": "Open Spill and draw your next card.",
+      "url": "./"
+    }
+  ]
+}

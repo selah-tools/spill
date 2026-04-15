@@ -1,0 +1,4547 @@
+[
+  {
+    "id": "friends-light-01",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What made you smile this week?",
+    "tags": ["weekly-reflection"]
+  },
+  {
+    "id": "friends-light-02",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What song or verse has been stuck in your head lately?",
+    "tags": ["music", "reflection"]
+  },
+  {
+    "id": "friends-light-03",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "When did you last laugh until it hurt?",
+    "tags": ["joy"]
+  },
+  {
+    "id": "friends-light-04",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What are you looking forward to right now?",
+    "tags": ["joy"]
+  },
+  {
+    "id": "friends-light-05",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What do you care about more than most people realize?",
+    "tags": ["personality"]
+  },
+  {
+    "id": "friends-light-06",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What moment with friends recently felt like pure joy?",
+    "tags": ["joy", "friendship"]
+  },
+  {
+    "id": "friends-light-07",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What always puts you in a good mood, no matter what?",
+    "tags": ["joy"]
+  },
+  {
+    "id": "friends-light-08",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Who makes your life better just by being around?",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "friends-honest-01",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What part of following Jesus feels easier to talk about than to actually live?",
+    "tags": ["discipleship"]
+  },
+  {
+    "id": "friends-honest-02",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What makes you want to put on a face instead of being genuine?",
+    "tags": ["vulnerability"]
+  },
+  {
+    "id": "friends-honest-03",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of support do you wish came more naturally from friends?",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "friends-honest-04",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What have you been quietly carrying that people don't know about?",
+    "tags": ["lament"]
+  },
+  {
+    "id": "friends-honest-05",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "When do you feel most disconnected from God?",
+    "tags": ["spiritual-formation"]
+  },
+  {
+    "id": "friends-deep-01",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "Where does following Jesus feel costly right now?",
+    "tags": ["obedience"]
+  },
+  {
+    "id": "friends-deep-02",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What experiences have shaped how you trust or resist God?",
+    "tags": ["story"]
+  },
+  {
+    "id": "friends-deep-03",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where do you sense God inviting surrender?",
+    "tags": ["surrender"]
+  },
+  {
+    "id": "friends-deep-04",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What are you afraid to let God change?",
+    "tags": ["healing"]
+  },
+  {
+    "id": "friends-deep-05",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What would it look like for your community to really know you?",
+    "tags": ["community"]
+  },
+  {
+    "id": "dating-light-01",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of date helps you slow down and be present?",
+    "tags": ["rhythm"]
+  },
+  {
+    "id": "dating-light-02",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What family tradition shaped how you think about love?",
+    "tags": ["family-story"]
+  },
+  {
+    "id": "dating-light-03",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "How do you feel cared for in ways people often miss?",
+    "tags": ["care"]
+  },
+  {
+    "id": "dating-light-04",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What embarrassingly specific thing makes you feel seen?",
+    "tags": ["playful", "care"]
+  },
+  {
+    "id": "dating-light-05",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What low-stakes date idea sounds fun right now?",
+    "tags": ["playful", "date-night"]
+  },
+  {
+    "id": "dating-light-06",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What makes you feel safe enough to be yourself?",
+    "tags": ["trust"]
+  },
+  {
+    "id": "dating-light-07",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What part of your sense of humor do you hope someone really gets?",
+    "tags": ["humor", "connection"]
+  },
+  {
+    "id": "dating-honest-01",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where do you protect your independence instead of letting someone in?",
+    "tags": ["intimacy"]
+  },
+  {
+    "id": "dating-honest-02",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What fear comes up when you need to say something that matters?",
+    "tags": ["communication"]
+  },
+  {
+    "id": "dating-honest-03",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What have past relationships taught you that you still carry?",
+    "tags": ["history"]
+  },
+  {
+    "id": "dating-honest-04",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where does your need for clarity become control?",
+    "tags": ["control"]
+  },
+  {
+    "id": "dating-honest-05",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does healthy partnership actually look like to you?",
+    "tags": ["mutuality"]
+  },
+  {
+    "id": "dating-deep-01",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What about lifelong commitment feels beautiful, and what feels scary?",
+    "tags": ["covenant"]
+  },
+  {
+    "id": "dating-deep-02",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "How do you hope a relationship deepens your faith instead of distracting from it?",
+    "tags": ["discipleship"]
+  },
+  {
+    "id": "dating-deep-03",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What wound most affects how you receive love?",
+    "tags": ["healing"]
+  },
+  {
+    "id": "dating-deep-04",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where do your expectations about love need to be reshaped by Jesus?",
+    "tags": ["expectations"]
+  },
+  {
+    "id": "dating-deep-05",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What would it look like for saying sorry to be normal in your relationship?",
+    "tags": ["repentance"]
+  },
+  {
+    "id": "family-light-01",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's one thing about our home that feels like a gift?",
+    "tags": ["home"]
+  },
+  {
+    "id": "family-light-02",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where did kindness show up in the family this week?",
+    "tags": ["kindness"]
+  },
+  {
+    "id": "family-light-03",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What childhood story do you keep coming back to?",
+    "tags": ["memory"]
+  },
+  {
+    "id": "family-light-04",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What makes home feel restful instead of just busy?",
+    "tags": ["rest"]
+  },
+  {
+    "id": "family-light-05",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "How has God surprised our family recently?",
+    "tags": ["surprise"]
+  },
+  {
+    "id": "family-light-06",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What family story gets funnier every time we tell it?",
+    "tags": ["playful", "memory"]
+  },
+  {
+    "id": "family-light-07",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What small routine at home brings you unexpected joy?",
+    "tags": ["joy", "home"]
+  },
+  {
+    "id": "family-light-08",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Who in this family is secretly great at something nobody talks about?",
+    "tags": ["playful", "affirmation"]
+  },
+  {
+    "id": "family-honest-01",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What causes the most tension at home when everyone's tired?",
+    "tags": ["conflict"]
+  },
+  {
+    "id": "family-honest-02",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When do we rush past each other instead of slowing down?",
+    "tags": ["attention"]
+  },
+  {
+    "id": "family-honest-03",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What conversation would clear the air at home?",
+    "tags": ["apology"]
+  },
+  {
+    "id": "family-honest-04",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you need more of from this family right now?",
+    "tags": ["needs"]
+  },
+  {
+    "id": "family-honest-05",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What do we avoid talking about because it feels messy?",
+    "tags": ["avoidance"]
+  },
+  {
+    "id": "family-deep-01",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What faith legacy do you hope this family keeps, and what do you hope ends here?",
+    "tags": ["legacy"]
+  },
+  {
+    "id": "family-deep-02",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where does our family most need God's healing?",
+    "tags": ["healing"]
+  },
+  {
+    "id": "family-deep-03",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What burden has someone here been carrying alone?",
+    "tags": ["burden"]
+  },
+  {
+    "id": "family-deep-04",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does forgiveness cost in a family, and why is it worth it?",
+    "tags": ["forgiveness"]
+  },
+  {
+    "id": "family-deep-05",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "If our home looked more like the kingdom of God, what changes first?",
+    "tags": ["kingdom"]
+  },
+  {
+    "id": "small-group-light-01",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something God has been teaching you outside of church?",
+    "tags": ["weekly-reflection"]
+  },
+  {
+    "id": "small-group-light-02",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What spiritual practice has felt surprisingly doable lately?",
+    "tags": ["spiritual-practices"]
+  },
+  {
+    "id": "small-group-light-03",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's one thing you're grateful for that you didn't expect?",
+    "tags": ["reflection"]
+  },
+  {
+    "id": "small-group-light-04",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What made you grateful for the church recently?",
+    "tags": ["church-life"]
+  },
+  {
+    "id": "small-group-light-05",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where have you seen quiet faithfulness in someone around you?",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "small-group-light-06",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What conversation are you glad happened this week?",
+    "tags": ["story"]
+  },
+  {
+    "id": "small-group-light-07",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What moment in this group surprised you in a good way?",
+    "tags": ["joy", "church-life"]
+  },
+  {
+    "id": "small-group-light-08",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What question do people rarely ask that's actually fun to answer?",
+    "tags": ["playful", "opener"]
+  },
+  {
+    "id": "small-group-honest-01",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What part of discipleship is harder than people assume?",
+    "tags": ["discipleship"]
+  },
+  {
+    "id": "small-group-honest-02",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where are you tempted to perform spiritually instead of being honest?",
+    "tags": ["vulnerability"]
+  },
+  {
+    "id": "small-group-honest-03",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What do you need prayer for that isn't polished yet?",
+    "tags": ["prayer-request"]
+  },
+  {
+    "id": "small-group-honest-04",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What do you know you should change but haven't yet?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "small-group-honest-05",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What's been draining your joy lately?",
+    "tags": ["joy"]
+  },
+  {
+    "id": "small-group-deep-01",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What does God keep asking you to let go of?",
+    "tags": ["surrender"]
+  },
+  {
+    "id": "small-group-deep-02",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "Where does obedience feel hardest right now?",
+    "tags": ["obedience"]
+  },
+  {
+    "id": "small-group-deep-03",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "How has suffering changed the way you read Scripture?",
+    "tags": ["suffering"]
+  },
+  {
+    "id": "small-group-deep-04",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "Where is the Spirit asking you to be brave?",
+    "tags": ["courage"]
+  },
+  {
+    "id": "small-group-deep-05",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of your story do you rarely share?",
+    "tags": ["story"]
+  },
+  {
+    "id": "small-group-deep-06",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "church",
+    "text": "How could this group support each other better?",
+    "tags": ["community"]
+  },
+  {
+    "id": "youth-light-01",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What has God been showing you about who you are?",
+    "tags": ["self-awareness"]
+  },
+  {
+    "id": "youth-light-02",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "Where did you see God in something small this week?",
+    "tags": ["weekly-reflection"]
+  },
+  {
+    "id": "youth-light-03",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of encouragement sticks with you longer than a compliment?",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "youth-light-04",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What makes a friendship feel safe?",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "youth-light-05",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What are you excited about that people might not know?",
+    "tags": ["joy"]
+  },
+  {
+    "id": "youth-light-06",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What helps you actually pay attention when you read the Bible?",
+    "tags": ["bible-reading"]
+  },
+  {
+    "id": "youth-light-07",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's your most wholesome obsession right now?",
+    "tags": ["playful", "joy"]
+  },
+  {
+    "id": "youth-light-08",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What moment from youth group, school, or camp still makes you laugh?",
+    "tags": ["memory", "joy"]
+  },
+  {
+    "id": "youth-honest-01",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "When do you feel pressure to act like you have it all together?",
+    "tags": ["pressure"]
+  },
+  {
+    "id": "youth-honest-02",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What lie about yourself is hardest to stop believing?",
+    "tags": ["lies"]
+  },
+  {
+    "id": "youth-honest-03",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do adults often misunderstand about your life right now?",
+    "tags": ["leadership"]
+  },
+  {
+    "id": "youth-honest-04",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What makes prayer feel hard sometimes?",
+    "tags": ["prayer"]
+  },
+  {
+    "id": "youth-honest-05",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "When do you feel most alone, even around people?",
+    "tags": ["loneliness"]
+  },
+  {
+    "id": "youth-honest-06",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What would make daily life feel lighter right now?",
+    "tags": ["support"]
+  },
+  {
+    "id": "youth-deep-01",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What do you think God is forming in you through this season?",
+    "tags": ["formation"]
+  },
+  {
+    "id": "youth-deep-02",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What makes it hard to follow Jesus around your peers?",
+    "tags": ["courage"]
+  },
+  {
+    "id": "youth-deep-03",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What hard experience do you hope God uses for good?",
+    "tags": ["healing"]
+  },
+  {
+    "id": "youth-deep-04",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "How do you want your faith to look different a year from now?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "youth-deep-05",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What changes when you care more about what God thinks than what people think?",
+    "tags": ["approval"]
+  },
+  {
+    "id": "youth-deep-06",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where is God asking you to trust before you understand?",
+    "tags": ["trust"]
+  },
+  {
+    "id": "wildcard-02",
+    "audience": ["friends", "dating", "small-group", "family", "youth"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell someone here one specific thing about them that points to God's work in their life.",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "wildcard-03",
+    "audience": ["friends", "small-group"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "prayer",
+    "text": "Take sixty seconds each to share a recent answered prayer, even if the answer surprised you.",
+    "tags": ["testimony", "answered-prayer"]
+  },
+  {
+    "id": "wildcard-05",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "scripture",
+    "text": "Read Psalm 23 aloud. Which phrase feels most timely for your home today?",
+    "tags": ["scripture-reflection", "psalm"]
+  },
+  {
+    "id": "wildcard-06",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Go around and name one strength you see in the person across from you.",
+    "tags": ["encouragement", "youth"]
+  },
+  {
+    "id": "wildcard-07",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "identity",
+    "text": "Share a moment when God met you in weakness.",
+    "tags": ["testimony", "weakness"]
+  },
+  {
+    "id": "wildcard-09",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "mission",
+    "text": "Each person name someone they want to love well this week and one way they'll do it.",
+    "tags": ["mission", "friendship"]
+  },
+  {
+    "id": "wildcard-12",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Start with the quietest person. Everyone share one sentence of encouragement for them.",
+    "tags": ["encouragement", "family"]
+  },
+  {
+    "id": "wildcard-15",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell someone here where you've seen courage in them this month.",
+    "tags": ["encouragement", "courage"]
+  },
+  {
+    "id": "wildcard-16",
+    "audience": ["friends", "dating", "small-group", "family", "youth"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "identity",
+    "text": "Finish the sentence: \"God has been teaching me...\" Give it a full minute.",
+    "tags": ["testimony"]
+  },
+  {
+    "id": "wildcard-17",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "scripture",
+    "text": "Read Colossians 3:12–14. What would change in this home if these words shaped the next week?",
+    "tags": ["scripture-reflection", "family"]
+  },
+  {
+    "id": "wildcard-18",
+    "audience": ["youth", "small-group"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "mission",
+    "text": "Name one person outside this room who needs care this week. Say their name and one way you'll show up.",
+    "tags": ["mission", "care"]
+  },
+  {
+    "id": "wildcard-20",
+    "audience": ["friends", "small-group"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Give each person a ridiculously specific compliment that's still completely true.",
+    "tags": ["playful", "encouragement"]
+  },
+  {
+    "id": "wildcard-22",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Each of you answer: what tiny thing would make tonight more fun or more peaceful?",
+    "tags": ["dating", "lighthearted"]
+  },
+  {
+    "id": "friends-light-09",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's the best text or message you've gotten recently?",
+    "tags": ["connection", "joy"]
+  },
+  {
+    "id": "friends-light-10",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What hobby has been pulling you in lately?",
+    "tags": ["interests"]
+  },
+  {
+    "id": "friends-light-11",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Who's someone you haven't talked to in a while that you miss?",
+    "tags": ["friendship", "missing"]
+  },
+  {
+    "id": "friends-light-12",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's a place that always makes you feel at peace?",
+    "tags": ["rest", "place"]
+  },
+  {
+    "id": "friends-light-13",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something you're proud of that you don't talk about much?",
+    "tags": ["humility"]
+  },
+  {
+    "id": "friends-light-14",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the most thoughtful thing someone's done for you recently?",
+    "tags": ["care"]
+  },
+  {
+    "id": "friends-light-15",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What part of your week do you look forward to most?",
+    "tags": ["rhythm"]
+  },
+  {
+    "id": "friends-light-16",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Who believed in you before you believed in yourself?",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "friends-light-17",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something you used to worry about that doesn't bother you anymore?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "friends-light-18",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What tradition do you never want to lose?",
+    "tags": ["tradition"]
+  },
+  {
+    "id": "friends-light-19",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What makes a good day good for you?",
+    "tags": ["rhythm", "joy"]
+  },
+  {
+    "id": "friends-light-20",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What about your life right now would younger you love?",
+    "tags": ["perspective"]
+  },
+  {
+    "id": "friends-light-21",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What movie, book, or show has stuck with you recently?",
+    "tags": ["culture", "reflection"]
+  },
+  {
+    "id": "friends-light-22",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "When did you last feel genuinely rested?",
+    "tags": ["rest"]
+  },
+  {
+    "id": "friends-light-23",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's a skill you'd love to learn?",
+    "tags": ["curiosity"]
+  },
+  {
+    "id": "friends-light-24",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's a small act of kindness you noticed recently?",
+    "tags": ["kindness"]
+  },
+  {
+    "id": "friends-light-25",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What's a place you've been that made you think about God differently?",
+    "tags": ["travel", "wonder"]
+  },
+  {
+    "id": "friends-light-26",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's the best advice anyone's ever given you?",
+    "tags": ["wisdom"]
+  },
+  {
+    "id": "friends-light-27",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something new you've tried lately that surprised you?",
+    "tags": ["growth", "adventure"]
+  },
+  {
+    "id": "friends-light-28",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the funniest thing that happened in your friend group recently?",
+    "tags": ["humor", "friendship"]
+  },
+  {
+    "id": "friends-honest-06",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What's something you wish you were better at handling?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "friends-honest-07",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "When do you feel most tempted to compare yourself to others?",
+    "tags": ["comparison"]
+  },
+  {
+    "id": "friends-honest-08",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What relationship in your life needs the most attention right now?",
+    "tags": ["priority"]
+  },
+  {
+    "id": "friends-honest-09",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's a prayer you've been repeating lately?",
+    "tags": ["persistence"]
+  },
+  {
+    "id": "friends-honest-10",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When did you last feel truly known by someone?",
+    "tags": ["intimacy"]
+  },
+  {
+    "id": "friends-honest-11",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What part of your life feels most out of rhythm right now?",
+    "tags": ["rhythm"]
+  },
+  {
+    "id": "friends-honest-12",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What truth about God do you believe but struggle to feel?",
+    "tags": ["doubt"]
+  },
+  {
+    "id": "friends-honest-13",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What do you keep putting off because it's uncomfortable?",
+    "tags": ["avoidance"]
+  },
+  {
+    "id": "friends-honest-14",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "When do you feel most like you're going through the motions with God?",
+    "tags": ["dryness"]
+  },
+  {
+    "id": "friends-honest-15",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What boundary do you need to set but haven't?",
+    "tags": ["boundaries"]
+  },
+  {
+    "id": "friends-honest-16",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "How has your faith changed in the last year?",
+    "tags": ["change"]
+  },
+  {
+    "id": "friends-honest-17",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a hard conversation you've been avoiding?",
+    "tags": ["conflict"]
+  },
+  {
+    "id": "friends-honest-18",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where do you feel the gap between who you are and who you want to be?",
+    "tags": ["tension"]
+  },
+  {
+    "id": "friends-deep-06",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What's the hardest thing you've ever had to forgive?",
+    "tags": ["forgiveness"]
+  },
+  {
+    "id": "friends-deep-07",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What question about God do you keep coming back to?",
+    "tags": ["doubt", "wonder"]
+  },
+  {
+    "id": "friends-deep-08",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What season of life broke you open in a way you're grateful for now?",
+    "tags": ["suffering", "growth"]
+  },
+  {
+    "id": "friends-deep-09",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "Where has God been most faithful in your story?",
+    "tags": ["testimony"]
+  },
+  {
+    "id": "friends-deep-10",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What would you do differently if you weren't afraid of what people think?",
+    "tags": ["fear", "approval"]
+  },
+  {
+    "id": "friends-deep-11",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What's the loneliest part of your faith right now?",
+    "tags": ["loneliness"]
+  },
+  {
+    "id": "friends-deep-12",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Who has shaped your faith more than anyone, and how?",
+    "tags": ["mentorship"]
+  },
+  {
+    "id": "friends-deep-13",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What part of the Gospel confronts you most right now?",
+    "tags": ["gospel"]
+  },
+  {
+    "id": "friends-deep-14",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where do you sense God doing something you don't fully understand yet?",
+    "tags": ["mystery"]
+  },
+  {
+    "id": "friends-deep-15",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What loss has taught you the most about God?",
+    "tags": ["grief", "formation"]
+  },
+  {
+    "id": "friends-deep-16",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What calling feels too big for you right now?",
+    "tags": ["calling"]
+  },
+  {
+    "id": "friends-deep-17",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What would radical generosity look like in your life this season?",
+    "tags": ["generosity"]
+  },
+  {
+    "id": "dating-light-08",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's your favorite way to spend a quiet evening?",
+    "tags": ["rhythm", "rest"]
+  },
+  {
+    "id": "dating-light-09",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something about your personality that took you a while to appreciate?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "dating-light-10",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the most fun you've had in the last month?",
+    "tags": ["joy"]
+  },
+  {
+    "id": "dating-light-11",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does a perfect Sunday look like to you?",
+    "tags": ["rhythm"]
+  },
+  {
+    "id": "dating-light-12",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a small thing that tells you someone is really listening?",
+    "tags": ["attention"]
+  },
+  {
+    "id": "dating-light-13",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What did your parents get right about love?",
+    "tags": ["family-story"]
+  },
+  {
+    "id": "dating-light-14",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's your go-to way to recharge after a long week?",
+    "tags": ["rest"]
+  },
+  {
+    "id": "dating-light-15",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something you find beautiful that other people might overlook?",
+    "tags": ["wonder"]
+  },
+  {
+    "id": "dating-light-16",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What makes you feel most at home somewhere?",
+    "tags": ["home", "belonging"]
+  },
+  {
+    "id": "dating-light-17",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's a dream you haven't told many people about?",
+    "tags": ["dreams"]
+  },
+  {
+    "id": "dating-light-18",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the best way someone's ever apologized to you?",
+    "tags": ["repair"]
+  },
+  {
+    "id": "dating-light-19",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What meal or food brings back a good memory for you?",
+    "tags": ["memory", "food"]
+  },
+  {
+    "id": "dating-light-20",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a compliment you've never forgotten?",
+    "tags": ["words"]
+  },
+  {
+    "id": "dating-light-21",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "How do you know when you trust someone?",
+    "tags": ["trust"]
+  },
+  {
+    "id": "dating-light-22",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What are you learning about yourself lately?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "dating-light-23",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of silence feels comfortable to you?",
+    "tags": ["presence"]
+  },
+  {
+    "id": "dating-light-24",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's the bravest thing you've done this year?",
+    "tags": ["courage"]
+  },
+  {
+    "id": "dating-light-25",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something that always makes you nostalgic?",
+    "tags": ["memory"]
+  },
+  {
+    "id": "dating-light-26",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What do you want more of in your daily life?",
+    "tags": ["desire"]
+  },
+  {
+    "id": "dating-light-27",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something simple that always makes your day better?",
+    "tags": ["joy"]
+  },
+  {
+    "id": "dating-honest-06",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When do you tend to shut down instead of stay present?",
+    "tags": ["conflict", "avoidance"]
+  },
+  {
+    "id": "dating-honest-07",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the hardest part of being vulnerable with someone?",
+    "tags": ["vulnerability"]
+  },
+  {
+    "id": "dating-honest-08",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What pattern from your family do you not want to repeat?",
+    "tags": ["family-patterns"]
+  },
+  {
+    "id": "dating-honest-09",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you need from a partner that you've never said out loud?",
+    "tags": ["needs"]
+  },
+  {
+    "id": "dating-honest-10",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When do you feel most insecure in a relationship?",
+    "tags": ["insecurity"]
+  },
+  {
+    "id": "dating-honest-11",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you wish someone had told you about love sooner?",
+    "tags": ["wisdom"]
+  },
+  {
+    "id": "dating-honest-12",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What role does faith play in how you handle conflict?",
+    "tags": ["conflict"]
+  },
+  {
+    "id": "dating-honest-13",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the hardest thing about being patient in a relationship?",
+    "tags": ["patience"]
+  },
+  {
+    "id": "dating-honest-14",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where do you tend to people-please instead of being honest?",
+    "tags": ["people-pleasing"]
+  },
+  {
+    "id": "dating-honest-15",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's something you'd want a partner to challenge you on?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "dating-honest-16",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When have you mistaken comfort for love?",
+    "tags": ["discernment"]
+  },
+  {
+    "id": "dating-honest-17",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the scariest part of being really known?",
+    "tags": ["intimacy", "fear"]
+  },
+  {
+    "id": "dating-honest-18",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What do you wish the church talked about more when it comes to dating?",
+    "tags": ["culture"]
+  },
+  {
+    "id": "dating-deep-06",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does it look like to love someone without trying to fix them?",
+    "tags": ["acceptance"]
+  },
+  {
+    "id": "dating-deep-07",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "How do you want to handle seasons of doubt together?",
+    "tags": ["doubt", "partnership"]
+  },
+  {
+    "id": "dating-deep-08",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What does spiritual closeness look like to you beyond praying together?",
+    "tags": ["spiritual-intimacy"]
+  },
+  {
+    "id": "dating-deep-09",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What sacrifice would you make for a marriage to last?",
+    "tags": ["sacrifice"]
+  },
+  {
+    "id": "dating-deep-10",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What part of your parents' relationship do you want to carry forward?",
+    "tags": ["family-legacy"]
+  },
+  {
+    "id": "dating-deep-11",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "How do you hope to be different as a partner than you are today?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "dating-deep-12",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What's the role of community in protecting a relationship?",
+    "tags": ["accountability"]
+  },
+  {
+    "id": "dating-deep-13",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What would it cost you to love someone more than you love being right?",
+    "tags": ["humility"]
+  },
+  {
+    "id": "dating-deep-14",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where do you need more of God's grace in how you love?",
+    "tags": ["grace"]
+  },
+  {
+    "id": "dating-deep-15",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does it mean to you to lead and be led in a relationship?",
+    "tags": ["leadership"]
+  },
+  {
+    "id": "dating-deep-16",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What part of commitment scares you most, and what draws you to it?",
+    "tags": ["covenant"]
+  },
+  {
+    "id": "dating-deep-17",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "How do you want to handle money and generosity together?",
+    "tags": ["stewardship"]
+  },
+  {
+    "id": "family-light-09",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's something someone in this family said recently that made you proud?",
+    "tags": ["affirmation"]
+  },
+  {
+    "id": "family-light-10",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's the best part of our morning or evening together?",
+    "tags": ["routine"]
+  },
+  {
+    "id": "family-light-11",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a family recipe or food tradition everyone should know?",
+    "tags": ["tradition", "food"]
+  },
+  {
+    "id": "family-light-12",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What does this family do better than we give ourselves credit for?",
+    "tags": ["affirmation"]
+  },
+  {
+    "id": "family-light-13",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What was your favorite age growing up, and why?",
+    "tags": ["memory"]
+  },
+  {
+    "id": "family-light-14",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the most adventurous thing this family has done together?",
+    "tags": ["adventure", "memory"]
+  },
+  {
+    "id": "family-light-15",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's a prayer God answered for our family that we almost forgot?",
+    "tags": ["answered-prayer"]
+  },
+  {
+    "id": "family-light-16",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "Who outside our family has been a gift to us recently?",
+    "tags": ["community"]
+  },
+  {
+    "id": "family-light-17",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What room or space in our home holds the best memories?",
+    "tags": ["home", "memory"]
+  },
+  {
+    "id": "family-light-18",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's something about this family that makes you laugh every time?",
+    "tags": ["humor"]
+  },
+  {
+    "id": "family-light-19",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's a lesson you learned from a grandparent or older relative?",
+    "tags": ["wisdom", "legacy"]
+  },
+  {
+    "id": "family-light-20",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What do you love most about this season of our family's life?",
+    "tags": ["season"]
+  },
+  {
+    "id": "family-light-21",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's one word you'd use to describe this family right now?",
+    "tags": ["reflection"]
+  },
+  {
+    "id": "family-light-22",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a simple way we could have more fun together?",
+    "tags": ["play"]
+  },
+  {
+    "id": "family-light-23",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What family trip or outing do you still talk about?",
+    "tags": ["memory", "adventure"]
+  },
+  {
+    "id": "family-light-24",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you appreciate about someone here that you haven't said lately?",
+    "tags": ["affirmation"]
+  },
+  {
+    "id": "family-light-25",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the silliest inside joke this family has?",
+    "tags": ["humor", "playful"]
+  },
+  {
+    "id": "family-light-26",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What talent in this family deserves more attention?",
+    "tags": ["affirmation"]
+  },
+  {
+    "id": "family-light-27",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does a perfect family dinner look like to you?",
+    "tags": ["meal", "togetherness"]
+  },
+  {
+    "id": "family-light-28",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's something new you'd like this family to try together?",
+    "tags": ["adventure"]
+  },
+  {
+    "id": "family-honest-06",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where do we need to give each other more grace?",
+    "tags": ["grace"]
+  },
+  {
+    "id": "family-honest-07",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you wish we talked about more openly?",
+    "tags": ["communication"]
+  },
+  {
+    "id": "family-honest-08",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When do you feel most overlooked in this family?",
+    "tags": ["seen"]
+  },
+  {
+    "id": "family-honest-09",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What expectation in this family feels too heavy?",
+    "tags": ["expectations"]
+  },
+  {
+    "id": "family-honest-10",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where do we need to slow down as a family?",
+    "tags": ["pace"]
+  },
+  {
+    "id": "family-honest-11",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you wish you'd said sooner to someone in this room?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "family-honest-12",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What habit do we have as a family that isn't serving us anymore?",
+    "tags": ["patterns"]
+  },
+  {
+    "id": "family-honest-13",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When does this family feel most disconnected from each other?",
+    "tags": ["disconnection"]
+  },
+  {
+    "id": "family-honest-14",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's the hardest thing about your role in this family right now?",
+    "tags": ["roles"]
+  },
+  {
+    "id": "family-honest-15",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where do we put pressure on each other without meaning to?",
+    "tags": ["pressure"]
+  },
+  {
+    "id": "family-honest-16",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What do you wish we prayed about together more?",
+    "tags": ["family-prayer"]
+  },
+  {
+    "id": "family-honest-17",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When has this family handled conflict well, and what made it work?",
+    "tags": ["conflict", "repair"]
+  },
+  {
+    "id": "family-honest-18",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's one thing you'd change about how we spend our time together?",
+    "tags": ["time"]
+  },
+  {
+    "id": "family-deep-06",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What part of our family's faith do you hope the next generation keeps?",
+    "tags": ["legacy"]
+  },
+  {
+    "id": "family-deep-07",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What has this family taught you about God's character?",
+    "tags": ["formation"]
+  },
+  {
+    "id": "family-deep-08",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "Where do we need to stop pretending and start being real?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "family-deep-09",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What grief has this family never fully faced together?",
+    "tags": ["grief"]
+  },
+  {
+    "id": "family-deep-10",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "How has God used this family to shape who you are?",
+    "tags": ["formation"]
+  },
+  {
+    "id": "family-deep-11",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What would it mean for this family to really trust God with our future?",
+    "tags": ["trust"]
+  },
+  {
+    "id": "family-deep-12",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What broken pattern in our family are you willing to help end?",
+    "tags": ["generational"]
+  },
+  {
+    "id": "family-deep-13",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does sacrificial love look like inside a family?",
+    "tags": ["sacrifice"]
+  },
+  {
+    "id": "family-deep-14",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where do we need more honesty and less politeness?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "family-deep-15",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of our family's story would you want to tell your children?",
+    "tags": ["legacy", "story"]
+  },
+  {
+    "id": "family-deep-16",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's the most important thing this family has survived together?",
+    "tags": ["resilience"]
+  },
+  {
+    "id": "family-deep-17",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "How do you want this family to be remembered?",
+    "tags": ["legacy"]
+  },
+  {
+    "id": "small-group-light-09",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What good thing happened this week that had nothing to do with productivity?",
+    "tags": ["rest", "joy"]
+  },
+  {
+    "id": "small-group-light-10",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's a simple pleasure you think everyone should try?",
+    "tags": ["joy"]
+  },
+  {
+    "id": "small-group-light-11",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What have you been reading or watching that's shaped your thinking?",
+    "tags": ["culture"]
+  },
+  {
+    "id": "small-group-light-12",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the best conversation you've had with a stranger?",
+    "tags": ["surprise"]
+  },
+  {
+    "id": "small-group-light-13",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What's something about your church background you're grateful for?",
+    "tags": ["gratitude"]
+  },
+  {
+    "id": "small-group-light-14",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's a small way someone showed you God's love recently?",
+    "tags": ["love"]
+  },
+  {
+    "id": "small-group-light-15",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What's a question about the Bible you'd love to explore more?",
+    "tags": ["curiosity"]
+  },
+  {
+    "id": "small-group-light-16",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What would you love to be known for in this community?",
+    "tags": ["belonging"]
+  },
+  {
+    "id": "small-group-light-17",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What surprised you about God this week?",
+    "tags": ["wonder"]
+  },
+  {
+    "id": "small-group-light-18",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When did you last feel deeply encouraged?",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "small-group-light-19",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What worship song hits different for you right now?",
+    "tags": ["worship"]
+  },
+  {
+    "id": "small-group-light-20",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What's the kindest thing someone at church has done for you?",
+    "tags": ["kindness"]
+  },
+  {
+    "id": "small-group-light-21",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What hobby or interest refreshes your soul?",
+    "tags": ["rest"]
+  },
+  {
+    "id": "small-group-light-22",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What's something this group has taught you that you didn't expect?",
+    "tags": ["community"]
+  },
+  {
+    "id": "small-group-light-23",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What part of Sunday makes you feel most connected to God?",
+    "tags": ["worship"]
+  },
+  {
+    "id": "small-group-light-24",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a story from your life that always makes people laugh?",
+    "tags": ["humor", "story"]
+  },
+  {
+    "id": "small-group-light-25",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's a simple way you've worshipped God outside of church lately?",
+    "tags": ["worship"]
+  },
+  {
+    "id": "small-group-light-26",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What are you curious about in the Bible right now?",
+    "tags": ["curiosity"]
+  },
+  {
+    "id": "small-group-light-27",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the most meaningful thing someone in this group has said to you?",
+    "tags": ["community"]
+  },
+  {
+    "id": "small-group-light-28",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's one thing you want to celebrate right now?",
+    "tags": ["celebration"]
+  },
+  {
+    "id": "small-group-honest-06",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What part of church life feels most exhausting right now?",
+    "tags": ["burnout"]
+  },
+  {
+    "id": "small-group-honest-07",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "When do you feel like you're faking it spiritually?",
+    "tags": ["authenticity"]
+  },
+  {
+    "id": "small-group-honest-08",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What Scripture passage are you wrestling with lately?",
+    "tags": ["tension"]
+  },
+  {
+    "id": "small-group-honest-09",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's the hardest thing about being consistent with God?",
+    "tags": ["discipline"]
+  },
+  {
+    "id": "small-group-honest-10",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "Where do you feel spiritually stuck right now?",
+    "tags": ["stagnation"]
+  },
+  {
+    "id": "small-group-honest-11",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What sin pattern are you tired of fighting alone?",
+    "tags": ["accountability"]
+  },
+  {
+    "id": "small-group-honest-12",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "church",
+    "text": "When have you been hurt by the church, and how has it affected your faith?",
+    "tags": ["wounds"]
+  },
+  {
+    "id": "small-group-honest-13",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What promise of God is hardest for you to believe right now?",
+    "tags": ["doubt"]
+  },
+  {
+    "id": "small-group-honest-14",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What question about faith are you afraid to ask out loud?",
+    "tags": ["doubt"]
+  },
+  {
+    "id": "small-group-honest-15",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where do you need accountability but haven't asked for it?",
+    "tags": ["accountability"]
+  },
+  {
+    "id": "small-group-honest-16",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something about your week you almost didn't share?",
+    "tags": ["vulnerability"]
+  },
+  {
+    "id": "small-group-honest-17",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "When do you confuse busyness for faithfulness?",
+    "tags": ["busyness"]
+  },
+  {
+    "id": "small-group-honest-18",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What part of community is hardest for you to receive?",
+    "tags": ["receiving"]
+  },
+  {
+    "id": "small-group-deep-07",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of your story do you think God is still writing?",
+    "tags": ["story", "hope"]
+  },
+  {
+    "id": "small-group-deep-08",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What have you lost that taught you something about God?",
+    "tags": ["loss", "formation"]
+  },
+  {
+    "id": "small-group-deep-09",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where is God asking you to wait, and how does that feel?",
+    "tags": ["waiting"]
+  },
+  {
+    "id": "small-group-deep-10",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What would it cost you to truly forgive someone?",
+    "tags": ["forgiveness"]
+  },
+  {
+    "id": "small-group-deep-11",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's the most important thing you've learned about God through pain?",
+    "tags": ["suffering"]
+  },
+  {
+    "id": "small-group-deep-12",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where do you sense the Spirit moving in your life right now?",
+    "tags": ["spirit"]
+  },
+  {
+    "id": "small-group-deep-13",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What does following Jesus look like in your specific workplace or school?",
+    "tags": ["vocation"]
+  },
+  {
+    "id": "small-group-deep-14",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What lie about God are you still unlearning?",
+    "tags": ["lies", "theology"]
+  },
+  {
+    "id": "small-group-deep-15",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What would it look like to trust God with your biggest fear?",
+    "tags": ["trust", "fear"]
+  },
+  {
+    "id": "small-group-deep-16",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "Where do you feel God calling you into discomfort?",
+    "tags": ["calling"]
+  },
+  {
+    "id": "small-group-deep-17",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What would change if this group prayed more boldly?",
+    "tags": ["prayer", "boldness"]
+  },
+  {
+    "id": "small-group-deep-18",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What does dying to yourself actually look like in your daily life?",
+    "tags": ["sacrifice"]
+  },
+  {
+    "id": "youth-light-09",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's the best thing that happened at school this week?",
+    "tags": ["school"]
+  },
+  {
+    "id": "youth-light-10",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's a skill you wish you could learn overnight?",
+    "tags": ["dreams"]
+  },
+  {
+    "id": "youth-light-11",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you and your friends always end up talking about?",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "youth-light-12",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's the best meal you've had recently?",
+    "tags": ["food", "joy"]
+  },
+  {
+    "id": "youth-light-13",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Who's someone you look up to and why?",
+    "tags": ["role-model"]
+  },
+  {
+    "id": "youth-light-14",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something that made you proud of yourself recently?",
+    "tags": ["confidence"]
+  },
+  {
+    "id": "youth-light-15",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What show, game, or song can't you stop recommending?",
+    "tags": ["culture"]
+  },
+  {
+    "id": "youth-light-16",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's the best part of your daily routine?",
+    "tags": ["rhythm"]
+  },
+  {
+    "id": "youth-light-17",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's something funny that happened to you recently?",
+    "tags": ["humor"]
+  },
+  {
+    "id": "youth-light-18",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What would you do with a completely free Saturday?",
+    "tags": ["rest", "play"]
+  },
+  {
+    "id": "youth-light-19",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What random act of kindness have you noticed or received lately?",
+    "tags": ["kindness"]
+  },
+  {
+    "id": "youth-light-20",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something about yourself you've grown to appreciate?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "youth-light-21",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What class or topic has been the most interesting to you lately?",
+    "tags": ["learning"]
+  },
+  {
+    "id": "youth-light-22",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What have you done recently that pushed you out of your comfort zone?",
+    "tags": ["courage"]
+  },
+  {
+    "id": "youth-light-23",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the best thing about your friend group right now?",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "youth-light-24",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What Bible verse actually makes sense to you in real life?",
+    "tags": ["relevance"]
+  },
+  {
+    "id": "youth-light-25",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something your family does that you actually appreciate?",
+    "tags": ["family"]
+  },
+  {
+    "id": "youth-light-26",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's a gift you think God gave you?",
+    "tags": ["gifts"]
+  },
+  {
+    "id": "youth-light-27",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What's the funniest thing that's happened at church or youth group?",
+    "tags": ["humor"]
+  },
+  {
+    "id": "youth-light-28",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What do you want to get better at this year?",
+    "tags": ["goals"]
+  },
+  {
+    "id": "youth-honest-07",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What's the hardest thing about being your age right now?",
+    "tags": ["season"]
+  },
+  {
+    "id": "youth-honest-08",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "When does your faith feel like yours and not just your parents'?",
+    "tags": ["ownership"]
+  },
+  {
+    "id": "youth-honest-09",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you wish your friends took more seriously?",
+    "tags": ["values"]
+  },
+  {
+    "id": "youth-honest-10",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When is it hardest to be kind?",
+    "tags": ["struggle"]
+  },
+  {
+    "id": "youth-honest-11",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What makes it hard to ask for help when you need it?",
+    "tags": ["pride"]
+  },
+  {
+    "id": "youth-honest-12",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's something about God you genuinely don't understand?",
+    "tags": ["doubt"]
+  },
+  {
+    "id": "youth-honest-13",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "When do you feel most pressured to look or act a certain way?",
+    "tags": ["image"]
+  },
+  {
+    "id": "youth-honest-14",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What's a time you stood up for something and it cost you?",
+    "tags": ["courage"]
+  },
+  {
+    "id": "youth-honest-15",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "Where do you feel like nobody gets what you're going through?",
+    "tags": ["isolation"]
+  },
+  {
+    "id": "youth-honest-16",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What do you wish church felt more like?",
+    "tags": ["belonging"]
+  },
+  {
+    "id": "youth-honest-17",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "When do you feel like your prayers don't matter?",
+    "tags": ["doubt"]
+  },
+  {
+    "id": "youth-honest-18",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What have you outgrown that people still expect from you?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "youth-honest-19",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What would you tell your younger self about God?",
+    "tags": ["formation"]
+  },
+  {
+    "id": "youth-deep-07",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What does giving your life to God look like beyond just Sundays?",
+    "tags": ["surrender"]
+  },
+  {
+    "id": "youth-deep-08",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What's the bravest thing God has ever asked of you?",
+    "tags": ["obedience"]
+  },
+  {
+    "id": "youth-deep-09",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "When has God felt closest to you?",
+    "tags": ["presence"]
+  },
+  {
+    "id": "youth-deep-10",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What would your faith look like if nobody was watching?",
+    "tags": ["authenticity"]
+  },
+  {
+    "id": "youth-deep-11",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What's something broken in the world that makes you want to act?",
+    "tags": ["justice"]
+  },
+  {
+    "id": "youth-deep-12",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "How has a hard season made your faith stronger?",
+    "tags": ["resilience"]
+  },
+  {
+    "id": "youth-deep-13",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does it look like to love someone who's hard to love?",
+    "tags": ["love"]
+  },
+  {
+    "id": "youth-deep-14",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What are you willing to give up to follow Jesus more closely?",
+    "tags": ["sacrifice"]
+  },
+  {
+    "id": "youth-deep-15",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's the most important thing you want God to know about where you are right now?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "youth-deep-16",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "Who in your life needs to hear about Jesus, and what holds you back?",
+    "tags": ["evangelism"]
+  },
+  {
+    "id": "youth-deep-17",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What would it take for you to stop holding back with God?",
+    "tags": ["surrender"]
+  },
+  {
+    "id": "youth-deep-18",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What do you want to be true about your character when you're thirty?",
+    "tags": ["vision"]
+  },
+  {
+    "id": "wildcard-23",
+    "audience": ["friends", "dating", "small-group", "family", "youth"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell someone in the room what you admire most about how they treat people.",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "wildcard-24",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "gratitude",
+    "text": "Everyone name one thing about this friend group you'd never want to lose.",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "wildcard-25",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "church",
+    "text": "Tell someone here how they've made this group better.",
+    "tags": ["community"]
+  },
+  {
+    "id": "wildcard-26",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Pick someone and tell them one thing they're better at than they think.",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "wildcard-27",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell each other one thing you've noticed about them that they might not see in themselves.",
+    "tags": ["affirmation"]
+  },
+  {
+    "id": "wildcard-28",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Everyone pick a family member and thank them for something specific from this week.",
+    "tags": ["gratitude"]
+  },
+  {
+    "id": "wildcard-29",
+    "audience": ["friends", "small-group"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "prayer",
+    "text": "Name one thing you want God to do before the end of this month.",
+    "tags": ["prayer", "hope"]
+  },
+  {
+    "id": "wildcard-30",
+    "audience": ["friends", "dating", "small-group", "family", "youth"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "identity",
+    "text": "Tell the group something about yourself that would surprise them.",
+    "tags": ["playful", "vulnerability"]
+  },
+  {
+    "id": "wildcard-31",
+    "audience": ["youth", "small-group"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell someone here one way they've helped your faith grow.",
+    "tags": ["encouragement", "growth"]
+  },
+  {
+    "id": "wildcard-32",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "prayer",
+    "text": "Name one thing you want God to protect in this family.",
+    "tags": ["prayer", "family"]
+  },
+  {
+    "id": "wildcard-33",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "identity",
+    "text": "Tell the group one area where you need to hear 'you're not alone.'",
+    "tags": ["vulnerability", "support"]
+  },
+  {
+    "id": "wildcard-34",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell each other your favorite memory together so far.",
+    "tags": ["memory", "connection"]
+  },
+  {
+    "id": "wildcard-35",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "identity",
+    "text": "Share one thing God has been convicting you about lately.",
+    "tags": ["conviction"]
+  },
+  {
+    "id": "wildcard-36",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "struggle",
+    "text": "Tell the group one thing you're dealing with that felt too small to mention.",
+    "tags": ["vulnerability"]
+  },
+  {
+    "id": "wildcard-37",
+    "audience": ["friends", "dating", "small-group", "family", "youth"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "prayer",
+    "text": "Name one thing you're trusting God with that feels uncertain right now.",
+    "tags": ["trust", "faith"]
+  },
+  {
+    "id": "wildcard-38",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell someone here about a time they showed up for you when it mattered.",
+    "tags": ["friendship", "gratitude"]
+  },
+  {
+    "id": "wildcard-39",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "gratitude",
+    "text": "Everyone say one thing about this home you'd miss if it were gone.",
+    "tags": ["home", "gratitude"]
+  },
+  {
+    "id": "wildcard-40",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "church",
+    "text": "Tell someone here one way you've seen God working through them.",
+    "tags": ["testimony", "encouragement"]
+  },
+  {
+    "id": "wildcard-41",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell each other one area where you want to grow together.",
+    "tags": ["partnership", "growth"]
+  },
+  {
+    "id": "wildcard-42",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "wildcard",
+    "category": "mission",
+    "text": "Tell the group one way you want to make a difference this year.",
+    "tags": ["mission", "courage"]
+  },
+  {
+    "id": "wildcard-43",
+    "audience": ["friends", "small-group"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell someone here one thing about them that makes you want to be a better person.",
+    "tags": ["encouragement", "influence"]
+  },
+  {
+    "id": "wildcard-44",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell someone in this family one thing you wish you said more often.",
+    "tags": ["honesty", "love"]
+  },
+  {
+    "id": "wildcard-45",
+    "audience": ["friends", "dating", "small-group", "family", "youth"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "identity",
+    "text": "Share one thing you're learning about God that's changing how you live.",
+    "tags": ["testimony", "growth"]
+  },
+  {
+    "id": "wildcard-46",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "wildcard",
+    "category": "prayer",
+    "text": "Tell each other one way you want to be prayed for this week.",
+    "tags": ["prayer", "care"]
+  },
+  {
+    "id": "wildcard-47",
+    "audience": ["youth", "friends"],
+    "depth": "light",
+    "mode": "wildcard",
+    "category": "relationship",
+    "text": "Tell someone here why you're glad they're in your life.",
+    "tags": ["friendship", "gratitude"]
+  },
+  {
+    "id": "friends-light-29",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What side of you comes out fastest when you're fully comfortable?",
+    "tags": ["comfort"]
+  },
+  {
+    "id": "friends-light-30",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something ordinary you've started enjoying more lately?",
+    "tags": ["delight"]
+  },
+  {
+    "id": "friends-light-31",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a compliment you still remember because it felt that true?",
+    "tags": ["affirmation"]
+  },
+  {
+    "id": "friends-light-32",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the kind of night with friends you never really get tired of?",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "friends-light-33",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What small habit makes you feel more grounded this week?",
+    "tags": ["grounding"]
+  },
+  {
+    "id": "friends-light-34",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something you've outgrown that you're glad you left behind?",
+    "tags": ["change"]
+  },
+  {
+    "id": "friends-light-35",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Who around you makes hard days feel lighter?",
+    "tags": ["support"]
+  },
+  {
+    "id": "friends-light-36",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something you've changed your mind about lately?",
+    "tags": ["perspective"]
+  },
+  {
+    "id": "friends-light-37",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What part of following Jesus has felt surprisingly joyful lately?",
+    "tags": ["discipleship", "joy"]
+  },
+  {
+    "id": "friends-light-38",
+    "audience": ["friends"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's one way God has been getting your attention lately?",
+    "tags": ["attention"]
+  },
+  {
+    "id": "friends-honest-19",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you wish your friends noticed without you having to say it?",
+    "tags": ["needs"]
+  },
+  {
+    "id": "friends-honest-20",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where do you act more fine than you really are?",
+    "tags": ["image"]
+  },
+  {
+    "id": "friends-honest-21",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of honesty feels hardest for you to offer first?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "friends-honest-22",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What have you been avoiding because naming it would make it real?",
+    "tags": ["avoidance"]
+  },
+  {
+    "id": "friends-honest-23",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "When do you feel most torn between image and integrity?",
+    "tags": ["integrity"]
+  },
+  {
+    "id": "friends-honest-24",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you want more of from friendship right now, but rarely ask for?",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "friends-honest-25",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of your story still feels easy to edit when you tell it?",
+    "tags": ["story"]
+  },
+  {
+    "id": "friends-honest-26",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What part of your faith feels thinner than it used to?",
+    "tags": ["dryness"]
+  },
+  {
+    "id": "friends-honest-27",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where have you been praying the same thing for a long time?",
+    "tags": ["perseverance"]
+  },
+  {
+    "id": "friends-honest-28",
+    "audience": ["friends"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What truth from Scripture do you need more than your usual self-talk right now?",
+    "tags": ["truth"]
+  },
+  {
+    "id": "friends-deep-18",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What wound still shapes the way you let people get close?",
+    "tags": ["wounds"]
+  },
+  {
+    "id": "friends-deep-19",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What are you still carrying from an old season that no longer fits your life?",
+    "tags": ["transition"]
+  },
+  {
+    "id": "friends-deep-20",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What kind of person are you becoming when nobody interrupts you?",
+    "tags": ["character"]
+  },
+  {
+    "id": "friends-deep-21",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What loss changed the way you love people now?",
+    "tags": ["grief"]
+  },
+  {
+    "id": "friends-deep-22",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What fear has the most say in your inner life right now?",
+    "tags": ["fear"]
+  },
+  {
+    "id": "friends-deep-23",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where is God asking you to trust Him without controlling the outcome?",
+    "tags": ["trust"]
+  },
+  {
+    "id": "friends-deep-24",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of Jesus feels most compelling to you right now, and why?",
+    "tags": ["Jesus"]
+  },
+  {
+    "id": "friends-deep-25",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What have your prayers sounded like in your hardest moments lately?",
+    "tags": ["lament"]
+  },
+  {
+    "id": "friends-deep-26",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "Where does obedience feel costly in your everyday life?",
+    "tags": ["obedience"]
+  },
+  {
+    "id": "friends-deep-27",
+    "audience": ["friends"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What part of the Gospel feels most personal to you right now?",
+    "tags": ["gospel"]
+  },
+  {
+    "id": "dating-light-28",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's an oddly specific thing that makes you feel cared for?",
+    "tags": ["care"]
+  },
+  {
+    "id": "dating-light-29",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of date feels fun to you without needing to be impressive?",
+    "tags": ["dating"]
+  },
+  {
+    "id": "dating-light-30",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What do people usually get right about you early on?",
+    "tags": ["first-impressions"]
+  },
+  {
+    "id": "dating-light-31",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something wholesome you never outgrew?",
+    "tags": ["nostalgia"]
+  },
+  {
+    "id": "dating-light-32",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of chemistry matters to you more than looks?",
+    "tags": ["chemistry"]
+  },
+  {
+    "id": "dating-light-33",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a green flag you notice fast?",
+    "tags": ["discernment"]
+  },
+  {
+    "id": "dating-light-34",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's the easiest version of you to bring into a relationship?",
+    "tags": ["ease"]
+  },
+  {
+    "id": "dating-light-35",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of conversation makes time disappear for you?",
+    "tags": ["connection"]
+  },
+  {
+    "id": "dating-light-36",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something God has been growing in you that would matter in a relationship?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "dating-light-37",
+    "audience": ["dating"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "How do you hope God shapes the way you love someone?",
+    "tags": ["love"]
+  },
+  {
+    "id": "dating-honest-19",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What part of dating makes you second-guess yourself most?",
+    "tags": ["insecurity"]
+  },
+  {
+    "id": "dating-honest-20",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where are you most tempted to perform instead of be known?",
+    "tags": ["performance"]
+  },
+  {
+    "id": "dating-honest-21",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What expectation about relationships has been hardest to let go of?",
+    "tags": ["expectations"]
+  },
+  {
+    "id": "dating-honest-22",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of conflict are you most likely to avoid?",
+    "tags": ["conflict"]
+  },
+  {
+    "id": "dating-honest-23",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What do you want to be chosen for besides chemistry?",
+    "tags": ["belonging"]
+  },
+  {
+    "id": "dating-honest-24",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "Where do your fears get louder than your clarity?",
+    "tags": ["fear"]
+  },
+  {
+    "id": "dating-honest-25",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you protect too quickly when closeness starts to grow?",
+    "tags": ["self-protection"]
+  },
+  {
+    "id": "dating-honest-26",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What role does prayer play when you're unsure about someone?",
+    "tags": ["discernment"]
+  },
+  {
+    "id": "dating-honest-27",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of your faith do you most want a future relationship to strengthen?",
+    "tags": ["faith"]
+  },
+  {
+    "id": "dating-honest-28",
+    "audience": ["dating"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What has Jesus been reshaping in the way you think about love?",
+    "tags": ["Jesus"]
+  },
+  {
+    "id": "dating-deep-18",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What would real emotional safety require from both people?",
+    "tags": ["safety"]
+  },
+  {
+    "id": "dating-deep-19",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What pattern in your relationships most needs to end with you?",
+    "tags": ["patterns"]
+  },
+  {
+    "id": "dating-deep-20",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What part of being known still feels risky, even when you want it?",
+    "tags": ["vulnerability"]
+  },
+  {
+    "id": "dating-deep-21",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of love are you unwilling to settle for anymore?",
+    "tags": ["standards"]
+  },
+  {
+    "id": "dating-deep-22",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What has heartbreak taught you about your own heart?",
+    "tags": ["heartbreak"]
+  },
+  {
+    "id": "dating-deep-23",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where is God asking you to wait with an open hand?",
+    "tags": ["waiting"]
+  },
+  {
+    "id": "dating-deep-24",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What would obedience look like if a relationship started moving faster than your peace?",
+    "tags": ["obedience"]
+  },
+  {
+    "id": "dating-deep-25",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "How has following Jesus changed what commitment means to you?",
+    "tags": ["Jesus"]
+  },
+  {
+    "id": "dating-deep-26",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What part of prayer together feels intimate in a good way, and what part feels vulnerable?",
+    "tags": ["intimacy"]
+  },
+  {
+    "id": "dating-deep-27",
+    "audience": ["dating"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What kind of future are you asking God to protect you from settling into?",
+    "tags": ["discernment"]
+  },
+  {
+    "id": "family-light-29",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's a family story that still makes you laugh every time?",
+    "tags": ["family-story"]
+  },
+  {
+    "id": "family-light-30",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Who in this family has an underrated talent?",
+    "tags": ["family-strengths"]
+  },
+  {
+    "id": "family-light-31",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's a tiny tradition you hope we never lose?",
+    "tags": ["traditions"]
+  },
+  {
+    "id": "family-light-32",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What part of home feels the most like home to you?",
+    "tags": ["home"]
+  },
+  {
+    "id": "family-light-33",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something simple our family does really well?",
+    "tags": ["family-life"]
+  },
+  {
+    "id": "family-light-34",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's one memory here that still feels unexpectedly sweet?",
+    "tags": ["memory"]
+  },
+  {
+    "id": "family-light-35",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Who in this family is easier to appreciate now than they used to be?",
+    "tags": ["appreciation"]
+  },
+  {
+    "id": "family-light-36",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's a normal moment at home you know you'll miss someday?",
+    "tags": ["home"]
+  },
+  {
+    "id": "family-light-37",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where have you seen God be kind to our family lately?",
+    "tags": ["family"]
+  },
+  {
+    "id": "family-light-38",
+    "audience": ["family"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What's one answered prayer our family still talks about?",
+    "tags": ["answered-prayer"]
+  },
+  {
+    "id": "family-honest-19",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's the hardest thing to say in this family without it becoming tense?",
+    "tags": ["tension"]
+  },
+  {
+    "id": "family-honest-20",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Where do we misunderstand each other most easily?",
+    "tags": ["misunderstanding"]
+  },
+  {
+    "id": "family-honest-21",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What role do you slip into at home even when you don't want to?",
+    "tags": ["family-role"]
+  },
+  {
+    "id": "family-honest-22",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does this family assume you're okay with when you're actually not?",
+    "tags": ["assumptions"]
+  },
+  {
+    "id": "family-honest-23",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What old pattern still shows up here too fast?",
+    "tags": ["patterns"]
+  },
+  {
+    "id": "family-honest-24",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What's one kind of repair we need to get better at?",
+    "tags": ["repair"]
+  },
+  {
+    "id": "family-honest-25",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you wish felt safer to say at home?",
+    "tags": ["safety"]
+  },
+  {
+    "id": "family-honest-26",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "Where do we most need God's help to change how we treat each other?",
+    "tags": ["family-change"]
+  },
+  {
+    "id": "family-honest-27",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What kind of prayer would feel most honest for this family right now?",
+    "tags": ["family-prayer"]
+  },
+  {
+    "id": "family-honest-28",
+    "audience": ["family"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What does Jesus teach this family about forgiveness that we still resist living?",
+    "tags": ["forgiveness"]
+  },
+  {
+    "id": "family-deep-18",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What has this family given you that you never want to waste?",
+    "tags": ["legacy"]
+  },
+  {
+    "id": "family-deep-19",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What pain here still deserves more truth than it usually gets?",
+    "tags": ["family-pain"]
+  },
+  {
+    "id": "family-deep-20",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of your story at home still feels unfinished?",
+    "tags": ["story"]
+  },
+  {
+    "id": "family-deep-21",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of healing would change this family for real?",
+    "tags": ["healing"]
+  },
+  {
+    "id": "family-deep-22",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What do you hope people feel in our home years from now?",
+    "tags": ["home"]
+  },
+  {
+    "id": "family-deep-23",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What does trusting God with this family actually require from us now?",
+    "tags": ["trust"]
+  },
+  {
+    "id": "family-deep-24",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What part of our family life most needs prayer and not just better plans?",
+    "tags": ["family-prayer"]
+  },
+  {
+    "id": "family-deep-25",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where have you seen God redeem something hard in this family?",
+    "tags": ["redemption"]
+  },
+  {
+    "id": "family-deep-26",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What kind of faith do you hope the next generation remembers from this home?",
+    "tags": ["legacy"]
+  },
+  {
+    "id": "family-deep-27",
+    "audience": ["family"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What would it look like for Jesus to set the tone in this home more than stress does?",
+    "tags": ["Jesus"]
+  },
+  {
+    "id": "small-group-light-29",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What question would you actually enjoy talking about tonight?",
+    "tags": ["opener"]
+  },
+  {
+    "id": "small-group-light-30",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of encouragement lands best for you in a group?",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "small-group-light-31",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something recent that reminded you people can still surprise you in a good way?",
+    "tags": ["surprise"]
+  },
+  {
+    "id": "small-group-light-32",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What helps you feel at ease with a room faster?",
+    "tags": ["ease"]
+  },
+  {
+    "id": "small-group-light-33",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's one thing that made this week lighter?",
+    "tags": ["weekly-reflection"]
+  },
+  {
+    "id": "small-group-light-34",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of conversation makes you leave feeling more awake?",
+    "tags": ["conversation"]
+  },
+  {
+    "id": "small-group-light-35",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's something small you're looking forward to right now?",
+    "tags": ["anticipation"]
+  },
+  {
+    "id": "small-group-light-36",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's easier to enjoy when you stop trying to be interesting?",
+    "tags": ["self-awareness"]
+  },
+  {
+    "id": "small-group-light-37",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "church",
+    "text": "What part of church life has felt especially life-giving lately?",
+    "tags": ["church-life"]
+  },
+  {
+    "id": "small-group-light-38",
+    "audience": ["small-group"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What story from Scripture has been sticking with you this week?",
+    "tags": ["reflection"]
+  },
+  {
+    "id": "small-group-honest-19",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What makes it hardest to be fully honest in a group setting?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "small-group-honest-20",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where are you most tempted to compare your life to everyone else's?",
+    "tags": ["comparison"]
+  },
+  {
+    "id": "small-group-honest-21",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What do people assume is going better for you than it actually is?",
+    "tags": ["image"]
+  },
+  {
+    "id": "small-group-honest-22",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of support do you need right now that isn't obvious?",
+    "tags": ["support"]
+  },
+  {
+    "id": "small-group-honest-23",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of yourself do you hide behind being helpful?",
+    "tags": ["helpfulness"]
+  },
+  {
+    "id": "small-group-honest-24",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What truth have you been avoiding because it would ask something from you?",
+    "tags": ["avoidance"]
+  },
+  {
+    "id": "small-group-honest-25",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When do you feel most likely to withdraw instead of let yourself be known?",
+    "tags": ["withdrawal"]
+  },
+  {
+    "id": "small-group-honest-26",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What part of discipleship feels lonely right now?",
+    "tags": ["discipleship"]
+  },
+  {
+    "id": "small-group-honest-27",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What sin pattern gets quieter in public but louder in private?",
+    "tags": ["sin"]
+  },
+  {
+    "id": "small-group-honest-28",
+    "audience": ["small-group"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What have your prayers sounded like lately when nobody else is listening?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "small-group-deep-19",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What part of your life feels most in need of deeper honesty?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "small-group-deep-20",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What kind of burden have you gotten too used to carrying alone?",
+    "tags": ["burden"]
+  },
+  {
+    "id": "small-group-deep-21",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What relationship in your life most needs courage from you?",
+    "tags": ["courage"]
+  },
+  {
+    "id": "small-group-deep-22",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What false story about yourself loses power when other people know it?",
+    "tags": ["lies"]
+  },
+  {
+    "id": "small-group-deep-23",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What pain has most changed the way you show up now?",
+    "tags": ["pain"]
+  },
+  {
+    "id": "small-group-deep-24",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What has God been asking you to surrender that you keep circling around?",
+    "tags": ["surrender"]
+  },
+  {
+    "id": "small-group-deep-25",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What part of Scripture has confronted you in a way you couldn't easily ignore?",
+    "tags": ["confrontation"]
+  },
+  {
+    "id": "small-group-deep-26",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "Where does obedience feel most expensive in your actual schedule?",
+    "tags": ["obedience"]
+  },
+  {
+    "id": "small-group-deep-27",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What kind of person do you think Jesus is making you into through this season?",
+    "tags": ["Jesus"]
+  },
+  {
+    "id": "small-group-deep-28",
+    "audience": ["small-group"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What prayer do you keep returning to because it still matters that much?",
+    "tags": ["perseverance"]
+  },
+  {
+    "id": "youth-light-29",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something you care about way more than people expect?",
+    "tags": ["passion"]
+  },
+  {
+    "id": "youth-light-30",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of friend makes you feel most like yourself?",
+    "tags": ["friendship"]
+  },
+  {
+    "id": "youth-light-31",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "gratitude",
+    "text": "What's a normal part of your week that's secretly your favorite?",
+    "tags": ["weekly-reflection"]
+  },
+  {
+    "id": "youth-light-32",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something fun you take more seriously than you probably should?",
+    "tags": ["playfulness"]
+  },
+  {
+    "id": "youth-light-33",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something you've gotten braver about this year?",
+    "tags": ["courage"]
+  },
+  {
+    "id": "youth-light-34",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What kind of encouragement actually sticks with you?",
+    "tags": ["encouragement"]
+  },
+  {
+    "id": "youth-light-35",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something people your age pretend not to care about but definitely do?",
+    "tags": ["adolescence"]
+  },
+  {
+    "id": "youth-light-36",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's one thing that helps you reset after a weird day?",
+    "tags": ["reset"]
+  },
+  {
+    "id": "youth-light-37",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What's something about God that has felt more real to you lately?",
+    "tags": ["God"]
+  },
+  {
+    "id": "youth-light-38",
+    "audience": ["youth"],
+    "depth": "light",
+    "mode": "prompt",
+    "category": "scripture",
+    "text": "What Bible story still catches your attention every time?",
+    "tags": ["story"]
+  },
+  {
+    "id": "youth-honest-20",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "When do you feel most tempted to act less bothered than you really are?",
+    "tags": ["emotion"]
+  },
+  {
+    "id": "youth-honest-21",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What part of being your age feels more lonely than people admit?",
+    "tags": ["loneliness"]
+  },
+  {
+    "id": "youth-honest-22",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you wish adults understood better about your world right now?",
+    "tags": ["adults"]
+  },
+  {
+    "id": "youth-honest-23",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Where do you feel pressure to be impressive?",
+    "tags": ["pressure"]
+  },
+  {
+    "id": "youth-honest-24",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of yourself do you protect too fast?",
+    "tags": ["self-protection"]
+  },
+  {
+    "id": "youth-honest-25",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What kind of fear gets louder when you're alone?",
+    "tags": ["fear"]
+  },
+  {
+    "id": "youth-honest-26",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What do you wish felt easier to say out loud?",
+    "tags": ["honesty"]
+  },
+  {
+    "id": "youth-honest-27",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What makes following Jesus feel most awkward at your age?",
+    "tags": ["Jesus"]
+  },
+  {
+    "id": "youth-honest-28",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What does prayer feel like when you don't know what to say?",
+    "tags": ["uncertainty"]
+  },
+  {
+    "id": "youth-honest-29",
+    "audience": ["youth"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of your faith still feels more inherited than owned?",
+    "tags": ["faith"]
+  },
+  {
+    "id": "youth-deep-19",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What kind of person do you hope to become before anyone is impressed by you?",
+    "tags": ["character"]
+  },
+  {
+    "id": "youth-deep-20",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What part of your story still feels hard to trust with other people?",
+    "tags": ["story"]
+  },
+  {
+    "id": "youth-deep-21",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What fear has been quietly shaping your decisions lately?",
+    "tags": ["fear"]
+  },
+  {
+    "id": "youth-deep-22",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What would change if you stopped building your life around approval?",
+    "tags": ["approval"]
+  },
+  {
+    "id": "youth-deep-23",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "struggle",
+    "text": "What hard thing has grown something real in you?",
+    "tags": ["growth"]
+  },
+  {
+    "id": "youth-deep-24",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "Where do you think God is asking for your courage right now?",
+    "tags": ["courage"]
+  },
+  {
+    "id": "youth-deep-25",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What part of following Jesus feels most costly in your real life?",
+    "tags": ["Jesus"]
+  },
+  {
+    "id": "youth-deep-26",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What prayer do you hope God answers even if it takes longer than you want?",
+    "tags": ["waiting"]
+  },
+  {
+    "id": "youth-deep-27",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "What lie about yourself needs to lose ground because of what God says?",
+    "tags": ["truth"]
+  },
+  {
+    "id": "youth-deep-28",
+    "audience": ["youth"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "mission",
+    "text": "What does surrender to Jesus look like in the part of life you protect most?",
+    "tags": ["surrender"]
+  }
+]
