@@ -1,27 +1,27 @@
 - name: bug
-  color: d73a4a
+  color: 'd73a4a'
   description: Something is broken
 - name: enhancement
-  color: a2eeef
+  color: 'a2eeef'
   description: New feature or improvement
 - name: dependencies
-  color: 0366d6
+  color: '0366d6'
   description: Dependency updates
 - name: documentation
-  color: 0075ca
+  color: '0075ca'
   description: Docs-only changes
 - name: frontend
-  color: fbca04
+  color: 'fbca04'
   description: Frontend app changes
 - name: api
-  color: 5319e7
+  color: '5319e7'
   description: API changes
 - name: ci
-  color: 0e8a16
+  color: '0e8a16'
   description: CI or automation changes
 - name: security
-  color: b60205
+  color: 'b60205'
   description: Security-related work
 - name: major
-  color: bfdadc
+  color: 'bfdadc'
   description: Major dependency updates
