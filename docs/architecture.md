@@ -19,7 +19,7 @@ flowchart TD
 
 - `app/app.ts` is the main entry point.
 - Question metadata comes from `app/questions.ts` + `app/questions.json`.
-- Local preferences, seen prompts, and optimistic feedback live in `localStorage`.
+- Local preferences, seen questions, and optimistic feedback live in `localStorage`.
 - Feature flags are handled in `app/feature-flags.ts`.
 
 ## API

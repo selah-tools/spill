@@ -3,11 +3,11 @@
 
 Defaults:
 - loads KV URL + write token from Proton Pass item titles used in this repo
-- removes `views` field from all `prompt:*` hashes
+- removes `views` field from all `question:*` hashes
 
 Optional:
 - pass --delete-events-list to also delete `events:recent`
-- pass --wipe-all to delete every `prompt:*` feedback hash and `events:recent`
+- pass --wipe-all to delete every `question:*` feedback hash and `events:recent`
 
 Env overrides:
 - KV_REST_API_URL
@@ -59,11 +59,11 @@ def kv_json(url: str, token: str, path: str | None = None, body: list[str | int]
         return json.loads(res.read().decode())
 
 
-def scan_prompt_keys(url: str, token: str) -> list[str]:
+def scan_question_keys(url: str, token: str) -> list[str]:
     keys: list[str] = []
     cursor = '0'
     while True:
-        out = kv_json(url, token, body=['SCAN', cursor, 'MATCH', 'prompt:*', 'COUNT', '200'])
+        out = kv_json(url, token, body=['SCAN', cursor, 'MATCH', 'question:*', 'COUNT', '200'])
         cursor, batch = out['result']
         keys.extend(batch)
         if cursor == '0':
@@ -81,7 +81,7 @@ def main(argv: list[str]) -> int:
     dry_run = '--dry-run' in argv
 
     url, token = get_env()
-    keys = scan_prompt_keys(url, token)
+    keys = scan_question_keys(url, token)
     keys_with_views: list[tuple[str, str]] = []
 
     for key in keys:
@@ -92,7 +92,7 @@ def main(argv: list[str]) -> int:
             keys_with_views.append((key, data['views']))
 
     print(json.dumps({
-        'prompt_keys': len(keys),
+        'question_keys': len(keys),
         'keys_with_views': len(keys_with_views),
         'delete_events_list': delete_events,
         'wipe_all': wipe_all,
@@ -104,16 +104,16 @@ def main(argv: list[str]) -> int:
         return 0
 
     if wipe_all:
-        deleted_prompt_keys = 0
+        deleted_question_keys = 0
         for key in keys:
-            deleted_prompt_keys += int(kv_json(url, token, body=['DEL', key]).get('result', 0))
+            deleted_question_keys += int(kv_json(url, token, body=['DEL', key]).get('result', 0))
         deleted_events = kv_json(url, token, body=['DEL', 'events:recent']).get('result') if delete_events else None
-        remaining_keys = scan_prompt_keys(url, token)
+        remaining_keys = scan_question_keys(url, token)
         events_exists = kv_json(url, token, body=['EXISTS', 'events:recent']).get('result')
         print(json.dumps({
-            'deleted_prompt_keys': deleted_prompt_keys,
+            'deleted_question_keys': deleted_question_keys,
             'deleted_events_result': deleted_events,
-            'remaining_prompt_keys': len(remaining_keys),
+            'remaining_question_keys': len(remaining_keys),
             'events_exists': events_exists,
         }, indent=2))
         return 0 if not remaining_keys and not events_exists else 1

@@ -1,4 +1,4 @@
-# Pattern Extraction: `app/prompts.json`
+# Pattern Extraction: `app/questions.json`
 
 Based on analysis of 93 prompts in the shipped set cross-referenced against 114 curation decisions (111 reviewed, 11 favorites, ~15 flagged for awkward phrasing, ~10 cut), the following patterns emerge. Curation feedback from the guidance document and per-prompt notes materially reshapes several sections.
 
@@ -91,4 +91,4 @@ The guidance document and per-prompt notes reveal an explicit quality framework:
 - **Anti-exercise stance**: The strongest curatorial pattern is the rejection of contemplative exercises, writing prompts, silence directives, and multi-step facilitation. Spill cards are questions, not activities. The surviving wildcards that use imperative voice succeed precisely because they direct one person's attention toward another person—they are relational actions, not spiritual disciplines.
 - **Favorites cluster around concrete imagery and relational specificity**: The 11 favorited prompts share a pattern—they name a recognizable human moment ("laugh until it hurt," "quietly carrying," "secretly great at something") or pose a question with real-world stakes ("What does forgiveness cost in a family?"). Abstract or theological-concept-first prompts were never favorited.
 - **Cross-audience wildcards** (e.g., `wildcard-02`, `wildcard-16`) target all five audiences simultaneously, serving as universal connectors, but they were also disproportionately flagged for revision—universality creates pressure toward generic phrasing.
-- **Curation is subtractive**: The shipped `prompts.json` (93 entries) already reflects significant pruning from a larger candidate set (wildcards jump from 01 to 22 with 10 cut). The curation posture is to cut aggressively rather than revise generously.
+- **Curation is subtractive**: The shipped `questions.json` (93 entries) already reflects significant pruning from a larger candidate set (wildcards jump from 01 to 22 with 10 cut). The curation posture is to cut aggressively rather than revise generously.

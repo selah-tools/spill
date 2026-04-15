@@ -9,7 +9,7 @@
 
 ## Repo overview
 
-- `app/`: Vite frontend and prompt-selection logic
+- `app/`: Vite frontend and question-selection logic
 - `api/`: Vercel Edge handlers
 - `lib/`: shared observability helpers
 - `docs/`: architecture, runbooks, and OpenAPI schema
@@ -35,11 +35,11 @@ pnpm docs:generate
 - ESLint remains the authoritative lint layer for naming conventions and complexity warnings.
 - Prettier owns formatting.
 - Avoid adding `TODO`, `FIXME`, or `HACK` markers without a linked issue or a planned follow-up.
-- Keep prompt-related IDs deterministic. The canonical ID format is `{prompt-id}-{hash}`.
+- Keep question-related IDs deterministic. The canonical ID format is `{question-id}-{hash}`.
 
 ## Testing expectations
 
-- Add or update tests for prompt logic and API behavior.
+- Add or update tests for question logic and API behavior.
 - Keep API responses JSON-only and include `X-Request-Id` headers.
 - Prefer deterministic tests with mocked network I/O.
 - Keep Playwright smoke tests green for core flows.

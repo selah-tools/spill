@@ -1,6 +1,6 @@
 # spill
 
-Spill is a small Vite app for drawing conversation prompts and wildcards, with a lightweight Vercel Edge API for prompt metadata and anonymous feedback aggregation.
+Spill is a small Vite app for drawing conversation questions and wildcards, with a lightweight Vercel Edge API for question metadata and anonymous feedback aggregation.
 
 ## Quick start
 
@@ -48,7 +48,7 @@ Copy `.env.example` to `.env.local` when you need production-like feedback write
 
 ## Repo map
 
-- `app/` – browser app, prompt library, UI, local analytics
+- `app/` – browser app, question library, UI, local analytics
 - `api/` – Vercel Edge functions
 - `lib/` – shared observability and logging helpers
 - `docs/` – architecture, API schema, runbooks
@@ -85,9 +85,9 @@ localStorage.setItem(
 
 Vitest covers:
 
-- prompt-library behavior
+- question-library behavior
 - slug generation
-- deployed prompt map generation
+- deployed question map generation
 - Edge API handlers
 
 Playwright covers:
@@ -97,7 +97,7 @@ Playwright covers:
 - drawing a card
 - downvote modal flow
 
-Coverage thresholds are configured in `vitest.config.ts` for the core prompt + API surface. CI stores JUnit/JSON test reports for both Vitest and Playwright.
+Coverage thresholds are configured in `vitest.config.ts` for the core question + API surface. CI stores JUnit/JSON test reports for both Vitest and Playwright.
 
 ## Release workflow
 
