@@ -1,0 +1,20 @@
+frontend:
+  - changed-files:
+      - any-glob-to-any-file: ['app/**']
+api:
+  - changed-files:
+      - any-glob-to-any-file: ['api/**', 'docs/api/**']
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['README.md', 'AGENTS.md', 'docs/**']
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**']
+security:
+  - changed-files:
+      - any-glob-to-any-file:
+          [
+            'renovate.json',
+            '.github/workflows/secret-scan.yml',
+            '.github/CODEOWNERS',
+          ]

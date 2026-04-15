@@ -1,0 +1,12 @@
+{
+  "ignorePatterns": [
+    "coverage/**",
+    "dist/**",
+    "docs/reference/**",
+    "node_modules/**",
+    ".vercel/**",
+    "playwright-report/**",
+    "reports/**",
+    "test-results/**"
+  ]
+}

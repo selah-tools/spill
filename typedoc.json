@@ -1,0 +1,18 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "tsconfig": "./tsconfig.docs.json",
+  "entryPoints": [
+    "app/prompts.ts",
+    "app/analytics.ts",
+    "app/feature-flags.ts",
+    "api/feedback.ts",
+    "api/prompt-map.ts",
+    "lib/observability.ts"
+  ],
+  "entryPointStrategy": "resolve",
+  "out": "docs/reference",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "exclude": ["**/*.test.ts"]
+}
