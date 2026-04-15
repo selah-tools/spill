@@ -1,7 +1,7 @@
 import { statSync } from 'node:fs'
 
 const budgets = [
-  { path: 'app/prompts.json', maxBytes: 150_000 },
+  { path: 'app/questions.json', maxBytes: 150_000 },
   { path: 'README.md', maxBytes: 25_000 },
 ]
 

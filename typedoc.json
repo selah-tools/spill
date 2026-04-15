@@ -2,11 +2,11 @@
   "$schema": "https://typedoc.org/schema.json",
   "tsconfig": "./tsconfig.docs.json",
   "entryPoints": [
-    "app/prompts.ts",
+    "app/questions.ts",
     "app/analytics.ts",
     "app/feature-flags.ts",
     "api/feedback.ts",
-    "api/prompt-map.ts",
+    "api/question-map.ts",
     "lib/observability.ts"
   ],
   "entryPointStrategy": "resolve",

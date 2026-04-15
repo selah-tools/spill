@@ -11,7 +11,7 @@
     "**/docs/reference/**",
     "**/node_modules/**",
     "**/*.test.ts",
-    "app/prompts.json",
+    "app/questions.json",
     "app/public/**",
     "app/index.html",
     ".github/**"

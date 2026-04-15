@@ -2,23 +2,23 @@ openapi: 3.1.0
 info:
   title: Spill Edge API
   version: 0.1.0
-  description: API schema for prompt metadata and anonymous feedback ingestion.
+  description: API schema for question metadata and anonymous feedback ingestion.
 servers:
   - url: https://spill.cards
 paths:
-  /api/prompt-map:
+  /api/question-map:
     get:
-      summary: Fetch prompt metadata by canonical ID or return the full deployed prompt map.
+      summary: Fetch question metadata by canonical ID or return the full deployed question map.
       parameters:
         - in: query
           name: cid
           required: false
           schema:
             type: string
-          description: Canonical prompt ID (`{prompt-id}-{hash}`).
+          description: Canonical question ID (`{question-id}-{hash}`).
       responses:
         '200':
-          description: Prompt map payload
+          description: Question map payload
           headers:
             X-Request-Id:
               schema:
@@ -31,19 +31,19 @@ paths:
                     properties:
                       count:
                         type: integer
-                      prompts:
+                      questions:
                         type: array
                         items:
-                          $ref: '#/components/schemas/PromptMapEntry'
+                          $ref: '#/components/schemas/QuestionMapEntry'
                   - type: object
                     properties:
-                      prompt:
+                      question:
                         anyOf:
-                          - $ref: '#/components/schemas/PromptMapEntry'
+                          - $ref: '#/components/schemas/QuestionMapEntry'
                           - type: 'null'
   /api/feedback:
     post:
-      summary: Record an anonymous prompt interaction.
+      summary: Record an anonymous question interaction.
       requestBody:
         required: true
         content:
@@ -72,7 +72,7 @@ paths:
           description: Upstream KV write failure
 components:
   schemas:
-    PromptMapEntry:
+    QuestionMapEntry:
       type: object
       required: [cid, id, text, mode, depth, category]
       properties:
@@ -108,13 +108,13 @@ components:
         eventType:
           type: string
           enum:
-            - prompt_viewed
-            - prompt_upvoted
-            - prompt_downvoted
-            - prompt_copied
-            - prompt_shared
+            - question_viewed
+            - question_upvoted
+            - question_downvoted
+            - question_copied
+            - question_shared
             - wildcard_opened
-            - new_prompt_requested
+            - new_question_requested
         context:
           type: array
           items:

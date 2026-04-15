@@ -22,8 +22,8 @@ export type IssueTag =
   | 'not-distinctive'
   | 'great-example'
 
-export type PromptCuration = {
-  promptId: string
+export type QuestionCuration = {
+  questionId: string
   status: CurationStatus
   scores: Record<ScoreKey, ScoreValue | null>
   signals: QuickSignal[]
@@ -32,7 +32,7 @@ export type PromptCuration = {
   updatedAt: string | null
 }
 
-export type PromptCurations = Record<string, PromptCuration>
+export type QuestionCurations = Record<string, QuestionCuration>
 
 export const STORAGE_KEY = 'spill:curations:v4'
 
@@ -128,8 +128,8 @@ const emptyScores = (): Record<ScoreKey, ScoreValue | null> => ({
   theology: null,
 })
 
-export const createEmptyCuration = (promptId: string): PromptCuration => ({
-  promptId,
+export const createEmptyCuration = (questionId: string): QuestionCuration => ({
+  questionId,
   status: 'unreviewed',
   scores: emptyScores(),
   signals: [],
@@ -140,20 +140,20 @@ export const createEmptyCuration = (promptId: string): PromptCuration => ({
 
 const isBrowser = () => typeof window !== 'undefined'
 
-export const loadCurations = (): PromptCurations => {
+export const loadCurations = (): QuestionCurations => {
   if (!isBrowser()) {
     return {}
   }
 
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY)
-    return raw ? (JSON.parse(raw) as PromptCurations) : {}
+    return raw ? (JSON.parse(raw) as QuestionCurations) : {}
   } catch {
     return {}
   }
 }
 
-export const saveCurations = (curations: PromptCurations): void => {
+export const saveCurations = (curations: QuestionCurations): void => {
   if (!isBrowser()) {
     return
   }
@@ -166,16 +166,16 @@ export const saveCurations = (curations: PromptCurations): void => {
 }
 
 export const getCuration = (
-  curations: PromptCurations,
-  promptId: string,
-): PromptCuration => {
-  const stored = curations[promptId]
+  curations: QuestionCurations,
+  questionId: string,
+): QuestionCuration => {
+  const stored = curations[questionId]
   if (!stored) {
-    return createEmptyCuration(promptId)
+    return createEmptyCuration(questionId)
   }
 
   return {
-    ...createEmptyCuration(promptId),
+    ...createEmptyCuration(questionId),
     ...stored,
     scores: {
       ...emptyScores(),
@@ -196,7 +196,7 @@ export const getCuration = (
   }
 }
 
-export const isReviewed = (curation: PromptCuration): boolean => {
+export const isReviewed = (curation: QuestionCuration): boolean => {
   if (curation.status !== 'unreviewed') {
     return true
   }

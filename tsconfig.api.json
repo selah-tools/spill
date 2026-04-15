@@ -16,8 +16,8 @@
   "include": [
     "api/**/*.ts",
     "app/card-slug.ts",
-    "app/prompts.ts",
-    "app/prompts.json",
+    "app/questions.ts",
+    "app/questions.json",
     "app/feedback-types.ts",
     "app/vite-env.d.ts",
     "lib/**/*.ts"

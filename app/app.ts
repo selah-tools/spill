@@ -1,33 +1,43 @@
 import { html, reactive } from '@arrow-js/core'
 
+import { initSentry } from './sentry'
+
+initSentry()
+
 import {
-  clearSeenPrompts,
-  loadSeenPromptIds,
-  trackPromptEvent,
+  clearSeenQuestions,
+  loadSeenQuestionIds,
+  trackQuestionEvent,
 } from './analytics'
-import { AboutModal } from './components/AboutModal'
+import {
+  AboutModal,
+  setCanInstall as setAboutCanInstall,
+  setInstallHandler,
+} from './components/AboutModal'
 import { DownvoteModal } from './components/DownvoteModal'
 import { FilterBar, filterUi, toggleFiltersModal } from './components/FilterBar'
-import { PromptCard } from './components/PromptCard'
+import { QuestionCard } from './components/QuestionCard'
 import {
   appPublicRootPath,
-  cardPathForPrompt,
+  cardPathForQuestion,
   parseCardSlugFromPathname,
-  promptForCardSlug,
+  questionForCardSlug,
+  rebuildSlugMaps,
 } from './card-slug'
-import { getPromptById, pickPrompt } from './generator'
+import { getQuestionById, pickQuestion } from './generator'
 import {
   cardPackMetaLabel,
   depthOptions,
-  isOvertChristianPrompt,
+  isOvertChristianQuestion,
   orderedDeck,
-  type Prompt,
-} from './prompts'
+  type Question,
+} from './questions'
 import {
-  clearCurrentPrompt,
+  clearCurrentQuestion,
   openAboutModal,
-  setCurrentPrompt,
-  setCurrentPromptFromDeck,
+  resetHistory,
+  setCurrentQuestion,
+  setCurrentQuestionFromDeck,
   setLoading,
   setMode,
   setNotice,
@@ -46,9 +56,59 @@ const handleToggleFilters = (): void => {
   toggleFiltersModal()
 }
 
+import { applySwUpdate, setSwUpdateHandler } from './pwa'
+
+/** PWA install prompt — surfaced on supported browsers (Chrome, Edge, Samsung). */
+const installState = reactive({
+  deferredPrompt: null as BeforeInstallPromptEvent | null,
+  dismissed: false,
+})
+
+type BeforeInstallPromptEvent = Event & {
+  prompt: () => Promise<void>
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>
+}
+
+window.addEventListener('beforeinstallprompt', (e: Event) => {
+  e.preventDefault()
+  installState.deferredPrompt = e as BeforeInstallPromptEvent
+  setAboutCanInstall(true)
+})
+
+window.addEventListener('appinstalled', () => {
+  installState.deferredPrompt = null
+  installState.dismissed = false
+  setAboutCanInstall(false)
+})
+
+/** Trigger the native install prompt when available. */
+export const handleInstall = async (): Promise<void> => {
+  if (!installState.deferredPrompt) return
+  await installState.deferredPrompt.prompt()
+  const { outcome } = await installState.deferredPrompt.userChoice
+  if (outcome === 'dismissed') {
+    installState.dismissed = true
+  }
+  installState.deferredPrompt = null
+}
+
+setInstallHandler(async () => {
+  await handleInstall()
+})
+
+const updateBanner = reactive({ visible: false })
+
+setSwUpdateHandler(() => {
+  updateBanner.visible = true
+})
+
+const handleApplyUpdate = (): void => {
+  updateBanner.visible = false
+  applySwUpdate()
+}
+
 import './styles.css'
 import './agentation-mount'
-import './pwa'
 
 /** Narrow viewports get `html.mobile-native` - native-style shell (safe areas, dock, touch). */
 const MOBILE_NATIVE_MQ = '(max-width: 639px)'
@@ -101,12 +161,15 @@ const checkIconSvg = html`<svg
 
 const servedAudienceLabel = () =>
   cardPackMetaLabel(
-    state.currentPrompt?.audience ?? state.servedContext ?? state.context,
+    state.currentQuestion?.audience ?? state.servedContext ?? state.context,
   )
 
-const servedDepthLabel = () =>
-  depthOptions.find((o) => o.value === (state.servedDepth ?? state.depth))
-    ?.label ?? 'Light'
+const servedDepthLabel = () => {
+  const d = state.currentQuestion?.depth ?? state.servedDepth
+  return d
+    ? (depthOptions.find((o) => o.value === d)?.label ?? 'Light')
+    : 'Light'
+}
 
 const activePoolFilters = () => ({
   includeWildcards: state.includeWildcards,
@@ -122,15 +185,15 @@ const flashNotice = (msg: string): void => {
 }
 
 const syncCardUrl = (how: 'push' | 'replace'): void => {
-  const p = state.currentPrompt
-  if (!p) {
+  const q = state.currentQuestion
+  if (!q) {
     const home = appPublicRootPath()
     if (parseCardSlugFromPathname(location.pathname)) {
       history.replaceState(null, '', home)
     }
     return
   }
-  const path = cardPathForPrompt(p)
+  const path = cardPathForQuestion(q)
   if (!path) return
   if (location.pathname === path || location.pathname === `${path}/`) return
   history[how === 'push' ? 'pushState' : 'replaceState'](null, '', path)
@@ -139,26 +202,26 @@ const syncCardUrl = (how: 'push' | 'replace'): void => {
 const applyCardFromRoute = (): void => {
   const slug = parseCardSlugFromPathname(location.pathname)
   if (!slug) {
-    if (state.currentPrompt) {
-      clearCurrentPrompt()
+    if (state.currentQuestion) {
+      clearCurrentQuestion()
     }
     return
   }
-  const prompt = promptForCardSlug(slug)
-  if (!prompt) {
+  const question = questionForCardSlug(slug)
+  if (!question) {
     flashNotice('That card link is not valid.')
     history.replaceState(null, '', appPublicRootPath())
-    clearCurrentPrompt()
+    clearCurrentQuestion()
     return
   }
-  setMode(prompt.mode)
-  setCurrentPromptFromDeck(prompt)
-  trackPromptEvent(
-    prompt,
-    prompt.audience,
-    prompt.depth,
-    prompt.mode,
-    'prompt_viewed',
+  setMode(question.mode)
+  setCurrentQuestionFromDeck(question)
+  trackQuestionEvent(
+    question,
+    question.audience,
+    question.depth,
+    question.mode,
+    'question_viewed',
   )
 }
 
@@ -167,22 +230,23 @@ window.addEventListener('popstate', () => {
 })
 
 const formatShare = (): string => {
-  if (!state.currentPrompt) return ''
+  if (!state.currentQuestion) return ''
 
-  const lead = state.currentPrompt.mode === 'wildcard' ? 'Wildcard' : 'Prompt'
-  const path = cardPathForPrompt(state.currentPrompt)
+  const lead =
+    state.currentQuestion.mode === 'wildcard' ? 'Wildcard' : 'Question'
+  const path = cardPathForQuestion(state.currentQuestion)
   const link =
     path && typeof location !== 'undefined' ? `${location.origin}${path}` : ''
   const tail = link ? `${link}\nspill.cards` : 'spill.cards'
   const meta = [
-    isOvertChristianPrompt(state.currentPrompt) ? 'Overt' : '',
+    isOvertChristianQuestion(state.currentQuestion) ? 'Overt' : '',
     servedAudienceLabel(),
     servedDepthLabel(),
   ]
     .filter(Boolean)
     .join(' · ')
 
-  return `${lead} - ${state.currentPrompt.text}\n\n${meta}\n${tail}`
+  return `${lead} - ${state.currentQuestion.text}\n\n${meta}\n${tail}`
 }
 
 const copyText = async (text: string): Promise<void> => {
@@ -226,22 +290,27 @@ const dealCard = (source: 'initial' | 'new'): void => {
     return
   }
 
+  if (!state.depth.length) {
+    feedbackError()
+    flashNotice('Turn on at least one depth.')
+    return
+  }
+
   const doDeal = (): void => {
     setLoading(true)
 
-    const { prompt, exhaustedUnseen } = pickPrompt({
+    const { question, exhaustedUnseen } = pickQuestion({
       context: state.context,
       depth: state.depth,
       includeWildcards: state.includeWildcards,
       includeOvertChristian: state.includeOvertChristian,
-      recentPromptIds: state.recentPromptIds,
-      seenPromptIds: loadSeenPromptIds(),
-      sessionCardCount: state.history.length,
+      recentQuestionIds: state.recentQuestionIds,
+      seenQuestionIds: loadSeenQuestionIds(),
     })
 
     setLoading(false)
 
-    if (!prompt) {
+    if (!question) {
       feedbackError()
       flashNotice(
         'Nothing matched. Try another depth or turn on more card types.',
@@ -250,8 +319,8 @@ const dealCard = (source: 'initial' | 'new'): void => {
     }
 
     feedbackPrimary()
-    setMode(prompt.mode)
-    setCurrentPrompt(prompt)
+    setMode(question.mode)
+    setCurrentQuestion(question)
     syncCardUrl('push')
 
     if (exhaustedUnseen) {
@@ -260,65 +329,65 @@ const dealCard = (source: 'initial' | 'new'): void => {
       )
     }
 
-    trackPromptEvent(
-      prompt,
-      prompt.audience,
-      prompt.depth,
-      prompt.mode,
-      'prompt_viewed',
+    trackQuestionEvent(
+      question,
+      question.audience,
+      question.depth,
+      question.mode,
+      'question_viewed',
     )
 
     if (source === 'new') {
-      trackPromptEvent(
-        prompt,
-        prompt.audience,
-        prompt.depth,
-        prompt.mode,
-        'new_prompt_requested',
+      trackQuestionEvent(
+        question,
+        question.audience,
+        question.depth,
+        question.mode,
+        'new_question_requested',
       )
     }
 
-    if (prompt.mode === 'wildcard') {
-      trackPromptEvent(
-        prompt,
-        prompt.audience,
-        prompt.depth,
-        prompt.mode,
+    if (question.mode === 'wildcard') {
+      trackQuestionEvent(
+        question,
+        question.audience,
+        question.depth,
+        question.mode,
         'wildcard_opened',
       )
     }
   }
 
   // Animate exit only when replacing an existing card
-  if (state.currentPrompt) {
+  if (state.currentQuestion) {
     animateCardExit(doDeal)
   } else {
     doDeal()
   }
 }
 
-const handleDrawPrompt = (): void => {
-  dealCard(state.currentPrompt ? 'new' : 'initial')
+const handleDrawQuestion = (): void => {
+  dealCard(state.currentQuestion ? 'new' : 'initial')
 }
 
-const trackDeckView = (prompt: Prompt): void => {
-  trackPromptEvent(
-    prompt,
-    prompt.audience,
-    prompt.depth,
-    prompt.mode,
-    'prompt_viewed',
+const trackDeckView = (question: Question): void => {
+  trackQuestionEvent(
+    question,
+    question.audience,
+    question.depth,
+    question.mode,
+    'question_viewed',
   )
 }
 
-const handleSelectCard = (promptId: string): void => {
-  const prompt = getPromptById(promptId)
-  if (!prompt) return
+const handleSelectCard = (questionId: string): void => {
+  const question = getQuestionById(questionId)
+  if (!question) return
   feedbackPrimary()
-  setMode(prompt.mode)
-  setCurrentPromptFromDeck(prompt)
+  setMode(question.mode)
+  setCurrentQuestionFromDeck(question)
   syncCardUrl('push')
-  trackDeckView(prompt)
+  trackDeckView(question)
 }
 
 const handleDeckReset = (): void => {
@@ -327,7 +396,8 @@ const handleDeckReset = (): void => {
   )
   if (!ok) return
 
-  clearSeenPrompts()
+  clearSeenQuestions()
+  resetHistory()
   const deck = visibleDeck()
   const first = deck[0]
   if (!first) {
@@ -338,21 +408,21 @@ const handleDeckReset = (): void => {
 
   feedbackPrimary()
   setMode(first.mode)
-  setCurrentPromptFromDeck(first)
+  setCurrentQuestionFromDeck(first)
   syncCardUrl('replace')
   trackDeckView(first)
   flashNotice('Deck reset. Shown cards were cleared.')
 }
 
 const handleCopy = async (): Promise<void> => {
-  if (!state.currentPrompt) return
+  if (!state.currentQuestion) return
   await copyText(formatShare())
-  trackPromptEvent(
-    state.currentPrompt,
-    state.currentPrompt.audience,
-    state.currentPrompt.depth,
-    state.currentPrompt.mode,
-    'prompt_copied',
+  trackQuestionEvent(
+    state.currentQuestion,
+    state.currentQuestion.audience,
+    state.currentQuestion.depth,
+    state.currentQuestion.mode,
+    'question_copied',
   )
   feedbackSoftSuccess()
 }
@@ -375,9 +445,9 @@ async function tryNavigatorShare(data: ShareData): Promise<NativeShareOutcome> {
 }
 
 const handleShare = async (): Promise<void> => {
-  if (!state.currentPrompt) return
+  if (!state.currentQuestion) return
   const text = formatShare()
-  const path = cardPathForPrompt(state.currentPrompt)
+  const path = cardPathForQuestion(state.currentQuestion)
   const url = path ? `${location.origin}${path}` : undefined
 
   const withLinkField: ShareData = {
@@ -395,12 +465,12 @@ const handleShare = async (): Promise<void> => {
   }
 
   if (outcome === 'shared') {
-    trackPromptEvent(
-      state.currentPrompt,
-      state.currentPrompt.audience,
-      state.currentPrompt.depth,
-      state.currentPrompt.mode,
-      'prompt_shared',
+    trackQuestionEvent(
+      state.currentQuestion,
+      state.currentQuestion.audience,
+      state.currentQuestion.depth,
+      state.currentQuestion.mode,
+      'question_shared',
     )
     feedbackSuccess()
     flashNotice('Shared.')
@@ -408,30 +478,31 @@ const handleShare = async (): Promise<void> => {
   }
 
   await copyText(text)
-  trackPromptEvent(
-    state.currentPrompt,
-    state.currentPrompt.audience,
-    state.currentPrompt.depth,
-    state.currentPrompt.mode,
-    'prompt_copied',
+  trackQuestionEvent(
+    state.currentQuestion,
+    state.currentQuestion.audience,
+    state.currentQuestion.depth,
+    state.currentQuestion.mode,
+    'question_copied',
   )
   feedbackSoftSuccess()
   flashNotice('Copied instead - native share is not available here.')
 }
 
+rebuildSlugMaps()
 applyCardFromRoute()
 
 html`
   <div class="page">
     <div
       class="${() =>
-        'page__top' + (state.currentPrompt ? ' page__top--compact' : '')}"
+        'page__top' + (state.currentQuestion ? ' page__top--compact' : '')}"
     >
       <header class="header">
         <a class="wordmark" href="${import.meta.env.BASE_URL}">Spill</a>
         <div class="header__rating">
           ${() =>
-            state.currentPrompt
+            state.currentQuestion
               ? html`<button
                     type="button"
                     class="${() =>
@@ -515,7 +586,14 @@ html`
               viewBox="0 0 256 256"
             >
               <rect width="256" height="256" fill="none" />
-              <circle cx="128" cy="180" r="12" />
+              <circle
+                cx="128"
+                cy="180"
+                r="8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="16"
+              />
               <path
                 d="M128,144v-8c17.67,0,32-12.54,32-28s-14.33-28-32-28S96,92.54,96,108v4"
                 fill="none"
@@ -540,17 +618,30 @@ html`
       </header>
     </div>
 
-    <main class="main">${PromptCard()}</main>
+    <main class="main">${QuestionCard()}</main>
 
     <div class="app-dock">
       ${FilterBar({
-        onDrawPrompt: handleDrawPrompt,
+        onDrawQuestion: handleDrawQuestion,
         onSelectCard: handleSelectCard,
         onDeckReset: handleDeckReset,
       })}
       ${AboutModal()} ${DownvoteModal()}
     </div>
 
+    ${() =>
+      updateBanner.visible
+        ? html`<div class="update-banner" role="status">
+            <p class="update-banner__text">A new version is ready.</p>
+            <button
+              type="button"
+              class="update-banner__btn"
+              @click="${handleApplyUpdate}"
+            >
+              Update
+            </button>
+          </div>`
+        : null}
     ${() =>
       state.notice
         ? html`<div class="toast" role="status">

@@ -4,7 +4,7 @@
     "app/curator.ts",
     "app/agentation-mount.ts",
     "api/feedback.ts",
-    "api/prompt-map.ts"
+    "api/question-map.ts"
   ],
   "project": [
     "app/**/*.ts",

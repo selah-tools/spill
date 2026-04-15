@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { canonicalId } from '../app/card-slug'
-import { promptLibrary } from '../app/prompts'
+import { questionLibrary } from '../app/questions'
 import handler from './feedback'
 
-const prompt = promptLibrary.find((entry) => entry.active)
-if (!prompt) {
-  throw new Error('Missing active prompt fixture')
+const question = questionLibrary.find((entry) => entry.active)
+if (!question) {
+  throw new Error('Missing active question fixture')
 }
 
 const mockKvResponse = () =>
@@ -34,11 +34,11 @@ describe('POST /api/feedback', () => {
           'X-Request-Id': 'req-test-1',
         },
         body: JSON.stringify({
-          cid: canonicalId(prompt),
-          eventType: 'prompt_viewed',
-          context: prompt.audience,
-          depth: prompt.depth,
-          mode: prompt.mode,
+          cid: canonicalId(question),
+          eventType: 'question_viewed',
+          context: question.audience,
+          depth: question.depth,
+          mode: question.mode,
         }),
       }),
     )
@@ -58,11 +58,11 @@ describe('POST /api/feedback', () => {
           'X-Request-Id': 'req-test-2',
         },
         body: JSON.stringify({
-          cid: canonicalId(prompt),
-          eventType: 'prompt_upvoted',
-          context: prompt.audience,
-          depth: prompt.depth,
-          mode: prompt.mode,
+          cid: canonicalId(question),
+          eventType: 'question_upvoted',
+          context: question.audience,
+          depth: question.depth,
+          mode: question.mode,
           counterDeltas: { upvotes: 1 },
         }),
       }),
@@ -93,11 +93,12 @@ describe('POST /api/feedback', () => {
           'X-Request-Id': 'req-reason-1',
         },
         body: JSON.stringify({
-          cid: canonicalId(prompt),
-          eventType: 'prompt_downvoted',
-          context: prompt.audience,
-          depth: prompt.depth,
-          mode: prompt.mode,
+          cid: canonicalId(question),
+          eventType: 'question_downvoted',
+          context: question.audience,
+          depth: question.depth,
+          mode: question.mode,
+          counterDeltas: { downvotes: 1 },
           reason: 'Too vague',
         }),
       }),
@@ -117,18 +118,88 @@ describe('POST /api/feedback', () => {
     expect(lpushCall).toBeDefined()
     const lpushBody = JSON.parse(String(lpushCall![1]!.body)) as string[]
     expect(lpushBody[0]).toBe('LPUSH')
-    expect(lpushBody[1]).toBe(`prompt:${canonicalId(prompt)}:downvoteReasons`)
+    expect(lpushBody[1]).toBe(
+      `question:${canonicalId(question)}:downvoteReasons`,
+    )
     expect(lpushBody[2]).toBe('Too vague')
   })
 
-  it('rejects unknown prompts before touching KV', async () => {
+  it('rejects rating events without counterDeltas', async () => {
+    const response = await handler(
+      new Request('https://spill.cards/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Request-Id': 'req-no-deltas',
+        },
+        body: JSON.stringify({
+          cid: canonicalId(question),
+          eventType: 'question_downvoted',
+          context: question.audience,
+          depth: question.depth,
+          mode: question.mode,
+        }),
+      }),
+    )
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      error: 'counterDeltas required for rating events',
+    })
+    expect(fetch).not.toHaveBeenCalled()
+  })
+
+  it('applies both decrements and increments when switching ratings', async () => {
+    const response = await handler(
+      new Request('https://spill.cards/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Request-Id': 'req-switch-1',
+        },
+        body: JSON.stringify({
+          cid: canonicalId(question),
+          eventType: 'question_downvoted',
+          context: question.audience,
+          depth: question.depth,
+          mode: question.mode,
+          counterDeltas: { upvotes: -1, downvotes: 1 },
+        }),
+      }),
+    )
+
+    expect(response.status).toBe(200)
+
+    const calls = vi.mocked(fetch).mock.calls
+    expect(calls).toHaveLength(2)
+
+    const bodies = calls.map(
+      (call) => JSON.parse(String(call[1]!.body)) as unknown[],
+    )
+    const upOp = bodies.find((b) => b[2] === 'upvotes')
+    const downOp = bodies.find((b) => b[2] === 'downvotes')
+    expect(upOp).toEqual([
+      'HINCRBY',
+      `question:${canonicalId(question)}`,
+      'upvotes',
+      -1,
+    ])
+    expect(downOp).toEqual([
+      'HINCRBY',
+      `question:${canonicalId(question)}`,
+      'downvotes',
+      1,
+    ])
+  })
+
+  it('rejects unknown questions before touching KV', async () => {
     const response = await handler(
       new Request('https://spill.cards/api/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          cid: 'not-a-real-prompt',
-          eventType: 'prompt_viewed',
+          cid: 'not-a-real-question',
+          eventType: 'question_viewed',
           context: ['friends'],
           depth: 'light',
           mode: 'prompt',
@@ -137,7 +208,9 @@ describe('POST /api/feedback', () => {
     )
 
     expect(response.status).toBe(400)
-    await expect(response.json()).resolves.toEqual({ error: 'unknown prompt' })
+    await expect(response.json()).resolves.toEqual({
+      error: 'unknown question',
+    })
     expect(fetch).not.toHaveBeenCalled()
   })
 

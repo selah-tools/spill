@@ -1,4 +1,4 @@
-import { promptLibrary, type Prompt } from './prompts'
+import { questionLibrary, type Question } from './questions'
 
 /** FNV-1a 32-bit — fast, deterministic, sync (no Web Crypto). */
 export function fnv1a32(input: string): number {
@@ -23,53 +23,61 @@ export function toBase36Fixed(n: number, length: number): string {
   return s
 }
 
-/** Canonical string for hashing — mode + normalized prompt text (content-based). */
-export function canonicalCardContent(p: Pick<Prompt, 'mode' | 'text'>): string {
-  return `${p.mode}\n${p.text.trim()}`
+/** Canonical string for hashing — mode + normalized question text (content-based). */
+export function canonicalCardContent(
+  q: Pick<Question, 'mode' | 'text'>,
+): string {
+  return `${q.mode}\n${q.text.trim()}`
 }
 
 function buildSlugMaps(): {
-  slugToPrompt: ReadonlyMap<string, Prompt>
-  promptIdToSlug: ReadonlyMap<string, string>
+  slugToQuestion: ReadonlyMap<string, Question>
+  questionIdToSlug: ReadonlyMap<string, string>
 } {
-  const slugToPrompt = new Map<string, Prompt>()
-  const promptIdToSlug = new Map<string, string>()
+  const slugToQuestion = new Map<string, Question>()
+  const questionIdToSlug = new Map<string, string>()
 
-  for (const p of promptLibrary) {
-    if (!p.active) continue
-    const body = canonicalCardContent(p)
+  for (const q of questionLibrary) {
+    if (!q.active) continue
+    const body = canonicalCardContent(q)
     let assigned = false
 
     for (let attempt = 0; attempt < 24 && !assigned; attempt++) {
-      const salt = attempt === 0 ? '' : `\0${p.id}\0${attempt}`
+      const salt = attempt === 0 ? '' : `\0${q.id}\0${attempt}`
       const h = fnv1a32(body + salt)
       const length = Math.min(6 + Math.floor(attempt / 4), 12)
       const slug = toBase36Fixed(h, length)
-      const existing = slugToPrompt.get(slug)
+      const existing = slugToQuestion.get(slug)
       if (!existing) {
-        slugToPrompt.set(slug, p)
-        promptIdToSlug.set(p.id, slug)
+        slugToQuestion.set(slug, q)
+        questionIdToSlug.set(q.id, slug)
         assigned = true
-      } else if (existing.id === p.id) {
+      } else if (existing.id === q.id) {
         assigned = true
       }
     }
 
     if (!assigned) {
       throw new Error(
-        `card-slug: could not assign unique slug for prompt ${p.id}`,
+        `card-slug: could not assign unique slug for question ${q.id}`,
       )
     }
   }
 
-  return { slugToPrompt, promptIdToSlug }
+  return { slugToQuestion, questionIdToSlug }
 }
 
-const { slugToPrompt, promptIdToSlug } = buildSlugMaps()
+let slugMaps = buildSlugMaps()
+
+export const rebuildSlugMaps = (): void => {
+  slugMaps = buildSlugMaps()
+}
 
 /** Content-hash portion of a canonical ID — 6-char base36 of FNV-1a(mode + text). */
-export function contentHashForPrompt(p: Pick<Prompt, 'mode' | 'text'>): string {
-  return toBase36Fixed(fnv1a32(canonicalCardContent(p)), 6)
+export function contentHashForQuestion(
+  q: Pick<Question, 'mode' | 'text'>,
+): string {
+  return toBase36Fixed(fnv1a32(canonicalCardContent(q)), 6)
 }
 
 /** Composite canonical ID: "{originalId}-{contentHash}".
@@ -79,18 +87,18 @@ export function contentHashForPrompt(p: Pick<Prompt, 'mode' | 'text'>): string {
  *
  * Example: `friends-light-01-a3f2k1`
  */
-export function canonicalId(p: Pick<Prompt, 'id' | 'mode' | 'text'>): string {
-  return `${p.id}-${contentHashForPrompt(p)}`
+export function canonicalId(q: Pick<Question, 'id' | 'mode' | 'text'>): string {
+  return `${q.id}-${contentHashForQuestion(q)}`
 }
 
-export function promptForCardSlug(slug: string): Prompt | undefined {
+export function questionForCardSlug(slug: string): Question | undefined {
   const key = slug.trim().toLowerCase()
   if (!key) return undefined
-  return slugToPrompt.get(key)
+  return slugMaps.slugToQuestion.get(key)
 }
 
-export function cardSlugForPrompt(prompt: Prompt): string | undefined {
-  return promptIdToSlug.get(prompt.id)
+export function cardSlugForQuestion(question: Question): string | undefined {
+  return slugMaps.questionIdToSlug.get(question.id)
 }
 
 function normalizedAppBase(): string {
@@ -104,8 +112,8 @@ export function appPublicRootPath(): string {
   return nb === '' ? '/' : `${nb}/`
 }
 
-export function cardPathForPrompt(prompt: Prompt): string | undefined {
-  const slug = cardSlugForPrompt(prompt)
+export function cardPathForQuestion(question: Question): string | undefined {
+  const slug = cardSlugForQuestion(question)
   if (!slug) return undefined
   const prefix = normalizedAppBase()
   return `${prefix === '' ? '' : prefix}/c/${slug}`

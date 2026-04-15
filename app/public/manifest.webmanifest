@@ -44,8 +44,26 @@
     {
       "name": "Draw a card",
       "short_name": "Draw",
-      "description": "Open Spill and draw your next card.",
-      "url": "./"
+      "description": "Draw your next conversation card.",
+      "url": "./",
+      "icons": [{ "src": "icons/icon-192-maskable.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Configure packs",
+      "short_name": "Packs",
+      "description": "Choose which conversation packs to play with.",
+      "url": "./",
+      "icons": [{ "src": "icons/icon-192-maskable.png", "sizes": "192x192" }]
     }
-  ]
+  ],
+  "share_target": {
+    "action": "./",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
 }

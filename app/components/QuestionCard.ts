@@ -1,35 +1,38 @@
 import { component, html, reactive } from '@arrow-js/core'
 
 import {
-  getPromptRating,
-  trackPromptRating,
-  type PromptRating,
+  getQuestionRating,
+  trackQuestionRating,
+  type QuestionRating,
 } from '../analytics'
 import { feedbackRateDown, feedbackRateUp } from '../ui-feedback'
-import { cardPackMetaLabel, depthOptions, promptLibrary } from '../prompts'
+import { cardPackMetaLabel, depthOptions, questionLibrary } from '../questions'
 import { openDownvoteModal, state } from '../state'
 
 const servedAudienceLabel = () =>
   cardPackMetaLabel(
-    state.currentPrompt?.audience ?? state.servedContext ?? state.context,
+    state.currentQuestion?.audience ?? state.servedContext ?? state.context,
   )
 
-const servedDepthLabel = () =>
-  depthOptions.find(
-    (o) =>
-      o.value ===
-      (state.currentPrompt?.depth ?? state.servedDepth ?? state.depth),
-  )?.label ?? 'Light'
+const servedDepthLabel = () => {
+  const d = state.currentQuestion?.depth ?? state.servedDepth
+  return d
+    ? (depthOptions.find((o) => o.value === d)?.label ?? 'Light')
+    : 'Light'
+}
 
 const cardNumber = () => {
-  if (!state.currentPrompt) return ''
-  const idx = promptLibrary.findIndex((p) => p.id === state.currentPrompt?.id)
+  if (!state.currentQuestion) return ''
+  const idx = questionLibrary.findIndex(
+    (q) => q.id === state.currentQuestion?.id,
+  )
   return idx >= 0 ? String(idx + 1).padStart(2, '0') : ''
 }
 
 /** Packs · Depth — card's own metadata, not the active filters. */
 const metaContext = () => {
-  const modeLabel = state.currentPrompt?.mode === 'wildcard' ? 'Wildcard' : null
+  const modeLabel =
+    state.currentQuestion?.mode === 'wildcard' ? 'Wildcard' : null
   const parts = [modeLabel, servedAudienceLabel(), servedDepthLabel()].filter(
     Boolean,
   )
@@ -102,17 +105,17 @@ const thumbDownFilled = html`<svg
   />
 </svg>`
 
-export const PromptCard = component(() => {
-  const ui = reactive({ rating: null as PromptRating | null })
+export const QuestionCard = component(() => {
+  const ui = reactive({ rating: null as QuestionRating | null })
 
   const syncRating = (): void => {
-    ui.rating = state.currentPrompt
-      ? getPromptRating(state.currentPrompt.id)
+    ui.rating = state.currentQuestion
+      ? getQuestionRating(state.currentQuestion.id)
       : null
   }
 
-  const rate = (rating: PromptRating): void => {
-    if (!state.currentPrompt) return
+  const rate = (rating: QuestionRating): void => {
+    if (!state.currentQuestion) return
 
     if (rating === 'down') {
       feedbackRateDown()
@@ -120,11 +123,11 @@ export const PromptCard = component(() => {
       return
     }
 
-    const next = trackPromptRating(
-      state.currentPrompt,
-      state.currentPrompt.audience,
-      state.currentPrompt.depth,
-      state.currentPrompt.mode,
+    const next = trackQuestionRating(
+      state.currentQuestion,
+      state.currentQuestion.audience,
+      state.currentQuestion.depth,
+      state.currentQuestion.mode,
       rating,
     )
     state.currentRating = next
@@ -140,13 +143,13 @@ export const PromptCard = component(() => {
       <article
         class="${() =>
           'card' +
-          (state.currentPrompt ? ' is-live' : '') +
+          (state.currentQuestion ? ' is-live' : '') +
           (state.mode === 'wildcard' ? ' is-wild' : '')}"
         aria-live="polite"
       >
         ${() => {
           syncRating()
-          return state.currentPrompt
+          return state.currentQuestion
             ? html`<div class="card-frame">
                 <div class="card-top">
                   <span class="card-label"
@@ -156,7 +159,7 @@ export const PromptCard = component(() => {
                   <span class="card-num">#${() => cardNumber()}</span>
                 </div>
                 <p class="card-prompt">
-                  ${() => state.currentPrompt?.text ?? ''}
+                  ${() => state.currentQuestion?.text ?? ''}
                 </p>
                 <div class="card-bottom">
                   <span class="card-meta">${() => metaContext()}</span>
@@ -190,8 +193,28 @@ export const PromptCard = component(() => {
               </div>`
             : html`<div class="card-frame card-frame--empty">
                 <div class="card-frame__cluster">
+                  <div class="card-frame__icon" aria-hidden="true">
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="2" y="4" width="20" height="16" rx="3" />
+                      <path d="M8 4v16" />
+                      <path d="M16 4v16" />
+                      <path d="M2 12h20" />
+                    </svg>
+                  </div>
                   <p class="card-prompt card-prompt--quiet">
                     Draw a card. Spill something real.
+                  </p>
+                  <p class="card-frame__hint">
+                    Pick your packs, then tap below.
                   </p>
                 </div>
               </div>`

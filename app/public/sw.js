@@ -96,6 +96,12 @@ async function cacheFirst(request) {
   return response
 }
 
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    void self.skipWaiting()
+  }
+})
+
 self.addEventListener('fetch', (event) => {
   const { request } = event
   if (!isCacheableRequest(request)) return

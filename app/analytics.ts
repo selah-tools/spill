@@ -1,42 +1,48 @@
 import { createRequestId, logDebug } from '../lib/observability'
 import { canonicalId } from './card-slug'
-export type { PromptEventType, PromptCounterField } from './feedback-types'
+export type { QuestionEventType, QuestionCounterField } from './feedback-types'
 import type {
   FeedbackCounterDeltas,
   FeedbackPayload,
-  PromptEventType,
+  QuestionEventType,
 } from './feedback-types'
-import type { ContextFilter, Depth, Mode, Prompt } from './prompts'
+import type {
+  ContextFilter,
+  Depth,
+  DepthFilter,
+  Mode,
+  Question,
+} from './questions'
 
-export type PromptRating = 'up' | 'down'
+export type QuestionRating = 'up' | 'down'
 
 export type StoredPreferences = {
   context?: ContextFilter
-  depth?: Depth
+  depth?: DepthFilter | Depth
   includeWildcards?: boolean
   includeOvertChristian?: boolean
 }
 
-type PromptCounters = {
+type QuestionCounters = {
   views: number
   upvotes: number
   downvotes: number
   copies: number
   shares: number
   wildcardDraws: number
-  promptRequests: number
+  questionRequests: number
 }
 
-export type FeedbackStats = Record<string, PromptCounters>
+export type FeedbackStats = Record<string, QuestionCounters>
 
-type PromptRatings = Record<string, PromptRating>
+type QuestionRatings = Record<string, QuestionRating>
 
-type PromptEvent = {
-  promptId: string
+type QuestionEvent = {
+  questionId: string
   context: ContextFilter
   depth: Depth
   mode: Mode
-  eventType: PromptEventType
+  eventType: QuestionEventType
   createdAt: string
 }
 
@@ -44,10 +50,12 @@ const PREFERENCES_KEY = 'spill:preferences:v1'
 const FEEDBACK_KEY = 'spill:feedback:v1'
 const RATINGS_KEY = 'spill:ratings:v1'
 const EVENTS_KEY = 'spill:events:v1'
-const SEEN_PROMPTS_KEY = 'spill:seenPrompts:v1'
+const HISTORY_KEY = 'spill:history:v1'
+const RECENT_IDS_KEY = 'spill:recentIds:v1'
+const SEEN_QUESTIONS_KEY = 'spill:seenQuestions:v1'
 const MAX_EVENTS = 250
-/** Cap stored IDs so localStorage stays bounded (library is ~100 prompts). */
-const MAX_SEEN_PROMPTS = 500
+/** Cap stored IDs so localStorage stays bounded (library is ~100 questions). */
+const MAX_SEEN_QUESTIONS = 500
 
 const isBrowser = () => typeof window !== 'undefined'
 
@@ -76,14 +84,14 @@ const writeJson = <T>(key: string, value: T): void => {
   }
 }
 
-const emptyCounters = (): PromptCounters => ({
+const emptyCounters = (): QuestionCounters => ({
   views: 0,
   upvotes: 0,
   downvotes: 0,
   copies: 0,
   shares: 0,
   wildcardDraws: 0,
-  promptRequests: 0,
+  questionRequests: 0,
 })
 
 export const loadPreferences = (): StoredPreferences =>
@@ -93,38 +101,55 @@ export const savePreferences = (preferences: StoredPreferences): void => {
   writeJson(PREFERENCES_KEY, preferences)
 }
 
-export const loadSeenPromptIds = (): string[] =>
-  readJson<string[]>(SEEN_PROMPTS_KEY, [])
+export const loadSeenQuestionIds = (): string[] =>
+  readJson<string[]>(SEEN_QUESTIONS_KEY, [])
 
-/** Remember a prompt the user has been shown (persists across visits). Newest first, deduped. */
-export const recordPromptSeen = (promptId: string): void => {
-  const prev = readJson<string[]>(SEEN_PROMPTS_KEY, [])
-  const next = [promptId, ...prev.filter((id) => id !== promptId)]
-  if (next.length > MAX_SEEN_PROMPTS) {
-    next.length = MAX_SEEN_PROMPTS
+/** Remember a question the user has been shown (persists across visits). Newest first, deduped. */
+export const recordQuestionSeen = (questionId: string): void => {
+  const prev = readJson<string[]>(SEEN_QUESTIONS_KEY, [])
+  const next = [questionId, ...prev.filter((id) => id !== questionId)]
+  if (next.length > MAX_SEEN_QUESTIONS) {
+    next.length = MAX_SEEN_QUESTIONS
   }
-  writeJson(SEEN_PROMPTS_KEY, next)
+  writeJson(SEEN_QUESTIONS_KEY, next)
 }
 
-export const clearSeenPrompts = (): void => {
-  writeJson(SEEN_PROMPTS_KEY, [] as string[])
+export const loadHistory = (): string[] => readJson<string[]>(HISTORY_KEY, [])
+
+export const saveHistory = (ids: string[]): void => {
+  writeJson(HISTORY_KEY, ids)
+}
+
+export const loadRecentQuestionIds = (): string[] =>
+  readJson<string[]>(RECENT_IDS_KEY, [])
+
+export const saveRecentQuestionIds = (ids: string[]): void => {
+  writeJson(RECENT_IDS_KEY, ids)
+}
+
+export const clearSeenQuestions = (): void => {
+  writeJson(SEEN_QUESTIONS_KEY, [] as string[])
+  writeJson(HISTORY_KEY, [] as string[])
+  writeJson(RECENT_IDS_KEY, [] as string[])
 }
 
 export const getFeedbackStats = (): FeedbackStats => readJson(FEEDBACK_KEY, {})
 
-export const getPromptRating = (promptId: string): PromptRating | null => {
-  const ratings = readJson<PromptRatings>(RATINGS_KEY, {})
-  return ratings[promptId] ?? null
+export const getQuestionRating = (
+  questionId: string,
+): QuestionRating | null => {
+  const ratings = readJson<QuestionRatings>(RATINGS_KEY, {})
+  return ratings[questionId] ?? null
 }
 
-export const setPromptRating = (
-  promptId: string,
-  rating: PromptRating,
-): PromptRating => {
-  const ratings = readJson<PromptRatings>(RATINGS_KEY, {})
+export const setQuestionRating = (
+  questionId: string,
+  rating: QuestionRating,
+): QuestionRating => {
+  const ratings = readJson<QuestionRatings>(RATINGS_KEY, {})
   const stats = readJson<FeedbackStats>(FEEDBACK_KEY, {})
-  const previous = ratings[promptId]
-  const counters = stats[promptId] ?? emptyCounters()
+  const previous = ratings[questionId]
+  const counters = stats[questionId] ?? emptyCounters()
 
   if (previous === rating) {
     return rating
@@ -146,8 +171,8 @@ export const setPromptRating = (
     counters.downvotes += 1
   }
 
-  ratings[promptId] = rating
-  stats[promptId] = counters
+  ratings[questionId] = rating
+  stats[questionId] = counters
 
   writeJson(RATINGS_KEY, ratings)
   writeJson(FEEDBACK_KEY, stats)
@@ -155,16 +180,16 @@ export const setPromptRating = (
   return rating
 }
 
-const logPromptEvent = (
-  prompt: Prompt,
+const logQuestionEvent = (
+  question: Question,
   context: ContextFilter,
   depth: Depth,
   mode: Mode,
-  eventType: PromptEventType,
+  eventType: QuestionEventType,
 ): void => {
-  const events = readJson<PromptEvent[]>(EVENTS_KEY, [])
+  const events = readJson<QuestionEvent[]>(EVENTS_KEY, [])
   events.unshift({
-    promptId: prompt.id,
+    questionId: question.id,
     context,
     depth,
     mode,
@@ -174,22 +199,22 @@ const logPromptEvent = (
   writeJson(EVENTS_KEY, events.slice(0, MAX_EVENTS))
 }
 
-export const trackPromptRating = (
-  prompt: Prompt,
+export const trackQuestionRating = (
+  question: Question,
   context: ContextFilter,
   depth: Depth,
   mode: Mode,
-  rating: PromptRating,
+  rating: QuestionRating,
   reason?: string,
-): PromptRating => {
-  const previous = getPromptRating(prompt.id)
+): QuestionRating => {
+  const previous = getQuestionRating(question.id)
   if (previous === rating) {
     return rating
   }
 
-  const next = setPromptRating(prompt.id, rating)
-  const eventType: PromptEventType =
-    rating === 'up' ? 'prompt_upvoted' : 'prompt_downvoted'
+  const next = setQuestionRating(question.id, rating)
+  const eventType: QuestionEventType =
+    rating === 'up' ? 'question_upvoted' : 'question_downvoted'
   const counterDeltas: FeedbackCounterDeltas = {}
 
   if (previous === 'up') {
@@ -208,9 +233,9 @@ export const trackPromptRating = (
     counterDeltas.downvotes = (counterDeltas.downvotes ?? 0) + 1
   }
 
-  logPromptEvent(prompt, context, depth, mode, eventType)
+  logQuestionEvent(question, context, depth, mode, eventType)
   postFeedbackPayload({
-    cid: canonicalId(prompt),
+    cid: canonicalId(question),
     eventType,
     context,
     depth,
@@ -222,52 +247,41 @@ export const trackPromptRating = (
   return next
 }
 
-export const trackPromptEvent = (
-  prompt: Prompt,
+export const trackQuestionEvent = (
+  question: Question,
   context: ContextFilter,
   depth: Depth,
   mode: Mode,
-  eventType: PromptEventType,
+  eventType: QuestionEventType,
 ): void => {
   const stats = readJson<FeedbackStats>(FEEDBACK_KEY, {})
-  const counters = stats[prompt.id] ?? emptyCounters()
+  const counters = stats[question.id] ?? emptyCounters()
 
-  logPromptEvent(prompt, context, depth, mode, eventType)
+  logQuestionEvent(question, context, depth, mode, eventType)
 
   switch (eventType) {
-    case 'prompt_viewed':
+    case 'question_viewed':
       counters.views += 1
       break
-    case 'prompt_copied':
+    case 'question_copied':
       counters.copies += 1
       break
-    case 'prompt_shared':
+    case 'question_shared':
       counters.shares += 1
       break
     case 'wildcard_opened':
       counters.wildcardDraws += 1
       break
-    case 'new_prompt_requested':
-      counters.promptRequests += 1
+    case 'new_question_requested':
+      counters.questionRequests += 1
       break
     default:
       break
   }
 
-  stats[prompt.id] = counters
+  stats[question.id] = counters
 
   writeJson(FEEDBACK_KEY, stats)
-
-  // Prod KV only stores thumbs up/down. Everything else stays local-only.
-  if (eventType === 'prompt_upvoted' || eventType === 'prompt_downvoted') {
-    postFeedbackPayload({
-      cid: canonicalId(prompt),
-      eventType,
-      context,
-      depth,
-      mode,
-    })
-  }
 }
 
 /** Fire-and-forget POST to the serverless feedback endpoint.
@@ -279,10 +293,12 @@ const postFeedbackPayload = (payload: FeedbackPayload): void => {
   if (!isBrowser()) return
 
   const { hostname } = window.location
+  const forceFeedback = import.meta.env.VITE_FEEDBACK_DEV === 'true'
   if (
-    hostname === 'localhost' ||
-    hostname === '127.0.0.1' ||
-    hostname.endsWith('.vercel.app')
+    !forceFeedback &&
+    (hostname === 'localhost' ||
+      hostname === '127.0.0.1' ||
+      hostname.endsWith('.vercel.app'))
   ) {
     return
   }

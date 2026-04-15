@@ -35,3 +35,4 @@ Thumbs.db
 # misc
 *.local
 pi-session-*.md
+.env*.local

@@ -4,12 +4,14 @@ import type { Props } from '@arrow-js/core'
 import {
   audienceOptions,
   depthOptions,
-  isPromptEnabled,
+  isQuestionEnabled,
   orderedAudienceSelection,
-  promptMap,
+  orderedDepthSelection,
+  questionMap,
   type Audience,
-  type Prompt,
-} from '../prompts'
+  type Depth,
+  type Question,
+} from '../questions'
 import {
   setContext,
   setDepth,
@@ -28,12 +30,14 @@ export const filterUi = reactive({
   modalOpen: false,
   historyOpen: false,
   lastPackWarning: false,
+  lastDepthWarning: false,
 })
 
 const closeFiltersModal = (): void => {
   if (!filterUi.modalOpen) return
   filterUi.modalOpen = false
   filterUi.lastPackWarning = false
+  filterUi.lastDepthWarning = false
   feedbackDetailsToggle(false)
 }
 
@@ -52,16 +56,9 @@ export const toggleFiltersModal = (): void => {
   else openFiltersModal()
 }
 
-const closeHistory = (): void => {
-  filterUi.historyOpen = false
-}
-
 const toggleHistory = (): void => {
   if (filterUi.modalOpen) closeFiltersModal()
-  const opening = !filterUi.historyOpen
   filterUi.historyOpen = !filterUi.historyOpen
-  if (opening) feedbackDetailsToggle(true)
-  else feedbackWarning()
 }
 
 const activePoolFilters = () => ({
@@ -69,14 +66,13 @@ const activePoolFilters = () => ({
   includeOvertChristian: state.includeOvertChristian,
 })
 
-const historyCards = (): Prompt[] => {
-  const currentId = state.currentPrompt?.id
+const historyCards = (): Question[] => {
   return state.history
-    .filter((id) => id !== currentId)
     .slice(0, 8)
-    .map((id) => promptMap.get(id))
+    .map((id) => questionMap.get(id))
     .filter(
-      (p): p is Prompt => p != null && isPromptEnabled(p, activePoolFilters()),
+      (q): q is Question =>
+        q != null && isQuestionEnabled(q, activePoolFilters()),
     )
 }
 
@@ -108,6 +104,33 @@ const togglePack = (pack: Audience): void => {
   setContext(next)
 }
 
+const toggleDepth = (depth: Depth): void => {
+  const isOn = state.depth.includes(depth)
+
+  if (isOn && state.depth.length === 1) {
+    feedbackBlocked()
+    filterUi.lastDepthWarning = true
+    return
+  }
+
+  filterUi.lastDepthWarning = false
+  const next = orderedDepthSelection(
+    isOn
+      ? state.depth.filter((value) => value !== depth)
+      : [...state.depth, depth],
+  )
+
+  if (
+    next.length === state.depth.length &&
+    next.every((value, idx) => value === state.depth[idx])
+  ) {
+    return
+  }
+
+  feedbackSelection()
+  setDepth(next)
+}
+
 const toggleWildcards = (): void => {
   feedbackSelection()
   setIncludeWildcards(!state.includeWildcards)
@@ -118,12 +141,21 @@ const toggleOvertChristian = (): void => {
   setIncludeOvertChristian(!state.includeOvertChristian)
 }
 
+const updateStripOverflow = (el: HTMLElement): void => {
+  const threshold = 2
+  el.classList.toggle('has-overflow-start', el.scrollLeft > threshold)
+  el.classList.toggle(
+    'has-overflow-end',
+    el.scrollLeft + el.clientWidth < el.scrollWidth - threshold,
+  )
+}
+
 const hasPacks = (): boolean => state.context.length > 0
 
 export const FilterBar = component(
   (
     props: Props<{
-      onDrawPrompt: () => void
+      onDrawQuestion: () => void
       onSelectCard: (id: string) => void
       onDeckReset: () => void
     }>,
@@ -132,56 +164,35 @@ export const FilterBar = component(
       <div class="controls">
         <div class="controls__primary">
           ${() =>
-            state.currentPrompt
+            state.currentQuestion
               ? html`<div class="controls__nav">
-                  <button
-                    type="button"
-                    class="${() =>
-                      'controls__nav-btn' +
-                      (filterUi.historyOpen ? ' is-active' : '')}"
-                    @click="${toggleHistory}"
-                    aria-label="Card history"
-                    aria-expanded="${() => filterUi.historyOpen}"
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 256 256"
-                      fill="none"
-                    >
-                      <polyline
-                        points="128 80 128 128 168 152"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
-                      />
-                      <polyline
-                        points="72 104 32 104 32 64"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
-                      />
-                      <path
-                        d="M67.6,192A88,88,0,1,0,65.77,65.77C54,77.69,44.28,88.93,32,104"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
-                      />
-                    </svg>
-                  </button>
+                  ${() =>
+                    historyCards().length > 0
+                      ? html`<button
+                          type="button"
+                          class="${() =>
+                            'controls__nav-btn' +
+                            (filterUi.historyOpen ? ' is-active' : '')}"
+                          @click="${toggleHistory}"
+                          aria-label="Card history"
+                          aria-expanded="${() => filterUi.historyOpen}"
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 256 256"
+                            fill="currentColor"
+                          >
+                            <path
+                              d="M136,80v43.47l36.12,21.67a8,8,0,0,1-8.24,13.72l-40-24A8,8,0,0,1,120,128V80a8,8,0,0,1,16,0Zm-8-48A95.44,95.44,0,0,0,60.08,60.15C52.81,67.51,46.35,74.59,40,82V64a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H72a8,8,0,0,0,0-16H49c7.15-8.42,14.27-16.35,22.39-24.57a80,80,0,1,1,1.66,114.75,8,8,0,1,0-11,11.64A96,96,0,1,0,128,32Z"
+                            ></path>
+                          </svg>
+                        </button>`
+                      : null}
                   <button
                     type="button"
                     class="btn btn--fill"
-                    @click="${() => {
-                      closeHistory()
-                      props.onDrawPrompt()
-                    }}"
+                    @click="${() => props.onDrawQuestion()}"
                   >
                     New card
                   </button>
@@ -191,7 +202,6 @@ export const FilterBar = component(
                     type="button"
                     class="btn btn--outline"
                     @click="${() => {
-                      closeHistory()
                       toggleFiltersModal()
                     }}"
                     aria-label="Configure packs and filters"
@@ -205,55 +215,51 @@ export const FilterBar = component(
                     type="button"
                     class="${() =>
                       'btn btn--fill' + (!hasPacks() ? ' btn--disabled' : '')}"
-                    @click="${props.onDrawPrompt}"
+                    @click="${props.onDrawQuestion}"
                   >
                     Draw a card
                   </button>
                 </div>`}
         </div>
 
-        ${() =>
-          filterUi.historyOpen
-            ? html`
-                <div
-                  class="history-popover"
-                  @keydown="${(e: Event) => {
-                    if ((e as KeyboardEvent).key === 'Escape') {
-                      e.preventDefault()
-                      closeHistory()
-                    }
-                  }}"
-                >
-                  <div
-                    class="history-popover__panel"
-                    role="listbox"
-                    aria-label="Recent cards"
+        ${() => {
+          if (!filterUi.historyOpen || !state.currentQuestion) return null
+          if (historyCards().length === 0) return null
+          return html`<div
+            class="history-strip"
+            role="list"
+            aria-label="Recent cards"
+            @scroll="${(e: Event) =>
+              updateStripOverflow(e.currentTarget as HTMLElement)}"
+          >
+            ${() => {
+              const cards = historyCards()
+              requestAnimationFrame(() => {
+                const el = document.querySelector(
+                  '.history-strip',
+                ) as HTMLElement | null
+                if (!el) return
+                el.scrollTo({ left: 0 })
+                updateStripOverflow(el)
+              })
+              return cards.map(
+                (q) =>
+                  html`<button
+                    type="button"
+                    class="${() =>
+                      'history-strip__card' +
+                      (q.id === state.currentQuestion?.id
+                        ? ' history-strip__card--current'
+                        : '')}"
+                    role="listitem"
+                    @click="${() => props.onSelectCard(q.id)}"
                   >
-                    ${() => {
-                      const cards = historyCards()
-                      return cards.length
-                        ? cards.map(
-                            (p) =>
-                              html`<button
-                                type="button"
-                                class="history-popover__item"
-                                role="option"
-                                @click="${() => {
-                                  closeHistory()
-                                  props.onSelectCard(p.id)
-                                }}"
-                              >
-                                ${p.text}
-                              </button>`,
-                          )
-                        : html`<p class="history-popover__empty">
-                            No other visible cards yet.
-                          </p>`
-                    }}
-                  </div>
-                </div>
-              `
-            : null}
+                    <span class="history-strip__text">${q.text}</span>
+                  </button>`,
+              )
+            }}
+          </div>`
+        }}
       </div>
 
       ${() =>
@@ -345,33 +351,52 @@ export const FilterBar = component(
                       </p>
                     </div>
 
-                    <div
-                      class="controls__field"
-                      aria-labelledby="controls-depth-label"
-                    >
+                    <div class="controls__field">
                       <p class="controls__label" id="controls-depth-label">
                         How deep?
                       </p>
-                      <div class="segmented" role="group" aria-label="Depth">
+                      <div
+                        class="controls__packs"
+                        role="group"
+                        aria-labelledby="controls-depth-label"
+                      >
                         ${depthOptions.map(
                           (option) =>
                             html`<button
                               type="button"
                               class="${() =>
-                                'chip chip--segment' +
-                                (state.depth === option.value ? ' is-on' : '')}"
-                              @click="${() => {
-                                if (state.depth === option.value) return
-                                feedbackSelection()
-                                setDepth(option.value)
-                              }}"
+                                'chip chip--pack' +
+                                (state.depth.includes(option.value)
+                                  ? ' is-on'
+                                  : '') +
+                                (filterUi.lastDepthWarning &&
+                                state.depth.length === 1 &&
+                                state.depth[0] === option.value
+                                  ? ' is-blocked'
+                                  : '')}"
+                              @click="${() => toggleDepth(option.value)}"
                               aria-pressed="${() =>
-                                state.depth === option.value}"
+                                state.depth.includes(option.value)}"
+                              title="${option.blurb}"
                             >
                               ${option.label}
                             </button>`,
                         )}
                       </div>
+                      <p
+                        class="${() =>
+                          'controls__hint' +
+                          (filterUi.lastDepthWarning
+                            ? ' controls__hint--warn'
+                            : '')}"
+                      >
+                        ${() =>
+                          filterUi.lastDepthWarning
+                            ? 'Pick another depth first, then disable this one.'
+                            : state.depth.length
+                              ? 'Enable or disable any depth.'
+                              : 'Turn on at least one depth to draw a card.'}
+                      </p>
                     </div>
 
                     <div class="controls__field">

@@ -18,8 +18,8 @@ export default defineConfig({
       reportsDirectory: './coverage',
       include: [
         'app/card-slug.ts',
-        'app/prompt-map.ts',
-        'app/prompts.ts',
+        'app/question-map.ts',
+        'app/questions.ts',
         'api/**/*.ts',
         'lib/**/*.ts',
       ],

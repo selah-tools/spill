@@ -51,6 +51,10 @@ jobs:
       - name: Test with coverage and reports
         run: pnpm test:ci
 
+      - name: Report test performance
+        if: always()
+        run: node scripts/check-test-performance.mjs
+
       - name: File-size budgets
         run: pnpm size:check
 

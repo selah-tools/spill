@@ -7,7 +7,8 @@
   "scripts": {
     "setup": "pnpm install --frozen-lockfile && pnpm check && pnpm test",
     "dev": "vite",
-    "build": "pnpm check && vite build",
+    "questions:sync": "node scripts/sync-questions.mjs",
+    "build": "node scripts/sync-questions.mjs && pnpm check && vite build",
     "preview": "vite preview",
     "check": "tsc --noEmit && tsc --noEmit -p tsconfig.api.json",
     "lint:fast": "oxlint . --config .oxlintrc.json --deny-warnings",
@@ -18,6 +19,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "test:perf": "node scripts/check-test-performance.mjs",
     "test:ci": "node -e \"require('node:fs').mkdirSync('reports', { recursive: true })\" && vitest run --coverage --reporter=default --reporter=junit --reporter=json --outputFile.junit=reports/vitest.junit.xml --outputFile.json=reports/vitest.json",
     "test:integration": "playwright test",
     "size:check": "node scripts/check-file-sizes.mjs",
@@ -36,6 +38,8 @@
   },
   "dependencies": {
     "@arrow-js/core": "^1.0.6",
+    "@pierre/diffs": "^1.1.15",
+    "@sentry/browser": "^10.48.0",
     "web-haptics": "^0.0.6"
   },
   "devDependencies": {

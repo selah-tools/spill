@@ -2,10 +2,11 @@ import { canonicalId } from '../app/card-slug'
 import type {
   FeedbackCounterDeltas,
   FeedbackPayload,
-  PromptCounterField,
-  PromptEventType,
+  QuestionCounterField,
+  QuestionEventType,
 } from '../app/feedback-types'
-import { promptLibrary } from '../app/prompts'
+import { questionLibrary } from '../app/questions'
+import { kvCommand } from '../lib/kv'
 import {
   errorMessage,
   jsonResponse,
@@ -16,62 +17,23 @@ import {
 } from '../lib/observability'
 
 const validIds = new Set(
-  promptLibrary
-    .filter((prompt) => prompt.active)
-    .map((prompt) => canonicalId(prompt)),
+  questionLibrary
+    .filter((question) => question.active)
+    .map((question) => canonicalId(question)),
 )
 
-type KVEnv = {
-  KV_REST_API_URL: string
-  KV_REST_API_TOKEN: string
-}
-
-function getKVEnv(): KVEnv {
-  const url = process.env.KV_REST_API_URL
-  const token = process.env.KV_REST_API_TOKEN
-  if (!url || !token) {
-    throw new Error('KV_REST_API_URL and KV_REST_API_TOKEN must be set')
-  }
-  return { KV_REST_API_URL: url, KV_REST_API_TOKEN: token }
-}
-
-async function kvCommand<T = unknown>(
-  requestId: string,
-  ...args: (string | number)[]
-): Promise<T> {
-  const { KV_REST_API_URL, KV_REST_API_TOKEN } = getKVEnv()
-  const response = await fetch(KV_REST_API_URL, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${KV_REST_API_TOKEN}`,
-      'Content-Type': 'application/json',
-      'X-Request-Id': requestId,
-    },
-    body: JSON.stringify(args),
-  })
-
-  if (!response.ok) {
-    throw new Error(
-      `KV REST error: ${response.status} ${await response.text()}`,
-    )
-  }
-
-  const json = (await response.json()) as { result: T }
-  return json.result
-}
-
-const counterKey = (cid: string) => `prompt:${cid}`
-const downvoteReasonsKey = (cid: string) => `prompt:${cid}:downvoteReasons`
+const counterKey = (cid: string) => `question:${cid}`
+const downvoteReasonsKey = (cid: string) => `question:${cid}:downvoteReasons`
 const MAX_DOWNVOTE_REASONS = 50
-const COUNTER_FIELDS: PromptCounterField[] = ['upvotes', 'downvotes']
+const COUNTER_FIELDS: QuestionCounterField[] = ['upvotes', 'downvotes']
 
 const counterField = (
-  eventType: PromptEventType,
-): PromptCounterField | null => {
+  eventType: QuestionEventType,
+): QuestionCounterField | null => {
   switch (eventType) {
-    case 'prompt_upvoted':
+    case 'question_upvoted':
       return 'upvotes'
-    case 'prompt_downvoted':
+    case 'question_downvoted':
       return 'downvotes'
     default:
       return null
@@ -111,7 +73,11 @@ export default async function handler(req: Request): Promise<Response> {
   }
 
   if (!validIds.has(cid)) {
-    return jsonResponse({ error: 'unknown prompt' }, { status: 400 }, requestId)
+    return jsonResponse(
+      { error: 'unknown question' },
+      { status: 400 },
+      requestId,
+    )
   }
 
   const field = counterField(eventType)
@@ -119,27 +85,42 @@ export default async function handler(req: Request): Promise<Response> {
     return jsonResponse({ ok: true, skipped: true }, { status: 200 }, requestId)
   }
 
-  const deltas: Array<[PromptCounterField, number]> = Object.entries(
-    (payload.counterDeltas ?? {}) as FeedbackCounterDeltas,
+  if (
+    !payload.counterDeltas ||
+    Object.keys(payload.counterDeltas).length === 0
+  ) {
+    return jsonResponse(
+      { error: 'counterDeltas required for rating events' },
+      { status: 400 },
+      requestId,
+    )
+  }
+
+  const counterOps: Array<[QuestionCounterField, number]> = Object.entries(
+    payload.counterDeltas as FeedbackCounterDeltas,
   )
     .filter(([name, value]) => {
       return (
-        COUNTER_FIELDS.includes(name as PromptCounterField) &&
+        COUNTER_FIELDS.includes(name as QuestionCounterField) &&
         Number.isFinite(value) &&
         value !== 0
       )
     })
     .map(
       ([name, value]) =>
-        [name as PromptCounterField, value as number] as [
-          PromptCounterField,
+        [name as QuestionCounterField, value as number] as [
+          QuestionCounterField,
           number,
         ],
     )
 
-  const counterOps: Array<[PromptCounterField, number]> = deltas.length
-    ? deltas
-    : [[field, 1]]
+  if (counterOps.length === 0) {
+    return jsonResponse(
+      { error: 'counterDeltas required for rating events' },
+      { status: 400 },
+      requestId,
+    )
+  }
 
   logInfo('feedback.write.started', {
     requestId,
@@ -163,7 +144,7 @@ export default async function handler(req: Request): Promise<Response> {
     )
 
     const reason = payload.reason?.trim()
-    if (eventType === 'prompt_downvoted' && reason) {
+    if (eventType === 'question_downvoted' && reason) {
       writes.push(
         kvCommand<number>(
           requestId,

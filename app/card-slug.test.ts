@@ -3,13 +3,13 @@ import { describe, expect, it } from 'vitest'
 import {
   canonicalCardContent,
   canonicalId,
-  cardSlugForPrompt,
+  cardSlugForQuestion,
   fnv1a32,
   parseCardSlugFromPathname,
-  promptForCardSlug,
+  questionForCardSlug,
   toBase36Fixed,
 } from './card-slug'
-import { promptLibrary } from './prompts'
+import { questionLibrary } from './questions'
 
 describe('fnv1a32', () => {
   it('matches a stable golden value', () => {
@@ -35,30 +35,30 @@ describe('canonicalCardContent', () => {
 })
 
 describe('card slugs', () => {
-  it('are unique for every active prompt', () => {
-    const slugs = promptLibrary
-      .filter((p) => p.active)
-      .map((p) => cardSlugForPrompt(p))
+  it('are unique for every active question', () => {
+    const slugs = questionLibrary
+      .filter((q) => q.active)
+      .map((q) => cardSlugForQuestion(q))
     expect(new Set(slugs).size).toBe(slugs.length)
   })
 
   it('round-trips by id', () => {
-    for (const p of promptLibrary) {
-      if (!p.active) continue
-      const slug = cardSlugForPrompt(p)
+    for (const q of questionLibrary) {
+      if (!q.active) continue
+      const slug = cardSlugForQuestion(q)
       expect(slug).toBeDefined()
-      expect(promptForCardSlug(slug!)?.id).toBe(p.id)
+      expect(questionForCardSlug(slug!)?.id).toBe(q.id)
     }
   })
 })
 
 describe('canonicalId', () => {
-  it('produces "{slug}-{hash}" for every active prompt', () => {
-    for (const p of promptLibrary) {
-      if (!p.active) continue
-      const cid = canonicalId(p)
+  it('produces "{slug}-{hash}" for every active question', () => {
+    for (const q of questionLibrary) {
+      if (!q.active) continue
+      const cid = canonicalId(q)
       // Starts with the original ID
-      expect(cid.startsWith(p.id + '-')).toBe(true)
+      expect(cid.startsWith(q.id + '-')).toBe(true)
       // Ends with a 6-char base36 hash
       const suffix = cid.slice(cid.lastIndexOf('-') + 1)
       expect(suffix).toMatch(/^[0-9a-z]{6}$/)
@@ -66,19 +66,21 @@ describe('canonicalId', () => {
   })
 
   it('is unique across the entire library', () => {
-    const ids = promptLibrary.filter((p) => p.active).map((p) => canonicalId(p))
+    const ids = questionLibrary
+      .filter((q) => q.active)
+      .map((q) => canonicalId(q))
     expect(new Set(ids).size).toBe(ids.length)
   })
 
   it('is deterministic — same input always produces the same ID', () => {
-    const p = promptLibrary[0]!
-    expect(canonicalId(p)).toBe(canonicalId(p))
+    const q = questionLibrary[0]!
+    expect(canonicalId(q)).toBe(canonicalId(q))
   })
 
   it('changes when text changes', () => {
-    const p = promptLibrary[0]!
-    const original = canonicalId(p)
-    const modified = canonicalId({ ...p, text: p.text + ' edited' })
+    const q = questionLibrary[0]!
+    const original = canonicalId(q)
+    const modified = canonicalId({ ...q, text: q.text + ' edited' })
     expect(modified).not.toBe(original)
   })
 })

@@ -6,6 +6,7 @@ on:
       - Quality
       - Integration
       - Vercel Deploy
+      - Release Plan
     types:
       - completed
 
@@ -26,6 +27,7 @@ jobs:
             const branch = context.payload.workflow_run.head_branch
             const url = context.payload.workflow_run.html_url
             const sha = context.payload.workflow_run.head_sha.slice(0, 7)
+            const runId = context.payload.workflow_run.id
             const title = `workflow alert: ${workflow} failed on ${branch}`
             const { owner, repo } = context.repo
 
@@ -33,11 +35,20 @@ jobs:
               q: `repo:${owner}/${repo} is:issue is:open in:title "${title}"`,
             })
 
+            const artifacts = `https://github.com/${owner}/${repo}/actions/runs/${runId}`
             const body = [
               `Workflow **${workflow}** failed on \`${branch}\`.`,
               '',
               `- Commit: \`${sha}\``,
               `- Run: ${url}`,
+              `- Artifacts: ${artifacts}`,
+              '',
+              '### Response checklist',
+              '',
+              '1. Open the failing run link above.',
+              '2. Identify the first failing step.',
+              '3. Fix locally with `pnpm quality` (or the relevant narrow command).',
+              '4. Push the fix and confirm CI passes.',
               '',
               'This issue was created automatically by `.github/workflows/workflow-alerts.yml`.',
             ].join('\n')

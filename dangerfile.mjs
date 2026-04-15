@@ -36,8 +36,8 @@ if (sourceChanged && !docsChanged) {
 }
 
 if (
-  changedFiles.includes('app/prompts.json') &&
-  !changedFiles.some((file) => file === 'app/prompts.test.ts')
+  changedFiles.includes('app/questions.json') &&
+  !changedFiles.some((file) => file === 'app/questions.test.ts')
 ) {
   fail('Prompt library changes must update or validate prompt tests.')
 }

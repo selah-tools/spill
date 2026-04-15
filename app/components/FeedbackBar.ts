@@ -6,7 +6,7 @@ import { state } from '../state'
 export const FeedbackBar = component(
   (props: Props<{ onCopy: () => void; onShare: () => void }>) => html`
     ${() =>
-      state.currentPrompt
+      state.currentQuestion
         ? html`<div class="feedback">
             <button type="button" class="fb-btn" @click="${props.onCopy}">
               Copy

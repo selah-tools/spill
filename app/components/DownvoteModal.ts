@@ -1,6 +1,6 @@
 import { component, html, reactive } from '@arrow-js/core'
 
-import { closeDownvoteModal, state, submitDownvote } from '../state'
+import { state, submitDownvote } from '../state'
 import { feedbackDetailsToggle } from '../ui-feedback'
 
 export const DownvoteModal = component(() => {
@@ -8,7 +8,7 @@ export const DownvoteModal = component(() => {
 
   const close = (): void => {
     ui.reason = ''
-    closeDownvoteModal()
+    submitDownvote()
     feedbackDetailsToggle(false)
   }
 

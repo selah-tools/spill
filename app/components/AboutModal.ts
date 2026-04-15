@@ -1,7 +1,21 @@
-import { component, html } from '@arrow-js/core'
+import { component, html, reactive } from '@arrow-js/core'
 
 import { closeAboutModal, state } from '../state'
 import { feedbackDetailsToggle } from '../ui-feedback'
+
+export type InstallHandler = (() => Promise<void>) | null
+
+let _installHandler: InstallHandler = null
+
+export const setInstallHandler = (handler: InstallHandler): void => {
+  _installHandler = handler
+}
+
+const canInstall = reactive({ available: false })
+
+export const setCanInstall = (available: boolean): void => {
+  canInstall.available = available
+}
 
 export const AboutModal = component(
   () => html`
@@ -102,6 +116,16 @@ export const AboutModal = component(
                   </div>
 
                   <div class="about-modal__section about-modal__section--final">
+                    ${() =>
+                      canInstall.available
+                        ? html`<button
+                            type="button"
+                            class="btn btn--fill about-modal__install"
+                            @click="${() => void _installHandler?.()}"
+                          >
+                            Add to Home Screen
+                          </button>`
+                        : null}
                     <p class="about-modal__epilogue">
                       Draw a card. Spill something real.
                     </p>

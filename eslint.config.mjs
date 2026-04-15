@@ -13,7 +13,7 @@ export default tseslint.config(
       'dist/**',
       'docs/reference/**',
       'node_modules/**',
-      'app/prompts.json',
+      'app/questions.json',
       'app/public/sw.js',
     ],
   },
