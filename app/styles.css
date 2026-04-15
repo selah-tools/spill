@@ -1659,6 +1659,7 @@ html.mobile-native .page {
   max-width: none;
   margin: 0;
   padding: max(var(--s3), env(safe-area-inset-top)) 0 0 0;
+  border-radius: 0;
 }
 
 html.mobile-native .page__top {
@@ -1697,6 +1698,7 @@ html.mobile-native .main {
 
 html.mobile-native .stage {
   padding: 0;
+  border-radius: 0;
 }
 
 /* Full-bleed card — the card IS the screen. */
@@ -1720,6 +1722,7 @@ html.mobile-native .card.is-live {
 
 html.mobile-native .card.is-live .card-prompt {
   font-size: clamp(1.15rem, 4.5vw + 0.5rem, 1.75rem);
+  text-wrap: wrap;
 }
 
 html.mobile-native .card.is-live .card-bottom {
