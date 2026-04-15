@@ -34,6 +34,14 @@ After a production deploy lands on `main`:
 3. Deploy or redeploy through the Vercel workflow.
 4. Hit `/api/question-map` directly and inspect the `count` field.
 
+## Resetting the feedback KV
+
+If you need to clear Spill's Upstash KV state entirely (for example, to reset feedback counters during testing):
+
+1. Run `python3 scripts/reset-kv.py --dry-run` to inspect the keys that would be deleted.
+2. Run `python3 scripts/reset-kv.py` to delete the full keyspace.
+3. If you want production assets refreshed immediately afterward, trigger a production deploy.
+
 ## Quality gate is red
 
 1. Run `pnpm quality` locally.
