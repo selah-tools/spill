@@ -628,7 +628,7 @@ button.controls__summary:active {
   align-items: flex-end;
   justify-content: center;
   padding: var(--s3);
-  padding-bottom: max(var(--s5), env(safe-area-inset-bottom));
+  padding-bottom: max(var(--s1), env(safe-area-inset-bottom));
   pointer-events: none;
 }
 
