@@ -1,0 +1,132 @@
+openapi: 3.1.0
+info:
+  title: Spill Edge API
+  version: 0.1.0
+  description: API schema for prompt metadata and anonymous feedback ingestion.
+servers:
+  - url: https://spill.cards
+paths:
+  /api/prompt-map:
+    get:
+      summary: Fetch prompt metadata by canonical ID or return the full deployed prompt map.
+      parameters:
+        - in: query
+          name: cid
+          required: false
+          schema:
+            type: string
+          description: Canonical prompt ID (`{prompt-id}-{hash}`).
+      responses:
+        '200':
+          description: Prompt map payload
+          headers:
+            X-Request-Id:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      count:
+                        type: integer
+                      prompts:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/PromptMapEntry'
+                  - type: object
+                    properties:
+                      prompt:
+                        anyOf:
+                          - $ref: '#/components/schemas/PromptMapEntry'
+                          - type: 'null'
+  /api/feedback:
+    post:
+      summary: Record an anonymous prompt interaction.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackPayload'
+      responses:
+        '200':
+          description: Feedback accepted
+          headers:
+            X-Request-Id:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+        '400':
+          description: Validation error
+        '405':
+          description: Method not allowed
+        '500':
+          description: Upstream KV write failure
+components:
+  schemas:
+    PromptMapEntry:
+      type: object
+      required: [cid, id, text, mode, depth, category]
+      properties:
+        cid:
+          type: string
+        id:
+          type: string
+        text:
+          type: string
+        mode:
+          type: string
+          enum: [prompt, wildcard]
+        depth:
+          type: string
+          enum: [light, honest, deep]
+        category:
+          type: string
+          enum:
+            - identity
+            - prayer
+            - scripture
+            - church
+            - mission
+            - struggle
+            - gratitude
+            - relationship
+    FeedbackPayload:
+      type: object
+      required: [cid, eventType, context, depth, mode]
+      properties:
+        cid:
+          type: string
+        eventType:
+          type: string
+          enum:
+            - prompt_viewed
+            - prompt_upvoted
+            - prompt_downvoted
+            - prompt_copied
+            - prompt_shared
+            - wildcard_opened
+            - new_prompt_requested
+        context:
+          type: array
+          items:
+            type: string
+            enum: [friends, dating, small-group, family, youth]
+        depth:
+          type: string
+          enum: [light, honest, deep]
+        mode:
+          type: string
+          enum: [prompt, wildcard]
+        counterDeltas:
+          type: object
+          additionalProperties:
+            type: integer
