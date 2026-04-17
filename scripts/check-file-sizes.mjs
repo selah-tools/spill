@@ -1,7 +1,8 @@
 import { statSync } from 'node:fs'
 
 const budgets = [
-  { path: 'app/questions.json', maxBytes: 150_000 },
+  // Marriage pack launch expands the bundled library beyond the previous limit.
+  { path: 'app/questions.json', maxBytes: 160_000 },
   { path: 'README.md', maxBytes: 25_000 },
 ]
 
