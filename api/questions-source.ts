@@ -26,10 +26,18 @@ const toSourceDocument = (questions: QuestionSourceItem[]): SourceDocument => ({
   questions,
 })
 
+type VercelDeploymentListResponse = {
+  deployments?: Array<{
+    uid?: string
+    id?: string
+    name?: string
+  }>
+}
+
 const triggerRedeploy = async (requestId: string): Promise<boolean> => {
-  const token = process.env.VERCEL_TOKEN
-  const projectId = process.env.VERCEL_PROJECT_ID
-  const orgId = process.env.VERCEL_ORG_ID
+  const token = process.env.VERCEL_TOKEN?.trim()
+  const projectId = process.env.VERCEL_PROJECT_ID?.trim()
+  const orgId = process.env.VERCEL_ORG_ID?.trim()
 
   if (!token || !projectId) {
     logInfo('questions_source.redeploy_skipped', {
@@ -39,21 +47,58 @@ const triggerRedeploy = async (requestId: string): Promise<boolean> => {
     return false
   }
 
+  const teamQuery = orgId ? `&teamId=${encodeURIComponent(orgId)}` : ''
+
   try {
-    const res = await fetch(`https://api.vercel.com/v13/deployments`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+    const latestRes = await fetch(
+      `https://api.vercel.com/v6/deployments?projectId=${encodeURIComponent(projectId)}&target=production&state=READY&limit=1${teamQuery}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       },
-      body: JSON.stringify({
-        ...(orgId ? { teamId: orgId } : {}),
-        name: 'spill',
-        project: projectId,
-        target: 'production',
-        source: 'curator-publish',
-      }),
-    })
+    )
+
+    if (!latestRes.ok) {
+      const body = await latestRes.text()
+      logError('questions_source.redeploy_lookup_failed', {
+        requestId,
+        status: latestRes.status,
+        body,
+      })
+      return false
+    }
+
+    const latest =
+      ((await latestRes.json()) as VercelDeploymentListResponse)
+        .deployments?.[0] ?? null
+    const deploymentId = latest?.uid ?? latest?.id ?? null
+
+    if (!deploymentId) {
+      logInfo('questions_source.redeploy_skipped', {
+        requestId,
+        reason: 'no ready production deployment found',
+      })
+      return false
+    }
+
+    const res = await fetch(
+      `https://api.vercel.com/v13/deployments?forceNew=1${teamQuery}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          deploymentId,
+          meta: { action: 'redeploy' },
+          name: latest?.name ?? 'spill',
+          target: 'production',
+        }),
+      },
+    )
 
     if (!res.ok) {
       const body = await res.text()
@@ -65,7 +110,7 @@ const triggerRedeploy = async (requestId: string): Promise<boolean> => {
       return false
     }
 
-    logInfo('questions_source.redeploy_triggered', { requestId })
+    logInfo('questions_source.redeploy_triggered', { requestId, deploymentId })
     return true
   } catch (error) {
     logError('questions_source.redeploy_error', {

@@ -18,7 +18,27 @@ const fixtureQuestion = () => ({
 const kvStore = new Map<string, string>()
 
 const mockKvFetch = () =>
-  vi.fn((_url: string | URL | Request, init?: RequestInit) => {
+  vi.fn((url: string | URL | Request, init?: RequestInit) => {
+    const urlString = String(url)
+
+    if (urlString.startsWith('https://api.vercel.com/')) {
+      if (urlString.includes('/v6/deployments?')) {
+        return Promise.resolve(
+          new Response(JSON.stringify({ deployments: [] }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+          }),
+        )
+      }
+
+      return Promise.resolve(
+        new Response(JSON.stringify({ id: 'dpl_new' }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        }),
+      )
+    }
+
     const body = JSON.parse(String(init?.body ?? '[]')) as (string | number)[]
     const command = String(body[0]).toUpperCase()
 
@@ -191,10 +211,12 @@ describe('PUT /api/questions-source', () => {
       ok: boolean
       count: number
       active: number
+      deployTriggered: boolean
     }
     expect(json.ok).toBe(true)
     expect(json.count).toBe(1)
     expect(json.active).toBe(1)
+    expect(json.deployTriggered).toBe(false)
 
     // Verify written to KV store
     expect(kvStore.has('questions:source')).toBe(true)
@@ -252,6 +274,107 @@ describe('PUT /api/questions-source', () => {
     await expect(res.json()).resolves.toMatchObject({
       error: 'failed to persist question source',
     })
+  })
+
+  it('triggers a Vercel redeploy from the latest ready production deployment', async () => {
+    vi.stubEnv('VERCEL_TOKEN', 'vercel-token')
+    vi.stubEnv('VERCEL_PROJECT_ID', 'project-id')
+    vi.stubEnv('VERCEL_ORG_ID', 'team-id')
+
+    const fetchMock = vi.fn(
+      (url: string | URL | Request, init?: RequestInit) => {
+        const urlString = String(url)
+
+        if (urlString === 'https://kv.example.com') {
+          const body = JSON.parse(String(init?.body ?? '[]')) as (
+            | string
+            | number
+          )[]
+          const command = String(body[0]).toUpperCase()
+
+          if (command === 'SET') {
+            kvStore.set(String(body[1]), String(body[2]))
+            return Promise.resolve(
+              new Response(JSON.stringify({ result: 'OK' }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' },
+              }),
+            )
+          }
+
+          return Promise.resolve(
+            new Response(JSON.stringify({ result: null }), {
+              status: 200,
+              headers: { 'Content-Type': 'application/json' },
+            }),
+          )
+        }
+
+        if (
+          urlString ===
+          'https://api.vercel.com/v6/deployments?projectId=project-id&target=production&state=READY&limit=1&teamId=team-id'
+        ) {
+          expect(init).toMatchObject({
+            method: 'GET',
+            headers: { Authorization: 'Bearer vercel-token' },
+          })
+
+          return Promise.resolve(
+            new Response(
+              JSON.stringify({
+                deployments: [{ uid: 'dpl_previous', name: 'spill' }],
+              }),
+              {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' },
+              },
+            ),
+          )
+        }
+
+        if (
+          urlString ===
+          'https://api.vercel.com/v13/deployments?forceNew=1&teamId=team-id'
+        ) {
+          expect(init).toMatchObject({
+            method: 'POST',
+            headers: {
+              Authorization: 'Bearer vercel-token',
+              'Content-Type': 'application/json',
+            },
+          })
+
+          expect(JSON.parse(String(init?.body))).toEqual({
+            deploymentId: 'dpl_previous',
+            meta: { action: 'redeploy' },
+            name: 'spill',
+            target: 'production',
+          })
+
+          return Promise.resolve(
+            new Response(JSON.stringify({ id: 'dpl_new' }), {
+              status: 200,
+              headers: { 'Content-Type': 'application/json' },
+            }),
+          )
+        }
+
+        throw new Error(`Unexpected fetch URL: ${urlString}`)
+      },
+    )
+
+    vi.stubGlobal('fetch', fetchMock)
+
+    const res = await handler(
+      makeRequest('PUT', {
+        token: 'test-admin-secret',
+        body: { questions: [fixtureQuestion()] },
+      }),
+    )
+    expect(res.status).toBe(200)
+
+    const json = (await res.json()) as { deployTriggered: boolean }
+    expect(json.deployTriggered).toBe(true)
   })
 
   it('rejects cross-origin PUT requests', async () => {
