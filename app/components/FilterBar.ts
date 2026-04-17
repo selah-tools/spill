@@ -360,7 +360,7 @@ export const FilterBar = component(
                             </button>`,
                         )}
                       </div>
-                      <p
+                      <div
                         class="${() =>
                           'controls__hint' +
                           (filterUi.lastPackWarning
@@ -390,7 +390,7 @@ export const FilterBar = component(
                             ${showUndo ? 'Undo' : 'Select all'}
                           </button>`
                         }}
-                      </p>
+                      </div>
                     </div>
 
                     <div class="controls__field">
