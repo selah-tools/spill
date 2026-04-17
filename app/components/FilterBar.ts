@@ -2,6 +2,7 @@ import { component, html, reactive } from '@arrow-js/core'
 import type { Props } from '@arrow-js/core'
 
 import {
+  allAudienceValues,
   audienceOptions,
   depthOptions,
   isQuestionEnabled,
@@ -31,6 +32,7 @@ export const filterUi = reactive({
   historyOpen: false,
   lastPackWarning: false,
   lastDepthWarning: false,
+  canUndoAll: false,
 })
 
 const closeFiltersModal = (): void => {
@@ -76,7 +78,30 @@ const historyCards = (): Question[] => {
     )
 }
 
+const allPacksSelected = (): boolean =>
+  state.context.length === allAudienceValues.length
+
+let preAllContext: Audience[] | null = null
+
+const toggleAllPacks = (): void => {
+  filterUi.lastPackWarning = false
+  feedbackSelection()
+
+  if (allPacksSelected() && preAllContext && preAllContext.length > 0) {
+    setContext(orderedAudienceSelection(preAllContext))
+    preAllContext = null
+    filterUi.canUndoAll = false
+    return
+  }
+
+  preAllContext = [...state.context]
+  filterUi.canUndoAll = true
+  setContext([...allAudienceValues])
+}
+
 const togglePack = (pack: Audience): void => {
+  preAllContext = null
+  filterUi.canUndoAll = false
   const isOn = state.context.includes(pack)
 
   // Prevent unchecking the last remaining pack
@@ -348,6 +373,23 @@ export const FilterBar = component(
                             : state.context.length
                               ? 'Enable or disable any pack.'
                               : 'Turn on at least one pack to draw a card.'}
+                        ${() => {
+                          const showUndo =
+                            allPacksSelected() && filterUi.canUndoAll
+                          const showSelectAll = !allPacksSelected()
+                          if (!showUndo && !showSelectAll) return null
+                          return html`<button
+                            type="button"
+                            class="controls__all-btn"
+                            @click="${toggleAllPacks}"
+                            aria-label="${() =>
+                              showUndo
+                                ? 'Restore previous packs'
+                                : 'Select all packs'}"
+                          >
+                            ${showUndo ? 'Undo' : 'Select all'}
+                          </button>`
+                        }}
                       </p>
                     </div>
 

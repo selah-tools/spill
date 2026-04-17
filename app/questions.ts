@@ -114,9 +114,11 @@ export const orderedAudienceSelection = (
   return allAudienceValues.filter((value) => selected.has(value))
 }
 
+const defaultContext: ContextFilter = ['fellowship']
+
 export const parseStoredContext = (raw: unknown): ContextFilter => {
   if (raw == null || raw === 'all') {
-    return [...allAudienceValues]
+    return [...defaultContext]
   }
 
   if (isAudience(raw)) {
@@ -125,10 +127,10 @@ export const parseStoredContext = (raw: unknown): ContextFilter => {
 
   if (Array.isArray(raw)) {
     const parsed = orderedAudienceSelection(raw.filter(isAudience))
-    return parsed.length ? parsed : [...allAudienceValues]
+    return parsed.length ? parsed : [...defaultContext]
   }
 
-  return [...allAudienceValues]
+  return [...defaultContext]
 }
 
 export const audienceLabelForValue = (audience: Audience): string =>
@@ -189,9 +191,11 @@ export const orderedDepthSelection = (raw: readonly Depth[]): DepthFilter => {
   return allDepthValues.filter((value) => selected.has(value))
 }
 
+const defaultDepth: DepthFilter = ['light', 'honest']
+
 export const parseStoredDepth = (raw: unknown): DepthFilter => {
   if (raw == null) {
-    return [...allDepthValues]
+    return [...defaultDepth]
   }
 
   if (isDepth(raw)) {
@@ -202,7 +206,7 @@ export const parseStoredDepth = (raw: unknown): DepthFilter => {
     return orderedDepthSelection(raw.filter(isDepth))
   }
 
-  return [...allDepthValues]
+  return [...defaultDepth]
 }
 
 export const depthSummaryLabel = (depths: Depth[]): string => {

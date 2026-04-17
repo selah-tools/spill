@@ -311,16 +311,44 @@ label.controls__label {
   cursor: pointer;
 }
 
+.controls__all-btn {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  margin-left: 0.15rem;
+  font: inherit;
+  font-style: normal;
+  color: var(--ink-2);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--ink-3) 35%, transparent);
+  text-underline-offset: 2px;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    text-decoration-color var(--dur-fast) var(--ease-out);
+}
+
+.controls__all-btn:hover {
+  color: var(--ink);
+  text-decoration-color: var(--ink-3);
+}
+
+.controls__all-btn:active {
+  opacity: 0.6;
+}
+
 .controls__packs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s2);
+  gap: var(--s3) var(--s2);
 }
 
 .controls__packs .chip {
   width: auto;
   flex: 0 0 auto;
-  padding-inline: var(--s3);
+  min-width: 4.5rem;
+  padding: 0.45rem var(--s3);
 }
 
 .chip--pack {
@@ -393,7 +421,7 @@ label.controls__label {
   width: 100%;
   min-height: 2.2rem;
   padding: 0.3rem var(--s2);
-  border: 1px solid var(--line-strong);
+  border: 1.5px solid color-mix(in oklch, var(--ink-3) 50%, var(--line-strong));
   border-radius: 999px;
   background: color-mix(in oklch, var(--card-bg) 88%, transparent);
   color: var(--ink-2);
