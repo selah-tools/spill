@@ -37,4 +37,4 @@ jobs:
           commit: 'chore: release plan'
           title: 'chore: release plan'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PLAN_GITHUB_TOKEN != '' && secrets.RELEASE_PLAN_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}

@@ -57,6 +57,13 @@ If you need to clear Spill's Upstash KV state entirely (for example, to reset fe
 4. Verify the production Vercel deploy
 5. If the deploy fails, check the auto-created workflow alert issue for the failing run link
 
+### Release Plan workflow permissions
+
+- Spill's org policy blocks the default `GITHUB_TOKEN` from creating pull requests.
+- The `Release Plan` workflow therefore prefers the repo secret `RELEASE_PLAN_GITHUB_TOKEN` when present.
+- Set `RELEASE_PLAN_GITHUB_TOKEN` to a token that can push `changeset-release/main` and create PRs in `selah-tools/spill`.
+- Without that secret, the workflow can still update the release branch, but PR creation will fail with: `GitHub Actions is not permitted to create or approve pull requests`.
+
 ## Sentry integration
 
 - **Frontend:** `app/sentry.ts` initializes `@sentry/browser` when `VITE_SENTRY_DSN` is set. Captures unhandled errors with breadcrumbs and replay on error.
