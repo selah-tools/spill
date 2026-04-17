@@ -113,7 +113,7 @@ A new person should understand the value in under 10 seconds.
 
 Current working promise:
 
-> Spill gives you better conversation questions for friends, dating, family, and small groups.
+> Spill gives you faith-shaped conversation questions for fellowship, household, dating, engaged, marriage, and youth.
 
 That is serviceable for beta, but not yet sharp enough for a broad launch. It explains the surface area, not the emotional payoff.
 

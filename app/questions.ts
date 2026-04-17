@@ -1,6 +1,12 @@
 import bundledQuestionData from './questions.json'
 
-export type Audience = 'friends' | 'dating' | 'small-group' | 'family' | 'youth'
+export type Audience =
+  | 'fellowship'
+  | 'household'
+  | 'dating'
+  | 'engaged'
+  | 'marriage'
+  | 'youth'
 export type ContextFilter = Audience[]
 export type Depth = 'light' | 'honest' | 'deep'
 export type Mode = 'prompt' | 'wildcard'
@@ -59,28 +65,32 @@ export const audienceOptions: Array<{
   blurb: string
 }> = [
   {
-    value: 'friends',
-    label: 'Friends',
+    value: 'fellowship',
+    label: 'Fellowship',
+    blurb: 'Questions for shared life with brothers and sisters in Christ.',
+  },
+  {
+    value: 'household',
+    label: 'Household',
     blurb:
-      'Easy to pull up when the room feels casual but you want something real.',
+      'Questions for home rhythms, memory, repair, and faith under one roof.',
   },
   {
     value: 'dating',
     label: 'Dating',
-    blurb:
-      'Questions shaped for trust, clarity, tenderness, and mutual discipleship.',
+    blurb: 'Questions shaped for discernment, clarity, tenderness, and purity.',
   },
   {
-    value: 'small-group',
-    label: 'Small group',
+    value: 'engaged',
+    label: 'Engaged',
     blurb:
-      'Leader-friendly questions that help a group open up without forcing it.',
+      'Preparing for covenant with honesty about roles, finances, faith, and future married life.',
   },
   {
-    value: 'family',
-    label: 'Family',
+    value: 'marriage',
+    label: 'Marriage',
     blurb:
-      'Gentle questions for home, memory, healing, and faith around the table.',
+      'Questions for spouses about tenderness, repair, prayer, stewardship, intimacy, and shared faith over time.',
   },
   {
     value: 'youth',
@@ -114,7 +124,8 @@ export const parseStoredContext = (raw: unknown): ContextFilter => {
   }
 
   if (Array.isArray(raw)) {
-    return orderedAudienceSelection(raw.filter(isAudience))
+    const parsed = orderedAudienceSelection(raw.filter(isAudience))
+    return parsed.length ? parsed : [...allAudienceValues]
   }
 
   return [...allAudienceValues]
@@ -122,7 +133,7 @@ export const parseStoredContext = (raw: unknown): ContextFilter => {
 
 export const audienceLabelForValue = (audience: Audience): string =>
   audienceOptions.find((option) => option.value === audience)?.label ??
-  'Friends'
+  'Fellowship'
 
 export const audienceLabels = (audiences: Audience[]): string[] =>
   orderedAudienceSelection(audiences).map((audience) =>

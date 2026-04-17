@@ -200,7 +200,7 @@ describe('POST /api/feedback', () => {
         body: JSON.stringify({
           cid: 'not-a-real-question',
           eventType: 'question_viewed',
-          context: ['friends'],
+          context: ['fellowship'],
           depth: 'light',
           mode: 'prompt',
         }),

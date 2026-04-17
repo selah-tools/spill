@@ -6,6 +6,7 @@ import {
   isQuestionEnabled,
   normalizeQuestionSource,
   orderedDeck,
+  parseStoredContext,
   questionLibrary,
 } from './questions'
 
@@ -17,28 +18,28 @@ const questionById = (id: string) => {
 
 describe('overt Christian tagging', () => {
   it('adds the overt dtag to directly Christian cards', () => {
-    const question = questionById('friends-honest-01')
+    const question = questionById('fellowship-honest-01')
 
     expect(question.tags).toContain(OVERT_DTAG)
     expect(isOvertChristianQuestion(question)).toBe(true)
   })
 
   it('tags cards that use spiritual language as overt', () => {
-    const question = questionById('small-group-light-02')
+    const question = questionById('fellowship-light-40')
 
     expect(question.tags).toContain(OVERT_DTAG)
     expect(isOvertChristianQuestion(question)).toBe(true)
   })
 
   it('tags high-confidence discipleship language as overt', () => {
-    const question = questionById('small-group-honest-01')
+    const question = questionById('fellowship-honest-29')
 
     expect(question.tags).toContain(OVERT_DTAG)
     expect(isOvertChristianQuestion(question)).toBe(true)
   })
 
   it('does not tag subtle worldview cards as overt by default', () => {
-    const question = questionById('friends-light-01')
+    const question = questionById('fellowship-light-01')
 
     expect(question.tags).not.toContain(OVERT_DTAG)
     expect(isOvertChristianQuestion(question)).toBe(false)
@@ -49,9 +50,9 @@ describe('normalizeQuestionSource', () => {
   it('trims text and restores canonical audience order', () => {
     const [question] = normalizeQuestionSource([
       {
-        id: 'friends-light-99',
+        id: 'fellowship-light-99',
         text: '  What felt meaningful this week?  ',
-        audience: ['family', 'friends'],
+        audience: ['household', 'fellowship'],
         depth: 'light',
         mode: 'prompt',
         category: 'gratitude',
@@ -62,8 +63,21 @@ describe('normalizeQuestionSource', () => {
 
     expect(question).toMatchObject({
       text: 'What felt meaningful this week?',
-      audience: ['friends', 'family'],
+      audience: ['fellowship', 'household'],
     })
+  })
+})
+
+describe('stored audience parsing', () => {
+  it('falls back to all packs when stored values are no longer valid', () => {
+    expect(parseStoredContext(['friends', 'small-group', 'family'])).toEqual([
+      'fellowship',
+      'household',
+      'dating',
+      'engaged',
+      'marriage',
+      'youth',
+    ])
   })
 })
 
@@ -80,7 +94,7 @@ describe('global card-pool toggles', () => {
   })
 
   it('hides overt cards when the overtly Christian toggle is off', () => {
-    const overt = questionById('friends-honest-01')
+    const overt = questionById('fellowship-honest-01')
 
     expect(
       isQuestionEnabled(overt, {

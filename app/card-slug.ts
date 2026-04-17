@@ -85,7 +85,7 @@ export function contentHashForQuestion(
  * Human-readable English slug + content-bound hash suffix.
  * Same text always produces the same ID. Text changes produce a new ID.
  *
- * Example: `friends-light-01-a3f2k1`
+ * Example: `fellowship-light-01-a3f2k1`
  */
 export function canonicalId(q: Pick<Question, 'id' | 'mode' | 'text'>): string {
   return `${q.id}-${contentHashForQuestion(q)}`

@@ -67,22 +67,25 @@ export const AboutModal = component(
                 <div class="about-modal__content">
                   <div class="about-modal__section">
                     <p class="about-modal__lead">
-                      Spill is redefining what it means to really talk with
-                      friends.
+                      Spill is built on a conviction: God designed the Church to
+                      live as a spiritual family under Christ.
                     </p>
                   </div>
 
                   <div class="about-modal__section">
                     <p class="about-modal__body">
-                      Communication is our most important tool for building
-                      relationships. We've all heard "spill the tea"—the
-                      instinct to share and be known. But gossip and hot takes
-                      rarely build anyone up.
+                      Most conversation tools assume community is casual,
+                      shallow, and optional. Spill is for a different vision:
+                      relationships marked by everyday shared life,
+                      encouragement, repair, sacrifice, and sanctification.
                     </p>
                     <p class="about-modal__body">
-                      Spill redirects that same instinct toward honesty that
-                      heals, questions that matter, and conversations that leave
-                      people more connected to each other and to God.
+                      So Spill is not just trying to make conversations more
+                      interesting. It is trying to help households, brothers and
+                      sisters in fellowship, dating couples, engaged couples,
+                      married couples, and youth talk in ways that make their
+                      relationships deeper, stronger, and more meaningfully
+                      shaped by Jesus.
                     </p>
                   </div>
 
@@ -91,9 +94,24 @@ export const AboutModal = component(
                       The invitation is simple
                     </h3>
                     <p class="about-modal__body">
-                      Open the site, choose a context and depth, and draw a card
+                      Open the site, choose a pack and depth, and draw a card
                       within seconds. No setup, no accounts, no rooms. Just a
-                      better question.
+                      better question for the kind of shared life you're trying
+                      to build.
+                    </p>
+                  </div>
+
+                  <div class="about-modal__section">
+                    <h3 class="about-modal__subtitle">
+                      The packs reflect that vision
+                    </h3>
+                    <p class="about-modal__body">
+                      Fellowship is for shared life with brothers and sisters in
+                      Christ. Household is for the daily life of a home. Dating
+                      is written for discernment, clarity, tenderness, and
+                      purity—never temptation. Engaged is for covenant prep.
+                      Marriage is for spouses living covenant in ordinary life.
+                      Youth stays honest, safe, and age-aware.
                     </p>
                   </div>
 
@@ -102,15 +120,20 @@ export const AboutModal = component(
                       For moments that matter
                     </h3>
                     <ul class="about-modal__list">
-                      <li>Friends hanging out and wanting something real</li>
+                      <li>Fellowship nights, meals, and post-church hangs</li>
+                      <li>Households wanting warmer and deeper shared life</li>
                       <li>
-                        Dating or engaged couples seeking faith-shaped
-                        discussion
+                        Dating couples seeking clarity without feeding
+                        temptation
                       </li>
-                      <li>Small groups that need a thoughtful starter</li>
                       <li>
-                        Families or youth groups wanting safe but meaningful
-                        questions
+                        Engaged couples preparing for covenant with honesty
+                      </li>
+                      <li>
+                        Married couples tending friendship, repair, and prayer
+                      </li>
+                      <li>
+                        Youth nights that need honest but age-aware prompts
                       </li>
                     </ul>
                   </div>

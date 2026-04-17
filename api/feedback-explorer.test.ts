@@ -125,7 +125,7 @@ describe('GET /api/feedback-explorer', () => {
 
   it('returns feedback data when KV has counters', async () => {
     // Simulate a question counter hash in KV
-    kvStore.set('question:friends-light-01-abc123', {
+    kvStore.set('question:fellowship-light-01-abc123', {
       upvotes: '5',
       downvotes: '2',
       views: '20',
@@ -149,7 +149,7 @@ describe('GET /api/feedback-explorer', () => {
     expect(json.totalFeedbackCids).toBe(1)
 
     const feedbackRow = json.rows.find(
-      (row) => row.cid === 'friends-light-01-abc123',
+      (row) => row.cid === 'fellowship-light-01-abc123',
     )
     expect(feedbackRow).toBeDefined()
     expect(feedbackRow!.counters.upvotes).toBe(5)

@@ -20,6 +20,16 @@ const TARGET = resolve('app', 'questions.json')
 const KV_REST_API_URL = process.env.KV_REST_API_URL
 const KV_REST_API_TOKEN = process.env.KV_REST_API_TOKEN
 
+const AUDIENCE_ORDER = [
+  'fellowship',
+  'household',
+  'dating',
+  'engaged',
+  'marriage',
+  'youth',
+]
+const LEGACY_AUDIENCES = new Set(['friends', 'small-group', 'family'])
+
 async function kvGet(key) {
   const res = await fetch(KV_REST_API_URL, {
     method: 'POST',
@@ -40,6 +50,24 @@ async function kvGet(key) {
   return result
 }
 
+function normalizeAudience(audience) {
+  const selected = Array.isArray(audience)
+    ? [...new Set(audience.filter((value) => AUDIENCE_ORDER.includes(value)))]
+    : []
+
+  return AUDIENCE_ORDER.filter((value) => selected.includes(value))
+}
+
+function hasLegacyAudience(doc) {
+  if (!doc || !Array.isArray(doc.questions)) return false
+
+  return doc.questions.some(
+    (question) =>
+      Array.isArray(question.audience) &&
+      question.audience.some((value) => LEGACY_AUDIENCES.has(value)),
+  )
+}
+
 function normalizeForCompare(doc) {
   if (!doc || !Array.isArray(doc.questions)) return null
 
@@ -48,11 +76,11 @@ function normalizeForCompare(doc) {
       JSON.stringify({
         id,
         text,
-        audience,
+        audience: normalizeAudience(audience),
         depth,
         mode,
         category,
-        tags,
+        tags: Array.isArray(tags) ? [...tags].sort() : [],
         active,
       }),
     )
@@ -73,11 +101,11 @@ function normalizeBundledForCompare(items) {
       JSON.stringify({
         id,
         text,
-        audience,
+        audience: normalizeAudience(audience),
         depth,
         mode,
         category,
-        tags,
+        tags: Array.isArray(tags) ? [...tags].sort() : [],
         active: true,
       }),
     )
@@ -91,7 +119,7 @@ function writeBundled(questions) {
     ({ id, text, audience, depth, mode, category, tags }) => ({
       id,
       text,
-      audience: [...audience].sort(),
+      audience: normalizeAudience(audience),
       depth,
       mode,
       category,
@@ -121,6 +149,13 @@ async function main() {
 
   if (!doc || !Array.isArray(doc.questions)) {
     console.log('ℹ No questions found in KV — keeping bundled file as-is')
+    return
+  }
+
+  if (hasLegacyAudience(doc)) {
+    console.log(
+      '⚠ KV still contains retired audience names (friends / small-group / family) — keeping bundled questions.json as-is',
+    )
     return
   }
 

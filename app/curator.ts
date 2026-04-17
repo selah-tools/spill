@@ -454,7 +454,7 @@ const addSourceQuestion = (): void => {
   state.sourceDraft.push({
     id,
     text: '',
-    audience: ['friends'],
+    audience: ['fellowship'],
     depth: 'light',
     mode: 'prompt',
     category: 'identity',

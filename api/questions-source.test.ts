@@ -6,7 +6,7 @@ import handler from './questions-source'
 /** Minimal valid question fixture matching QuestionSourceItem */
 const fixtureQuestion = () => ({
   id: 'test-fixture-01',
-  audience: ['friends'] as const,
+  audience: ['fellowship'] as const,
   depth: 'light' as const,
   mode: 'prompt' as const,
   category: 'identity' as const,

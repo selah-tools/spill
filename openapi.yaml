@@ -119,7 +119,7 @@ components:
           type: array
           items:
             type: string
-            enum: [friends, dating, small-group, family, youth]
+            enum: [fellowship, household, dating, engaged, marriage, youth]
         depth:
           type: string
           enum: [light, honest, deep]

@@ -1,94 +1,525 @@
-# Pattern Extraction: `app/questions.json`
+# Spill Prompt Maker
 
-Based on analysis of 93 prompts in the shipped set cross-referenced against 114 curation decisions (111 reviewed, 11 favorites, ~15 flagged for awkward phrasing, ~10 cut), the following patterns emerge. Curation feedback from the guidance document and per-prompt notes materially reshapes several sections.
+Use this guide when writing new questions for `app/questions.json`.
+
+Spill is not a neutral conversation deck. Its packs, tone, and wording are shaped by a Christian vision of shared life while still aiming to sound natural, speakable, and relatable to a broad range of people.
 
 ---
 
-## TONE
+## Core convictions
 
-The tone is warm, invitational, and psychologically safe, but the curation reveals a further constraint: **the tone must never tip into devotional or therapeutic register**. Prompts that introduced silence ("Let the silence last fifteen seconds"), writing exercises ("Write one fear on a piece of paper"), or guided-prayer scaffolding were cut, with the note: "Avoid sounding like a devotional or therapy exercise." Even at the deepest levels, the tone stays conversational—the kind of question a trusted friend would ask at a kitchen table, not a counselor's office or a small-group leader's curriculum.
+### 1. The Church is a spiritual family under Christ
 
-The successful tone lands between casual and reverent: light prompts are **genuinely fun** (not just "less deep"), honest prompts surface real tension without performing vulnerability, and deep prompts carry weight without melodrama. The curator's heuristic codifies this as a room-dynamics principle: "Fun opens the room. Uplifting warms it. Intense deepens it. Too many intense cards in a row hurts the room's tone."
+Spill should help people relate to one another as first-order relationships marked by shared life, encouragement, repair, sacrifice, and sanctification.
 
-## VOICE
+That conviction shapes the pack model:
 
-The voice is second-person direct address, consistently using "you" and "your" to create intimacy and personal accountability. Sentence construction is overwhelmingly interrogative—nearly every prompt is a single question, and the curator enforced this as a hard rule: "cards should be pointed questions." Entries structured as sharing exercises or multi-step instructions ("Go around and share one word... Then pray one sentence...") were cut.
+- `fellowship` — shared life with the people God has placed around you
+- `household` — daily life in a home under one roof
+- `dating` — discernment, clarity, tenderness, and purity
+- `engaged` — covenant preparation, faith, finances, roles, and future married life
+- `marriage` — present-tense covenant life between spouses
+- `youth` — age-aware honesty and formation
 
-The surviving wildcards that use imperative voice ("Tell someone here...", "Name one person outside this room...") succeed because they direct attention toward a specific other person with a specific action—they function as pointed prompts with a relational vector, not open-ended facilitation scripts.
+### 2. Dating questions must not lead people into temptation
 
-Contractions appear naturally ("What's", "you'll", "don't"), reinforcing conversational accessibility. No prompt exceeds one sentence, with the exception of two-sentence wildcards where the second sentence sharpens the first ("Say their name and one way you'll show up."). The voice avoids qualifiers and hedging; the curator flagged unnecessary additions like "not strength" in a wildcard as clutter.
+Dating cards should avoid:
 
-## PERSONALITY
+- assuming sexual activity
+- flirtation-forward phrasing
+- wording that needlessly inflames desire
+- treating chemistry or attraction as the center of the relationship
 
-The projected personality is that of a spiritually mature friend—someone who has earned the right to ask hard questions by first creating safety. Critically, the curation reveals this personality has **theological commitments that constrain language**. The prompt "What's helped you feel most like yourself lately?" was cut with the note: "not theologically sound. 'feel like yourself'???" This signals that Spill's voice operates within a framework where identity is rooted in God's formation, not self-actualization. The approved alternative ("What has God been showing you about who you are?") grounds the same territory in theological soil.
+Dating questions should prefer:
 
-The personality values:
+- discernment
+- obedience
+- clarity
+- tenderness
+- boundaries
+- trust
+- character
+- prayer
 
-- **Specificity over abstraction**: "What embarrassingly specific thing makes you feel seen?" over generic self-help framing. Prompts flagged as "too generic" ("Could belong to any prompt deck, not specifically Spill") were marked for revision or cut.
-- **Embodied faith**: Questions consistently root spiritual concepts in lived, present-tense experience. Favorites cluster around concrete imagery: "What makes home feel restful instead of just busy?", "Who in this family is secretly great at something nobody talks about?"
-- **Anti-performance posture**: Multiple prompts directly name the temptation to perform ("Where are you tempted to perform spiritually instead of being honest?"), and the curation process itself reinforces this—leading questions that presume an answer were flagged ("this is interesting, but a bit of a leading question").
-- **Answerability as hospitality**: The personality serves the responder's ability to actually engage. The curator flagged "What part of your story do you want God to redeem, not erase?" as "interesting but this specific phrasing makes it a bit difficult to answer." The concept survives; the phrasing fails the speakability test.
+### 3. The product can be explicitly Christian without every card sounding churchy
 
-## STYLE
+Spill's philosophy, pack design, and About copy can be openly Christian.
 
-The primary style constraint, emerging forcefully from curation, is **speakability**. Awkward phrasing was the single largest category of issues (15 of ~19 flagged problems). The test is: can someone read this card aloud to a group and have it land cleanly on first hearing? Prompts that sound natural when spoken survive. Prompts that require mental parsing or sound literary on paper but strange out loud get flagged.
+But many cards should still use plain human language. Do not force overt Christian wording where natural relational language does the job better.
 
-### Style patterns from successful prompts:
+---
 
-- Questions average 10–15 words; the sweet spot is a single breath
-- Plain vocabulary dominates—no theological jargon ("sanctification," "justification"), no insider shorthand
-- Temporal grounding is frequent: "this week," "right now," "lately," "this season" anchor reflection in the present
-- Concrete and sensory language preferred: "laugh until it hurt," "clear the air," "carrying alone"
-- Parallel construction in two-part questions uses "and" or comma to create natural rhythm: "What about lifelong commitment feels beautiful, and what feels scary?"
-- Leading questions are avoided; the prompt opens a door, it does not push the responder through it
-- Repetition across prompts is flagged aggressively ("repeat! consolidate to a general category!")—each prompt must occupy unique conceptual territory
+## Tone
 
-### Style patterns from failed prompts:
+The tone should feel like a wise, trustworthy person asking a real question out loud.
 
-- Abstract spatial metaphors that don't map to real experience ("Where do you hide behind an image")
-- Compound instructions masquerading as questions ("Read Romans 8:1 slowly. Sit in silence for twenty seconds, then share what you needed to hear.")
-- Insider-cute phrasing that collapses under group use ("What area of surrender keeps coming back in your life with God?")
-- Phrases that require the responder to hold too much framing ("What would it mean to be known by God before being approved by people?")
+It should be:
 
-## STRUCTURE
+- warm
+- pointed
+- conversational
+- psychologically safe
+- spiritually serious without becoming stiff
 
-The data follows a rigid taxonomic schema with six orthogonal dimensions:
+It should **not** sound like:
 
-1. **Audience** (5 values): `friends`, `dating`, `family`, `small-group`, `youth`
-2. **Depth** (3 tiers): `light` → `honest` → `deep` — functioning as a graduated vulnerability ladder
-3. **Mode** (2 types): `prompt` (personal question) vs. `wildcard` (directed group action)
-4. **Category** (10 values): `gratitude`, `scripture`, `identity`, `relationship`, `struggle`, `prayer`, `mission`, `church` and others
-5. **Tags**: Freeform semantic labels for cross-cutting retrieval (e.g., `joy`, `healing`, `discipleship`)
-6. **ID**: Namespaced as `{audience}-{depth}-{NN}` for prompts and `wildcard-{NN}` for wildcards
+- a devotional
+- a therapy worksheet
+- a sermon outline
+- a facilitator script
+- a self-help journal prompt
 
-Distribution per audience follows a consistent ratio: ~7–8 light, ~5–6 honest, ~5–6 deep prompts, plus audience-specific wildcards. The pyramid shape (more light than deep) is intentional—lighter entry points outnumber deeper ones, reflecting the heuristic that safety precedes depth.
+### Practical tone rule
 
-The curation layer adds a parallel evaluation structure with its own dimensions:
+A great Spill card should sound natural if read aloud at:
 
-- **Status**: `keep`, `revise`, `cut`, `unreviewed`
-- **Signals**: `fun`, `uplifting`, `intense` (energy descriptors, not quality scores)
-- **Issues**: `awkward-phrasing`, `too-generic`, `great-example`
-- **Notes**: Freeform curator commentary
+- a dinner table
+- a couch with friends
+- a youth night
+- a living room Bible study
+- a quiet conversation between two people
 
-## LENGTH
+---
 
-Individual prompt text ranges from 7 words to approximately 20 words. The median sits near 12 words. Wildcard entries trend slightly longer due to their instructional compound structure, but the curator's cuts suggest a hard ceiling: two sentences maximum, and the second sentence must add directional specificity, not additional activity ("Say their name and one way you'll show up" passes; "Sit in silence for twenty seconds, then share" does not). Brevity enforces immediacy and reduces cognitive load at the moment of group use. A prompt should be graspable in a single reading aloud.
+## Voice
 
-## QUALITY HEURISTICS (from curation)
+### Use pointed questions
 
-The guidance document and per-prompt notes reveal an explicit quality framework:
+Cards should usually be a single, pointed question.
 
-1. **Speakability over cleverness**: The single most important test. Would this sound natural read aloud by a 22-year-old to their small group? By a parent to their teenager at dinner?
-2. **Theological soundness**: Language must be compatible with a framework where identity, healing, and growth are grounded in God's work, not self-discovery. Therapeutic and self-help framings are rejected.
-3. **Answerability**: A prompt that is "interesting but difficult to answer" fails. The responder should immediately know what's being asked and be able to begin forming a response.
-4. **Non-leading**: Questions open territory without presupposing the answer or embedding judgment. ("Where does your need for clarity become control?" was flagged as leading.)
-5. **Spill-specific voice**: Prompts must not be interchangeable with a generic conversation card deck. They should feel native to this product's theological and relational posture.
-6. **Room-aware sequencing**: Prompts are not evaluated in isolation but for their effect on group energy. The `fun`/`uplifting`/`intense` signal taxonomy enables session design that modulates emotional temperature.
+Good:
 
-## DISTINCTIVE FEATURES
+- "What kind of support do you want more of right now, but rarely ask for?"
+- "What do you wish felt safer to say at home?"
 
-- **No answers, only questions**: The dataset contains zero didactic content. This positions the product as a conversation catalyst, not a content delivery mechanism.
-- **Anti-exercise stance**: The strongest curatorial pattern is the rejection of contemplative exercises, writing prompts, silence directives, and multi-step facilitation. Spill cards are questions, not activities. The surviving wildcards that use imperative voice succeed precisely because they direct one person's attention toward another person—they are relational actions, not spiritual disciplines.
-- **Favorites cluster around concrete imagery and relational specificity**: The 11 favorited prompts share a pattern—they name a recognizable human moment ("laugh until it hurt," "quietly carrying," "secretly great at something") or pose a question with real-world stakes ("What does forgiveness cost in a family?"). Abstract or theological-concept-first prompts were never favorited.
-- **Cross-audience wildcards** (e.g., `wildcard-02`, `wildcard-16`) target all five audiences simultaneously, serving as universal connectors, but they were also disproportionately flagged for revision—universality creates pressure toward generic phrasing.
-- **Curation is subtractive**: The shipped `questions.json` (93 entries) already reflects significant pruning from a larger candidate set (wildcards jump from 01 to 22 with 10 cut). The curation posture is to cut aggressively rather than revise generously.
+Bad:
+
+- multi-step instructions
+- reflective exercises disguised as prompts
+- two-part activity sequences
+- vague thematic prompts with no clear angle
+
+### Wildcards can direct action
+
+Wildcards may use imperative language, but they still need to be pointed and relational.
+
+Good:
+
+- "Tell someone here one thing you admire about how they treat people."
+- "Name one thing you want God to protect in this home."
+
+Bad:
+
+- "Sit in silence for twenty seconds, then write down..."
+- "Go around and each share two things before praying..."
+
+---
+
+## The most important writing rule: relational scope must be explicit
+
+Do not make the user guess who the question is about.
+
+A question gets stronger when the relationship scope is clear in the smallest natural way.
+
+Clarity is **not** the same as over-explaining. A rewrite is a regression if it becomes more precise on paper but less natural, less speakable, or narrower than the original question actually intended.
+
+### Prefer the smallest clear scope
+
+Use:
+
+- `someone here`
+- `people here`
+- `everyone here`
+- `in this room`
+- `the people in your life`
+- `in this home`
+- `at home`
+- `someone at church`
+- `the people you worship with`
+
+Be careful with vague placeholders like:
+
+- `here` by itself
+- `around you`
+- `community`
+- `group`
+
+These are not automatically wrong, but they often hide the real scope.
+
+At the same time, do not rewrite a natural idiom just because it is slightly broad. Phrases like `church life`, `at church`, `outside of church`, and `at home` are often already clear enough in lived use.
+
+### Productive ambiguity is okay when the phrase is natural
+
+Some phrases are broad but still useful because people immediately know what kind of life they are naming.
+
+Usually keep natural phrases like:
+
+- `church life`
+- `at church`
+- `outside of church`
+- `at home`
+- `family dinner`
+
+Only rewrite them if they create real confusion, not just because they are not maximally explicit.
+
+Regression examples:
+
+- `church life` -> `being involved at church`  
+  Bad because it narrows the meaning and sounds more programmatic.
+- `someone at church` -> `someone in your church`  
+  Bad because it sounds more explained but less natural.
+
+### The room-targeting rule
+
+Room-targeted language is often excellent for:
+
+- light prompts
+- wildcards
+- appreciative or invitational questions
+
+Examples:
+
+- "What has someone here done that surprised you in a good way?"
+- "Tell everyone here something about yourself that would surprise them."
+
+But for **honest** and **deep** prompts, be careful.
+
+A rewrite must not turn a safer situational question into a more confrontational question aimed at the people currently present.
+
+Bad shift:
+
+- from: `in a group setting`
+- to: `with people here`
+
+That can silently change the card from self-reflection to live social diagnosis.
+
+### Honest/deep depth rule
+
+At higher depths, target the room only if the question invites:
+
+- vulnerability
+- honesty
+- shared safety
+- appreciation
+- openness
+
+Do **not** target the room if the wording could make someone present feel like the implied problem.
+
+### Examples
+
+Better:
+
+- "What has someone here done that surprised you in a good way?"
+- "What kind of care from the people in your life is hardest for you to receive?"
+- "What part of life in this home most needs prayer and not just better plans?"
+- "What makes it hardest to be fully honest in settings like this?"
+
+Worse:
+
+- "What moment here surprised you in a good way?"
+- "What part of community is hardest for you to receive?"
+- "What makes it hardest to be fully honest with people here?"
+- "What part of being involved at church feels most exhausting right now?"
+
+---
+
+## Overt faith-forward language
+
+Explicit Christian language is good when it adds real clarity, weight, or theological specificity.
+
+When a card uses language like:
+
+- God
+- Jesus
+- prayer
+- church
+- forgiveness
+- repentance
+- obedience
+- faith
+- worship
+- Scripture
+
+it should be allowed to read overtly Christian and should pick up the overt / faith-forward tag.
+
+### Rule
+
+Let the **stakes and verbs** carry the spiritual specificity.
+
+Prefer:
+
+- "Where does this home most need God's healing?"
+- "What would change if the people in your life prayed more honestly and boldly for one another?"
+- "What does Jesus teach us about forgiveness in this home that we still resist living?"
+
+Be cautious with loaded labels like:
+
+- church family
+- brothers and sisters in Christ
+- the Church
+
+Those may be appropriate in philosophy copy, but they often sound stiff in actual cards.
+
+### Church vs. church
+
+In philosophy and product copy, use **the Church** when you mean the body of Christ.
+
+In question cards, prefer concrete lived relationship language:
+
+- the people in your life
+- the people you worship with
+- someone at church
+- people here
+- this home
+
+Do not rely on capitalization alone to carry the meaning.
+
+If a card needs to feel Christian, let the spiritual specificity usually come through the stakes and verbs (`God`, `Jesus`, `prayer`, `forgiveness`, `obedience`) rather than stiff labels.
+
+Also: do not over-correct every `church` phrase. If `church life`, `at church`, or `outside of church` is the most natural wording, keep it.
+
+---
+
+## Pack-specific writing guidance
+
+## Fellowship
+
+Fellowship is for shared life with the people God has placed around you.
+
+Write questions about:
+
+- being known
+- mutual encouragement
+- honesty
+- prayer
+- care
+- showing up for one another
+- burden-bearing
+- faithfulness in ordinary life
+
+Avoid making every card sound like a church program.
+
+Prefer lived relationship over institutional language.
+
+Good directions:
+
+- "What kind of support do you want more of right now, but rarely ask for?"
+- "What would it take for the people in your life to really know you?"
+- "What kind of encouragement lands best for you from people here?"
+
+Watch out for old `small-group` leftovers. In Fellowship, `group` language is fine only when it is the clearest natural wording. Do not keep it by default, and do not rewrite it into something more confrontational.
+
+## Household
+
+Household is for life under one roof.
+
+Write questions about:
+
+- tone in the home
+- rhythms
+- conflict
+- repair
+- gratitude
+- memory
+- safety
+- prayer at home
+- hospitality
+- what life feels like inside the house
+
+Prefer `home` and `this home` when that sharpens the question.
+
+Good directions:
+
+- "What do you need more of in this home right now?"
+- "When does this home feel most divided?"
+- "Where did kindness show up in this home this week?"
+
+## Dating
+
+Dating is not mini-engagement and not soft sensuality.
+
+Write questions about:
+
+- discernment
+- wisdom
+- trust
+- clarity
+- prayer
+- boundaries
+- tenderness
+- obedience
+- character
+- family patterns
+
+Avoid:
+
+- sexual assumptions
+- temptation-adjacent language
+- romance-movie framing
+- vague chemistry-first prompts
+
+## Engaged
+
+Engaged is for covenant preparation.
+
+Write questions about:
+
+- roles
+- money
+- prayer
+- local church life
+- family-of-origin influence
+- conflict habits
+- future married life
+- future marital intimacy in a Christian frame
+
+Engaged cards may address future marital intimacy, but should not normalize premarital sexual activity.
+
+## Marriage
+
+Marriage is for spouses living covenant now.
+
+Write questions about:
+
+- tenderness
+- repair
+- prayer as a couple
+- money and stewardship in real life
+- shared faith over time
+- ordinary married friendship
+- burdens carried together
+- physical intimacy in a Christian frame
+
+Keep Marriage distinct from:
+
+- `engaged` — future-oriented preparation for married life
+- `household` — broader life under one roof and home dynamics beyond the spouse bond
+
+Marriage cards should feel present-tense, spouse-specific, and theology-shaped without becoming clinical or counseling-scripted.
+
+## Youth
+
+Youth cards should be:
+
+- age-aware
+- honest
+- answerable
+- spiritually serious without sounding fake
+
+Do not sound like a youth pastor trying too hard.
+
+---
+
+## Style rules
+
+### 1. Speakability over cleverness
+
+If the prompt sounds awkward out loud, it fails.
+
+### 2. Specificity over abstraction
+
+Prefer concrete, answerable questions over broad themes.
+
+Better:
+
+- "What's something you keep putting off because it's uncomfortable?"
+
+Worse:
+
+- "What discomfort is shaping your current emotional landscape?"
+
+### 3. One clean sentence beats a clever paragraph
+
+Most cards should be one sentence.
+
+Wildcards may use two short sentences only if the second sharpens the first.
+
+### 4. Temporal grounding helps
+
+Useful anchors:
+
+- this week
+- lately
+- right now
+- in this season
+- recently
+
+### 5. Avoid leading questions
+
+Do not smuggle judgment into the framing.
+
+Risky:
+
+- "Where does your need for clarity become control?"
+
+Better:
+
+- "When does your need for clarity start to feel heavy to other people?"
+
+### 6. Avoid stale placeholders
+
+Be careful with words like:
+
+- group
+- community
+- around you
+- here
+
+If used, they must be precise and natural in context.
+
+---
+
+## Anti-patterns
+
+Cut or rewrite prompts that feel like:
+
+- therapy language
+- self-help language
+- abstract identity language detached from God or lived relationship
+- facilitator instructions
+- devotional exercises
+- generic prompts that could belong to any card deck
+- low-answerability questions that sound interesting but are hard to answer
+- repeated territory already covered elsewhere in the deck
+
+Examples of warning signs:
+
+- "feel like yourself"
+- "sit in silence"
+- "write down"
+- "go around and share"
+- "what does this symbolize for you"
+
+---
+
+## Structure
+
+Each question should fit the runtime schema:
+
+- `audience`: `fellowship` | `household` | `dating` | `engaged` | `marriage` | `youth`
+- `depth`: `light` | `honest` | `deep`
+- `mode`: `prompt` | `wildcard`
+- `category`: `identity` | `prayer` | `scripture` | `church` | `mission` | `struggle` | `gratitude` | `relationship`
+- `tags`: short semantic labels
+- `id`: `{audience}-{depth}-{NN}` for prompts, `wildcard-{NN}` for wildcards
+
+### Depth guidance
+
+- **Light**: opens the room, genuinely fun or warm
+- **Honest**: moves past polish into what is actually true
+- **Deep**: carries real weight without becoming melodramatic
+
+---
+
+## Final test
+
+Before keeping a prompt, ask:
+
+1. Can someone read this aloud without stumbling?
+2. Is the relational scope clear?
+3. Is it answerable in real conversation?
+4. Does it sound like Spill instead of a generic deck?
+5. Does it fit the pack's theology and purpose?
+6. If it is explicit about God, Jesus, prayer, church, or faith, is that specificity earned?
+
+If the answer to any of those is no, revise or cut it.
