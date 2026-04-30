@@ -1008,6 +1008,51 @@
     "tags": ["roles", "honesty"]
   },
   {
+    "id": "engaged-deep-23",
+    "audience": ["engaged"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What expectation about becoming parents are you assuming your partner already shares?",
+    "tags": ["parenting", "expectations"]
+  },
+  {
+    "id": "engaged-deep-24",
+    "audience": ["engaged"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What keeps you from fully forgiving your partner for a past wound?",
+    "tags": ["forgiveness", "repair"]
+  },
+  {
+    "id": "engaged-deep-25",
+    "audience": ["engaged"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "prayer",
+    "text": "What role do you want faith to play when marriage feels empty rather than full?",
+    "tags": ["faith", "commitment"]
+  },
+  {
+    "id": "engaged-deep-26",
+    "audience": ["engaged"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "How do you picture loving your partner if they become physically dependent on you for years?",
+    "tags": ["commitment", "covenant"]
+  },
+  {
+    "id": "engaged-deep-27",
+    "audience": ["engaged"],
+    "depth": "deep",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "What unspoken conviction would make you walk away from this marriage?",
+    "tags": ["commitment", "honesty"]
+  },
+  {
     "id": "engaged-honest-01",
     "audience": ["engaged"],
     "depth": "honest",
@@ -1294,6 +1339,33 @@
     "category": "church",
     "text": "What part of your religious upbringing do you want to intentionally break from?",
     "tags": ["faith", "family-patterns"]
+  },
+  {
+    "id": "engaged-honest-33",
+    "audience": ["engaged"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "When your parents disagree with a decision you make as a couple, whose side are you actually on?",
+    "tags": ["boundaries", "family"]
+  },
+  {
+    "id": "engaged-honest-34",
+    "audience": ["engaged"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "identity",
+    "text": "Whose opinion outside your relationship has the most power to reshape how you see your partner?",
+    "tags": ["influence", "expectations"]
+  },
+  {
+    "id": "engaged-honest-35",
+    "audience": ["engaged"],
+    "depth": "honest",
+    "mode": "prompt",
+    "category": "relationship",
+    "text": "Beyond cooking and cleaning, what invisible work of running a home do you expect your partner to carry?",
+    "tags": ["roles", "expectations"]
   },
   {
     "id": "engaged-light-01",
